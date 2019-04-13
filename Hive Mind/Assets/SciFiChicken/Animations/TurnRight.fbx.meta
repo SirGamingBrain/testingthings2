@@ -1,0 +1,340 @@
+fileFormatVersion: 2
+guid: 513a91169618a5940965d35948d2d2e7
+timeCreated: 1520766992
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone_001_L
+    100002: Bone_001_L_001
+    100004: Bone_001_L_002
+    100006: Bone_001_L_003
+    100008: Bone_001_L_004
+    100010: Bone_001_L_005
+    100012: Bone_001_R
+    100014: Bone_001_R_001
+    100016: Bone_001_R_002
+    100018: Bone_001_R_003
+    100020: Bone_001_R_004
+    100022: Bone_001_R_005
+    100024: DownJaw
+    100026: Foot_L
+    100028: Foot_R
+    100030: FootFingers_L
+    100032: FootFingers_R
+    100034: Head
+    100036: Hips
+    100038: LowLeg_L
+    100040: LowLeg_R
+    100042: RootBone
+    100044: SciFiChickenRig
+    100046: Spine1
+    100048: subJaw
+    100050: subJaw_L
+    100052: subJaw_R
+    100054: Tail1
+    100056: Tail2
+    100058: Tail3
+    100060: //RootNode
+    100062: UpJaw
+    100064: UpLeg_L
+    100066: UpLeg_R
+    400000: Bone_001_L
+    400002: Bone_001_L_001
+    400004: Bone_001_L_002
+    400006: Bone_001_L_003
+    400008: Bone_001_L_004
+    400010: Bone_001_L_005
+    400012: Bone_001_R
+    400014: Bone_001_R_001
+    400016: Bone_001_R_002
+    400018: Bone_001_R_003
+    400020: Bone_001_R_004
+    400022: Bone_001_R_005
+    400024: DownJaw
+    400026: Foot_L
+    400028: Foot_R
+    400030: FootFingers_L
+    400032: FootFingers_R
+    400034: Head
+    400036: Hips
+    400038: LowLeg_L
+    400040: LowLeg_R
+    400042: RootBone
+    400044: SciFiChickenRig
+    400046: Spine1
+    400048: subJaw
+    400050: subJaw_L
+    400052: subJaw_R
+    400054: Tail1
+    400056: Tail2
+    400058: Tail3
+    400060: //RootNode
+    400062: UpJaw
+    400064: UpLeg_L
+    400066: UpLeg_R
+    7400000: Default Take
+    7400002: TurnRight
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: SciFiChickenRig
+        weight: 1
+      - path: SciFiChickenRig/RootBone
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001/Bone_001_L_002
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001/Bone_001_L_002/Bone_001_L_003
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001/Bone_001_L_002/Bone_001_L_003/Bone_001_L_004
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001/Bone_001_L_002/Bone_001_L_003/Bone_001_L_005
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001/Bone_001_R_002
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001/Bone_001_R_002/Bone_001_R_003
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001/Bone_001_R_002/Bone_001_R_003/Bone_001_R_004
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001/Bone_001_R_002/Bone_001_R_003/Bone_001_R_005
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/DownJaw
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/subJaw
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/subJaw/subJaw_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/subJaw/subJaw_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/UpJaw
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Tail1
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Tail1/Tail2
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Tail1/Tail2/Tail3
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_L/LowLeg_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_L/LowLeg_L/Foot_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_L/LowLeg_L/Foot_L/FootFingers_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_R/LowLeg_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_R/LowLeg_R/Foot_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_R/LowLeg_R/Foot_R/FootFingers_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: TurnRight
+      takeName: TurnRight
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: SciFiChickenRig
+        weight: 1
+      - path: SciFiChickenRig/RootBone
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001/Bone_001_L_002
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001/Bone_001_L_002/Bone_001_L_003
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001/Bone_001_L_002/Bone_001_L_003/Bone_001_L_004
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_L/Bone_001_L_001/Bone_001_L_002/Bone_001_L_003/Bone_001_L_005
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001/Bone_001_R_002
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001/Bone_001_R_002/Bone_001_R_003
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001/Bone_001_R_002/Bone_001_R_003/Bone_001_R_004
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Bone_001_R/Bone_001_R_001/Bone_001_R_002/Bone_001_R_003/Bone_001_R_005
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/DownJaw
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/subJaw
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/subJaw/subJaw_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/subJaw/subJaw_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Spine1/Head/UpJaw
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Tail1
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Tail1/Tail2
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/Tail1/Tail2/Tail3
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_L/LowLeg_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_L/LowLeg_L/Foot_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_L/LowLeg_L/Foot_L/FootFingers_L
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_R/LowLeg_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_R/LowLeg_R/Foot_R
+        weight: 1
+      - path: SciFiChickenRig/RootBone/Hips/UpLeg_R/LowLeg_R/Foot_R/FootFingers_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: RootBone
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
