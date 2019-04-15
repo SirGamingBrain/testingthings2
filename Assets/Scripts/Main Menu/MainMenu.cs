@@ -35,12 +35,14 @@ public class MainMenu : MonoBehaviour
     public Button continueGame;
     public Button settingsB;
     public Button exitB;
-    public Button resolutionB;
+    public Button resolutionBUp;
+    public Button resolutionBDown;
     public Button fullscreenB;
     public Button qualityB;
     public Button applyB;
 
     public Text fullscreenText;
+    public Text resolutionText;
 
     public Slider masterS;
 
@@ -114,7 +116,7 @@ public class MainMenu : MonoBehaviour
             width = resolutions[index].width;
         }
 
-        resolutionB.GetComponentInChildren<Text>().text = (width + " x " + height);
+        resolutionText.text = (width + " x " + height);
         Screen.SetResolution(width,height,Screen.fullScreen);
 
         qualities = QualitySettings.names;
@@ -140,7 +142,7 @@ public class MainMenu : MonoBehaviour
 
         //A whole lot of buttons and stuff that I will also have to add to the in-game script.
         SettingsWindow.alpha = 0f;
-        resolutionB.enabled = false;
+        resolutionBUp.enabled = false;
         fullscreenB.enabled = false;
         qualityB.enabled = false;
         applyB.enabled = false;
@@ -256,7 +258,8 @@ public class MainMenu : MonoBehaviour
                 {
                     settingsAlpha = 1f;
                     SettingsWindow.alpha = 1f;
-                    resolutionB.enabled = true;
+                    resolutionBUp.enabled = true;
+                    resolutionBDown.enabled = true;
                     fullscreenB.enabled = true;
                     qualityB.enabled = true;
                     applyB.enabled = true;
@@ -404,7 +407,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log(PlayerPrefs.GetString("Screen Mode"));
     }
 
-    public void changeResolution()
+    public void changeResolutionUp()
     {
         if (index < (resolutions.Length - 1))
         {
@@ -418,7 +421,26 @@ public class MainMenu : MonoBehaviour
         height = resolutions[index].height;
         width = resolutions[index].width;
 
-        resolutionB.GetComponentInChildren<Text>().text = (width + " x " + height);
+        resolutionText.text = (width + " x " + height);
+        //Screen.SetResolution(width, height, Screen.fullScreen);
+        PlayerPrefs.SetString("Resolution", height.ToString());
+    }
+
+    public void changeResolutionDown()
+    {
+        if (index > 0)
+        {
+            index -= 1;
+        }
+        else
+        {
+            index = resolutions.Length - 1;
+        }
+
+        height = resolutions[index].height;
+        width = resolutions[index].width;
+
+        resolutionText.text = (width + " x " + height);
         //Screen.SetResolution(width, height, Screen.fullScreen);
         PlayerPrefs.SetString("Resolution", height.ToString());
     }
@@ -445,7 +467,8 @@ public class MainMenu : MonoBehaviour
         Screen.SetResolution(width, height, Screen.fullScreen);
 
         fadeSettingsIn = false;
-        resolutionB.enabled = false;
+        resolutionBUp.enabled = false;
+        resolutionBDown.enabled = false;
         fullscreenB.enabled = false;
         qualityB.enabled = false;
         applyB.enabled = false;

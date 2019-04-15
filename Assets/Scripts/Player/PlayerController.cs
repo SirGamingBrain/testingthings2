@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject trap;
     public GameObject trapSpot;
+    public GameObject currentTile;
 
     public Animator gunAnimation;
     public Animator playerAnimations;
@@ -308,12 +309,12 @@ public class PlayerController : MonoBehaviour
                 traps -= 1;
                 GameObject temporaryTrap;
 
-                temporaryTrap = Instantiate(trap, trapSpot.transform.position, Quaternion.Euler(0f, 0f, 0f)) as GameObject;
-                //Empty is in the ground in front of the player (at the moment it's just placed underneath)
-                //When player attempts to place a trap, it locates the center of the tile in front of the player(When we tile base everything I'll ahve it attach to specific coordinates)
-                //Places trap on top of that tile
-
-                //After 20 seconds, it gets destroyed (Leaving this in for testing purposes, but could become an actual feature).
+                temporaryTrap = Instantiate(trap, new Vector3(currentTile.transform.position.x, trapSpot.transform.position.y, currentTile.transform.position.z), Quaternion.Euler(0f, 0f, 0f)) as GameObject;
+                //Empty is on the ground underneath the player.
+                //When player attempts to place a trap, it locates the center of the tile under the player.
+                
+                //Places trap on top of that tile.
+                //After 10 seconds, it gets destroyed (Leaving this in for testing purposes, but could become an actual feature).
                 // Explain it away as having a limited self storage battery.
                 Destroy(temporaryTrap, 20f);
 
@@ -387,6 +388,12 @@ public class PlayerController : MonoBehaviour
             }
 
             PlayerPrefs.Save();
+        }
+
+
+        if (other.name.Contains("Ground"))
+        {
+            currentTile = other.gameObject;
         }
     }
 }
