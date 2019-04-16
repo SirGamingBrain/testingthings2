@@ -5,8 +5,8 @@ using UnityEngine;
 public class BruteController : EnemyBase
 {
     Vector3 chargePoint;
-    float chargeSpeed = 15.0f;
-    float chargeRange = 20.0f;
+    float chargeSpeed = 25.0f;
+    float chargeRange = 25.0f;
     bool charging;
 
     bool chargeCooldown = false;
@@ -81,8 +81,13 @@ public class BruteController : EnemyBase
     public void ChasePlayer()
     {
         currentSpeed = alertSpeed;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = alertSpeed;
+        //If the player is still in the detection sphere, chase after the player
+        if (detectionSphere.GetComponent<DetectionColliderController>().playerNear)
+        {
+            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = playerPosition;
+        }
+        //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
         //If the enemy makes it to the targeted position but the player is no longer within the detection sphere
         if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
@@ -102,6 +107,7 @@ public class BruteController : EnemyBase
             {
                 Debug.Log("Ready to Charge");
                 Charge();
+                lastCharge = 25.0f;
             }
         }
     }
@@ -144,7 +150,6 @@ public class BruteController : EnemyBase
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = chargePoint;
         charging = true;
-        lastCharge = 10.0f;
     }
 
     public void Respawn()

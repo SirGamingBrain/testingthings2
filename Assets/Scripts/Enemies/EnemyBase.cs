@@ -166,10 +166,14 @@ public class EnemyBase : MonoBehaviour
     {
         animationController.SetInteger("battle", 1);
         animationController.SetInteger("moving", 1);
-
-        currentSpeed = alertSpeed;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+        
+        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = alertSpeed;
+        //If the player is still in the detection sphere, chase after the player
+        if (detectionSphere.GetComponent<DetectionColliderController>().playerNear)
+        {
+            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = playerPosition;
+        }
+        //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
         //If the enemy makes it to the targeted position but the player is no longer within the detection sphere
         if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
