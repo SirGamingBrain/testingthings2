@@ -82,7 +82,22 @@ public class MainMenu : MonoBehaviour
     {
         fadeScreen.SetActive(false);
 
-        lastScene = PlayerPrefs.GetString("Last Section");
+        //lastScene = PlayerPrefs.GetString("Last Section");
+
+        if (!PlayerPrefs.HasKey("Screen Mode"))
+        {
+            PlayerPrefs.SetString("Screen Mode", "false");
+        }
+
+        if (!PlayerPrefs.HasKey("Resolution"))
+        {
+            PlayerPrefs.SetInt("Resolution", 1920);
+        }
+
+        if (!PlayerPrefs.HasKey("Quality"))
+        {
+            PlayerPrefs.SetInt("Quality", 5);
+        }
 
         //We shall use these variables to hold the rest of the game to mark.
         if(PlayerPrefs.GetString("Screen Mode") == "true")
@@ -104,6 +119,7 @@ public class MainMenu : MonoBehaviour
             {
                 width = res.width;
                 height = res.height;
+                break;
             }
             index += 1;
         }
@@ -124,7 +140,7 @@ public class MainMenu : MonoBehaviour
         foreach (string name in qualities)
         {
             
-            if (qualityNum == PlayerPrefs.GetInt("Quality"))
+            if (name == qualities[PlayerPrefs.GetInt("Quality")])
             {
                 QualitySettings.SetQualityLevel(qualityNum, true);
                 qualityB.GetComponentInChildren<Text>().text = ("Level " + (qualityNum + 1));
@@ -272,18 +288,18 @@ public class MainMenu : MonoBehaviour
             settingsAlpha -= Time.deltaTime * 2f;
             SettingsWindow.alpha = settingsAlpha;
 
-            if (settingsAlpha <= 0f)
+            if (settingsAlpha < 0f)
             {
-                settingsWindow.SetActive(false);
                 settingsAlpha = 0f;
                 SettingsWindow.alpha = 0f;
+                settingsWindow.SetActive(false);
 
                 UIAlpha += Time.deltaTime * 2f;
                 UI.alpha = UIAlpha;
 
                 mainWindow.SetActive(true);
 
-                if (UIAlpha >= 1f)
+                if (UIAlpha > 1f)
                 {
                     UIAlpha = 1f;
                     UI.alpha = 1f;
@@ -411,7 +427,7 @@ public class MainMenu : MonoBehaviour
     {
         if (index < (resolutions.Length - 1))
         {
-            index += 1;
+            index ++;
         }
         else
         {
@@ -421,28 +437,28 @@ public class MainMenu : MonoBehaviour
         height = resolutions[index].height;
         width = resolutions[index].width;
 
-        resolutionText.text = (width + " x " + height);
-        //Screen.SetResolution(width, height, Screen.fullScreen);
-        PlayerPrefs.SetString("Resolution", height.ToString());
+        resolutionText.text = (resolutions[index].width + " x " + resolutions[index].height);
+        //Screen.SetResolution(resolutions[index].width, resolutions[index].height, Screen.fullScreen);
+        //PlayerPrefs.SetInt("Resolution", resolutions[index].width);
     }
 
     public void changeResolutionDown()
     {
         if (index > 0)
         {
-            index -= 1;
+            index --;
         }
         else
         {
             index = resolutions.Length - 1;
         }
 
-        height = resolutions[index].height;
-        width = resolutions[index].width;
+        //height = resolutions[index].height;
+        //width = resolutions[index].width;
 
-        resolutionText.text = (width + " x " + height);
-        //Screen.SetResolution(width, height, Screen.fullScreen);
-        PlayerPrefs.SetString("Resolution", height.ToString());
+        resolutionText.text = (resolutions[index].width + " x " + resolutions[index].height);
+        //Screen.SetResolution(resolutions[index].width, resolutions[index].height, Screen.fullScreen);
+        //PlayerPrefs.SetInt("Resolution", resolutions[index].width);
     }
 
     public void changeQuality()
@@ -464,7 +480,7 @@ public class MainMenu : MonoBehaviour
     //Used to go back between the settings of the menu.
     public void SaveApply()
     {
-        Screen.SetResolution(width, height, Screen.fullScreen);
+        //Screen.SetResolution(width, height, Screen.fullScreen);
 
         fadeSettingsIn = false;
         resolutionBUp.enabled = false;
@@ -475,6 +491,17 @@ public class MainMenu : MonoBehaviour
         masterS.enabled = false;
 
         tradeWindows = false;
+
+        PlayerPrefs.SetInt("Resolution", resolutions[index].width);
+
+        if (PlayerPrefs.GetString("Screen Mode") == "true")
+        {
+            Screen.SetResolution(resolutions[index].width, resolutions[index].height, true);
+        }
+        else
+        {
+            Screen.SetResolution(resolutions[index].width, resolutions[index].height, false);
+        }
 
         PlayerPrefs.Save();
     }
