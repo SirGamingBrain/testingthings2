@@ -70,13 +70,17 @@ public class PlayerController : MonoBehaviour
         
         checkpointName = PlayerPrefs.GetString("Last Checkpoint");
 
+        Debug.Log(checkpointName);
+
         if (checkpointName == "new")
         {
             spawnPoint = GameObject.Find("new");
+            PlayerPrefs.SetString("Paused", "true");
         }
         else if (checkpointName == "End")
         {
             spawnPoint = GameObject.Find("new");
+            PlayerPrefs.SetString("Paused", "true");
         }
         else
         {

@@ -163,6 +163,8 @@ public class LevelUI : MonoBehaviour
         audio.volume = masterLevel * 0f;
 
         audio.Play();
+
+        sectionTitle.alpha = 0f;
     }
 
     // Update is called once per frame

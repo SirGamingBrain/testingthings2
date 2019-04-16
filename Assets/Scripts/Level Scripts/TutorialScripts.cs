@@ -52,7 +52,7 @@ public class TutorialScripts : MonoBehaviour
     {
         scene = SceneManager.GetActiveScene();
 
-        if (PlayerPrefs.GetString("Last Checkpoint") == "new" && (scene.name == "NewTutorial")) {
+        if (PlayerPrefs.GetString("Last Checkpoint") == "new") {
             PlayerPrefs.SetString("Cutscene", "true");
             cutsceneBars.alpha = 1f;
         }
@@ -96,11 +96,11 @@ public class TutorialScripts : MonoBehaviour
                         playerTextAlpha += Time.deltaTime;
                         playerText.alpha = playerTextAlpha;
                     }
-                    /*else if (playerTextAlpha > 1f)
+                    else if (playerTextAlpha > 1f)
                     {
                         playerTextAlpha = 1f;
                         playerText.alpha = playerTextAlpha;
-                    }*/
+                    }
 
                     oldPlace = cameraPlacement.transform.position;
 
@@ -108,12 +108,12 @@ public class TutorialScripts : MonoBehaviour
 
                     moveTime += Time.deltaTime;
 
-                    if (moveTime > 3f)
+                    if (moveTime > 1f)
                     {
-                        moveTime = 3f;
+                        moveTime = 1f;
                     }
 
-                    float perc = moveTime / 3f;
+                    float perc = moveTime / 1f;
 
                     cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
                 }
@@ -133,7 +133,7 @@ public class TutorialScripts : MonoBehaviour
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
                     playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-                    Vector3 newPosition = player.transform.position + (transform.right * .008f * 6.5f);
+                    Vector3 newPosition = player.transform.position + (transform.right * .008f * 8.3f);
                     playerbody.MovePosition(newPosition);
                 }
 
@@ -198,12 +198,12 @@ public class TutorialScripts : MonoBehaviour
                 else if (cutsceneTimer >= 0f)
                 {
                     PlayerPrefs.SetString("Section Display", "true");
-                    playerAnimations.SetBool("walking", true);
-                    playerAnimations.SetBool("running", false);
+                    playerAnimations.SetBool("walking", false);
+                    playerAnimations.SetBool("running", true);
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
                     playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-                    Vector3 newPosition = player.transform.position + (transform.right * .008f * 6.5f);
+                    Vector3 newPosition = player.transform.position + (transform.right * .008f * 10f);
                     playerbody.MovePosition(newPosition);
                 }
             }
