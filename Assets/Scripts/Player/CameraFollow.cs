@@ -22,6 +22,11 @@ public class CameraFollow : MonoBehaviour
     {
         //We set the camera to start where the player starts.
         this.transform.position = new Vector3(player.transform.position.x, cameraHeight, player.transform.position.z - 6.5f);
+
+        if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 3" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 4" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 5")
+        {
+            waitTime = 1.6f;
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +34,12 @@ public class CameraFollow : MonoBehaviour
     {
         //If the intro cutscene shouldn't play, then the camera is set to follow the players commands.
         //Or you haven't paused the game, don't worry about the code atm.
-        if (PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "false") {
+        if ((PlayerPrefs.GetString("Cutscene") == "true" && PlayerPrefs.GetString("Paused") == "true"))
+        {
+            waitTime = 1.6f;
+            Debug.Log("I'm doing nothing!");
+        }
+        else if (PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "false") {
 
             oldPlace = this.transform.position;
 
@@ -171,22 +181,9 @@ public class CameraFollow : MonoBehaviour
 
             this.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
         }
-        else if (PlayerPrefs.GetString("Cutscene") == "true")
+        else
         {
-            oldPlace = this.transform.position;
 
-            newPlace = new Vector3(player.transform.position.x, cameraHeight, player.transform.position.z - 6.5f);
-
-            moveTime += Time.deltaTime;
-
-            if (moveTime > 3f)
-            {
-                moveTime = 3f;
-            }
-
-            float perc = moveTime / 3f;
-
-            this.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
         }
     }
 }

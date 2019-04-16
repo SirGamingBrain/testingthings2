@@ -89,7 +89,7 @@ public class EntranceExit : MonoBehaviour
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
                     playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-                    Vector3 newPosition = player.transform.position + (transform.right * .01f * 6.5f);
+                    Vector3 newPosition = player.transform.position + (transform.right * .01f * 10f);
                     playerbody.MovePosition(newPosition);
                 }
             }
@@ -122,7 +122,7 @@ public class EntranceExit : MonoBehaviour
 
                 newRotation = Quaternion.Euler(0f, 90f, 0f);
                 playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-                Vector3 newPosition = player.transform.position + (transform.right * .01f * 6.5f);
+                Vector3 newPosition = player.transform.position + (transform.right * .01f * 10f);
                 playerbody.MovePosition(newPosition);
             }
         }

@@ -33,8 +33,6 @@ public class AcessPanelManager : MonoBehaviour
             //If an access panel is within 3 units of the player, we need to do a few things.
             if (distance <= 3f)
             {
-                
-
                 //We grab the script that holds the specific access panel's variables.
                 currentPanel = accessPanel;
                 AccessPanelScripts = currentPanel.GetComponent<AccessPanelVariables>();
@@ -43,6 +41,10 @@ public class AcessPanelManager : MonoBehaviour
                 if (AccessPanelScripts.interactable == true)
                 {
                     text.text = "Hit E to unlock the next checkpoint zone.";
+                }
+                else
+                {
+                    text.text = " ";
                 }
 
 

@@ -25,7 +25,7 @@ public class LevelUI : MonoBehaviour
     bool tradeWindows = false;
     bool fadeUI = false;
     bool fadeUIIn = false;
-    bool fadeAll = false;
+    public bool fadeAll = false;
     bool fadeAllIn = false;
     bool fadeSettingsIn = false;
 
@@ -56,6 +56,8 @@ public class LevelUI : MonoBehaviour
     public GameObject mainWindow;
     public GameObject settingsWindow;
 
+    public GameObject player;
+
     public AudioSource hover;
     public AudioSource select;
     public AudioSource audio;
@@ -73,6 +75,8 @@ public class LevelUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         scene = SceneManager.GetActiveScene();
 
         if (PlayerPrefs.GetString("Screen Mode") == "true")
@@ -165,6 +169,8 @@ public class LevelUI : MonoBehaviour
         audio.Play();
 
         sectionTitle.alpha = 0f;
+
+        fadeGroup.alpha = 1;
     }
 
     // Update is called once per frame
@@ -179,54 +185,90 @@ public class LevelUI : MonoBehaviour
         //This is just us slowly fading the black screen away from the player to reveal the opening animations.
         if (fadeAllIn == true)
         {
-            fadeAlpha -= Time.deltaTime / 2f;
-            fadeGroup.alpha = fadeAlpha;
-            audio.volume = masterLevel * .8f * Mathf.Abs(1f - fadeAlpha);
+            if (player.GetComponent<PlayerController>().respawning == false) {
 
-            if (fadeAlpha <= 0f)
+                fadeAlpha -= Time.deltaTime / 2f;
+                fadeGroup.alpha = fadeAlpha;
+                audio.volume = masterLevel * .8f * Mathf.Abs(1f - fadeAlpha);
+
+                if (fadeAlpha <= 0f)
+                {
+                    fadeAllIn = false;
+                    fadeGroup.alpha = 0;
+                    audio.volume = masterLevel * .8f;
+                    fadeObject.SetActive(false);
+                }
+            }
+            else
             {
-                fadeAllIn = false;
-                fadeGroup.alpha = 0;
-                audio.volume = masterLevel * .8f;
-                fadeObject.SetActive(false);
+                Debug.Log("Still respawning.");
+                fadeAlpha -= Time.deltaTime / 2.5f;
+                fadeGroup.alpha = fadeAlpha;
+
+                if (fadeAlpha <= 0f)
+                {
+                    fadeAllIn = false;
+                    fadeGroup.alpha = 0;
+                    fadeObject.SetActive(false);
+                    player.GetComponent<PlayerController>().respawning = false;
+                }
             }
         }
 
         //We are transitioning out of the game.
         if (fadeAll == true)
         {
-            fadeObject.SetActive(true);
+            if (player.GetComponent<PlayerController>().respawning == false) {
+                fadeObject.SetActive(true);
 
-            fadeAlpha += Time.deltaTime / 2f;
-            fadeGroup.alpha = fadeAlpha;
-            audio.volume = masterLevel * .8f * Mathf.Abs(1f - fadeAlpha);
+                fadeAlpha += Time.deltaTime / 2f;
+                fadeGroup.alpha = fadeAlpha;
+                audio.volume = masterLevel * .8f * Mathf.Abs(1f - fadeAlpha);
 
-            if (fadeAlpha > 1f)
+                if (fadeAlpha > 1f)
+                {
+                    fadeGroup.alpha = 1f;
+                    fadeAll = false;
+                    audio.volume = masterLevel * 0f;
+                    PlayerPrefs.Save();
+
+                    if (backingOut == true)
+                    {
+                        StartCoroutine(LoadScene("Main Menu"));
+                    }
+                    else if (scene.name == "NewTutorial")
+                    {
+                        StartCoroutine(LoadScene("1st Level"));
+                    }
+                    else if (scene.name == "1st Level")
+                    {
+                        StartCoroutine(LoadScene("2nd Level"));
+                    }
+                    else if (scene.name == "2nd Level")
+                    {
+                        StartCoroutine(LoadScene("3rd Level"));
+                    }
+                    else if (scene.name == "3rd Level")
+                    {
+                        StartCoroutine(LoadScene("Main Menu"));
+                    }
+                }
+            }
+            else
             {
-                fadeGroup.alpha = 1f;
-                fadeAll = false;
-                audio.volume = masterLevel * 0f;
-                PlayerPrefs.Save();
+                Debug.Log("Beginning respawning.");
+                fadeObject.SetActive(true);
 
-                if (backingOut == true)
+                fadeAlpha += Time.deltaTime / 2.5f;
+                fadeGroup.alpha = fadeAlpha;
+                audio.volume = masterLevel * .8f * Mathf.Abs(1f - fadeAlpha);
+
+                if (fadeAlpha > 1f)
                 {
-                    StartCoroutine(LoadScene("Main Menu"));
-                }
-                else if (scene.name == "NewTutorial")
-                {
-                    StartCoroutine(LoadScene("1st Level"));
-                }
-                else if (scene.name == "1st Level")
-                {
-                    StartCoroutine(LoadScene("2nd Level"));
-                }
-                else if (scene.name == "2nd Level")
-                {
-                    StartCoroutine(LoadScene("3rd Level"));
-                }
-                else if (scene.name == "3rd Level")
-                {
-                    StartCoroutine(LoadScene("Main Menu"));
+                    fadeGroup.alpha = 1f;
+                    fadeAll = false;
+                    player.GetComponent<PlayerController>().health = 1;
+                    StartCoroutine(LoadScene(PlayerPrefs.GetString("Last Section")));
                 }
             }
         }

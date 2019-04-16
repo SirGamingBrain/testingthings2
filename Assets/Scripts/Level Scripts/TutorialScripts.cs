@@ -9,25 +9,22 @@ public class TutorialScripts : MonoBehaviour
     //We need to grab 4 things we shall section off by comments...
     // 1 - General Stuff
     float cutsceneTimer = 0f;
-    public GameObject player;
 
-    bool intro = false;
-    bool scene1 = false;
-    bool scene2 = false;
-    bool scene3 = false;
-    bool outro = false;
+    public GameObject player;
 
     Scene scene;
 
     // 2 - UI Stuff
     public CanvasGroup cutsceneBars;
-    public CanvasGroup areaTitle;
     public CanvasGroup playerText;
 
     float barsAlpha = 0f;
     float playerTextAlpha = 0f;
 
     public Text playerWords;
+    public Text cutsceneText;
+
+    bool showText = false;
 
     // 3 - Player Stuff
     public GameObject playerModel;
@@ -50,9 +47,17 @@ public class TutorialScripts : MonoBehaviour
     // Then we can setup this script since it will be the only time we use this script on the new tutorial scene...
     void Start()
     {
+        cutsceneText.text = "";
+
         scene = SceneManager.GetActiveScene();
 
         if (PlayerPrefs.GetString("Last Checkpoint") == "new") {
+            PlayerPrefs.SetString("Cutscene", "true");
+            cutsceneBars.alpha = 1f;
+        }
+        else if (PlayerPrefs.GetString("Last Checkpoint") == "End")
+        {
+            PlayerPrefs.SetString("Last Checkpoint", "new");
             PlayerPrefs.SetString("Cutscene", "true");
             cutsceneBars.alpha = 1f;
         }
@@ -79,15 +84,60 @@ public class TutorialScripts : MonoBehaviour
                 cutsceneBars.alpha = barsAlpha;
             }
 
-            cutsceneTimer += Time.deltaTime;
-
             if (PlayerPrefs.GetString("Last Checkpoint") == "new")
             {
-                if (cutsceneTimer >= 5f)
+                if (cutsceneTimer >= 8f)
                 {
                     cutsceneTimer = 0f;
+
                     PlayerPrefs.SetString("Cutscene", "false");
                     PlayerPrefs.SetString("Paused", "false");
+                }
+                else if (cutsceneTimer >= 4.6f)
+                {
+                    if (playerTextAlpha < 1f)
+                    {
+                        playerTextAlpha += Time.deltaTime;
+                        playerText.alpha = playerTextAlpha;
+                    }
+                    else if (playerTextAlpha > 1f)
+                    {
+                        playerTextAlpha = 1f;
+                        playerText.alpha = playerTextAlpha;
+                    }
+
+                    oldPlace = cameraPlacement.transform.position;
+
+                    newPlace = new Vector3(37f, 10f, -1f);
+
+                    moveTime += Time.deltaTime;
+
+                    if (moveTime > 2f)
+                    {
+                        moveTime = 2f;
+                    }
+
+                    float perc = moveTime / 2f;
+
+                    cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
+                }
+                else if (cutsceneTimer >= 3.5f)
+                {
+                    if (playerTextAlpha < 0f)
+                    {
+                        playerTextAlpha = 0f;
+                        playerText.alpha = playerTextAlpha;
+                        playerWords.text = "Seems like these untouched checkpoint zones are gonna be my ticket out of here...";
+                    }
+                    else if (playerTextAlpha <= 1f)
+                    {
+                        playerTextAlpha -= Time.deltaTime;
+                        playerText.alpha = playerTextAlpha;
+                        Debug.Log(playerTextAlpha);
+                    }
+                    
+
+                    moveTime = 0f;
                 }
                 else if (cutsceneTimer >= 1.3f)
                 {
@@ -108,12 +158,12 @@ public class TutorialScripts : MonoBehaviour
 
                     moveTime += Time.deltaTime;
 
-                    if (moveTime > 1f)
+                    if (moveTime > 2f)
                     {
-                        moveTime = 1f;
+                        moveTime = 2f;
                     }
 
-                    float perc = moveTime / 1f;
+                    float perc = moveTime / 2f;
 
                     cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
                 }
@@ -137,30 +187,29 @@ public class TutorialScripts : MonoBehaviour
                     playerbody.MovePosition(newPosition);
                 }
 
-
+                cutsceneTimer += Time.deltaTime;
             }
             else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
             {
-                if (cutsceneTimer >= 3f)
+                if (cutsceneTimer >= 5f)
                 {
                     cutsceneTimer = 0f;
                     PlayerPrefs.SetString("Cutscene", "false");
                     PlayerPrefs.SetString("Paused", "false");
+                    showText = true;
                 }
                 else if (cutsceneTimer >= 1f)
                 {
-                    playerWords.text = "I'll need to lure him away to get by...";
-
                     if (playerTextAlpha < 1f)
                     {
                         playerTextAlpha += Time.deltaTime;
                         playerText.alpha = playerTextAlpha;
                     }
-                    /*else if (playerTextAlpha > 1f)
+                    else if (playerTextAlpha > 1f)
                     {
                         playerTextAlpha = 1f;
                         playerText.alpha = playerTextAlpha;
-                    }*/
+                    }
 
                     oldPlace = cameraPlacement.transform.position;
 
@@ -168,36 +217,24 @@ public class TutorialScripts : MonoBehaviour
 
                     moveTime += Time.deltaTime;
 
-                    if (moveTime > 3f)
+                    if (moveTime > .5f)
                     {
-                        moveTime = 3f;
+                        moveTime = .5f;
                     }
 
-                    float perc = moveTime / 3f;
+                    float perc = moveTime / .5f;
 
                     cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
-                }
-                else if (cutsceneTimer >= .75f)
-                {
-                    playerWords.text = "I'll need to lure him away to get by...";
-                    if (playerTextAlpha < 1f)
-                    {
-                        playerTextAlpha += Time.deltaTime;
-                        playerText.alpha = playerTextAlpha;
-                    }
-                    /*else if (playerTextAlpha > 1f)
-                    {
-                        playerTextAlpha = 1f;
-                        playerText.alpha = playerTextAlpha;
-                    }*/
 
-                    playerAnimations.SetBool("walking", false);
-                    PlayerPrefs.SetString("Paused", "true");
+                    playerAnimations.SetBool("running", false);
+                    
                     moveTime = 0f;
+                    PlayerPrefs.SetString("Section Display", "true");
                 }
                 else if (cutsceneTimer >= 0f)
                 {
-                    PlayerPrefs.SetString("Section Display", "true");
+                    playerWords.text = "I might be able to lure these guys away with a whistle by pressing Q...";
+
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", true);
 
@@ -205,19 +242,22 @@ public class TutorialScripts : MonoBehaviour
                     playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
                     Vector3 newPosition = player.transform.position + (transform.right * .008f * 10f);
                     playerbody.MovePosition(newPosition);
+                    PlayerPrefs.SetString("Paused", "true");
                 }
+
+                cutsceneTimer += Time.deltaTime;
             }
             else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
             {
-                if (cutsceneTimer >= 3f)
+                if (cutsceneTimer >= 6f)
                 {
                     cutsceneTimer = 0f;
                     PlayerPrefs.SetString("Cutscene", "false");
                     PlayerPrefs.SetString("Paused", "false");
+                    showText = true;
                 }
                 else if (cutsceneTimer >= 1f)
                 {
-                    playerWords.text = "I'll need to slow him down to get past...";
 
                     if (playerTextAlpha < 1f)
                     {
@@ -245,9 +285,8 @@ public class TutorialScripts : MonoBehaviour
 
                     cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
                 }
-                else if (cutsceneTimer >= .75f)
+                else if (cutsceneTimer >= 1f)
                 {
-                    playerWords.text = "I'll need to slow him down to get past...";
 
                     if (playerTextAlpha < 1f)
                     {
@@ -260,21 +299,54 @@ public class TutorialScripts : MonoBehaviour
                         playerText.alpha = playerTextAlpha;
                     }
 
-                    playerAnimations.SetBool("walking", false);
+                    oldPlace = cameraPlacement.transform.position;
+
+                    newPlace = new Vector3(101f, 4f, 2f);
+
+                    moveTime += Time.deltaTime;
+
+                    if (moveTime > 3f)
+                    {
+                        moveTime = 3f;
+                    }
+
+                    float perc = moveTime / 3f;
+
+                    cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
+                }
+                else if (cutsceneTimer >= .6f)
+                {
+                    playerWords.text = "I hear a creature up ahead, I don't think I can run past him...";
+
+                    if (playerTextAlpha < 1f)
+                    {
+                        playerTextAlpha += Time.deltaTime;
+                        playerText.alpha = playerTextAlpha;
+                    }
+                    else if (playerTextAlpha > 1f)
+                    {
+                        playerTextAlpha = 1f;
+                        playerText.alpha = playerTextAlpha;
+                    }
+
+                    playerAnimations.SetBool("running", false);
                     PlayerPrefs.SetString("Paused", "true");
                     moveTime = 0f;
                 }
                 else if (cutsceneTimer >= 0f)
                 {
                     PlayerPrefs.SetString("Section Display", "true");
-                    playerAnimations.SetBool("walking", true);
-                    playerAnimations.SetBool("running", false);
+                    playerAnimations.SetBool("walking", false);
+                    playerAnimations.SetBool("running", true);
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
                     playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-                    Vector3 newPosition = player.transform.position + (transform.right * .008f * 6.5f);
+                    Vector3 newPosition = player.transform.position + (transform.right * .008f * 15f);
                     playerbody.MovePosition(newPosition);
+                    Debug.Log("Beginning Cutscene 2");
                 }
+
+                cutsceneTimer += Time.deltaTime;
             }
             else if (PlayerPrefs.GetString("Last Checkpoint") == "End")
             {
@@ -340,6 +412,29 @@ public class TutorialScripts : MonoBehaviour
                 cutsceneBars.alpha = barsAlpha;
                 playerText.alpha = barsAlpha;
                 PlayerPrefs.SetString("Section Display", "false");
+            }
+
+            if (showText == true)
+            {
+                if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
+                {
+                    cutsceneText.text = "Press Q to call over enemies towards you.";
+                }
+                else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
+                {
+                    cutsceneText.text = "Press R to lay down an electric trap to stun enemies.";
+                }
+
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    cutsceneText.text = "";
+                    showText = false;
+                }
+                else if (Input.GetKeyDown(KeyCode.R))
+                {
+                    cutsceneText.text = "";
+                    showText = false;
+                }
             }
         }
     }

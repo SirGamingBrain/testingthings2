@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool holsterGun = false;
 
     public bool cutscenePlaying = false;
+    public bool respawning = false;
 
     private Scene scene;
 
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public GameObject barrel;
     public GameObject bullet;
     public GameObject player;
+    public GameObject UIScriptHolder;
 
     public GameObject trap;
     public GameObject trapSpot;
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UIScriptHolder = GameObject.Find("Level Scripts");
+
         PlayerPrefs.SetString("Paused", "false");
 
         rb = GetComponent<Rigidbody>();
@@ -76,15 +80,18 @@ public class PlayerController : MonoBehaviour
         {
             spawnPoint = GameObject.Find("new");
             PlayerPrefs.SetString("Paused", "true");
+            PlayerPrefs.SetString("Section Display", "true");
         }
         else if (checkpointName == "End")
         {
             spawnPoint = GameObject.Find("new");
             PlayerPrefs.SetString("Paused", "true");
+            PlayerPrefs.SetString("Section Display", "true");
         }
         else
         {
             spawnPoint = GameObject.Find(checkpointName);
+            PlayerPrefs.SetString("Section Display", "true");
         }
 
         this.transform.position = spawnPoint.transform.position;
@@ -103,15 +110,16 @@ public class PlayerController : MonoBehaviour
             //Handles the basic controls of the player and their tools.
             if ((drawGun == false && fireGun == false) && health > 0) {
 
+                if (respawning == true)
+                {
+                    spawnPoint = GameObject.Find(PlayerPrefs.GetString("Last Checkpoint"));
+                    this.transform.position = spawnPoint.transform.position;
+                    playerAnimations.SetBool("isdead", false);
+                }
+
                 if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift))
                 {
                     playerAnimations.SetBool("running", true);
-                }
-                else if (health <= 0)
-                {
-                    playerAnimations.SetBool("walking", false);
-                    playerAnimations.SetBool("running", false);
-                    playerAnimations.SetBool("isdead", true);
                 }
                 else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
@@ -225,13 +233,30 @@ public class PlayerController : MonoBehaviour
                     rb.MovePosition(newPosition);
                 }
 
+                if (Input.GetKeyDown(KeyCode.M))
+                {
+                    health = 0;
+                }
+
                 //We then update the rotation and movment here based off of where were rotating and moving to and from.
                 player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, newRotation, 5f);
+            }
+            else if (health <= 0)
+            {
+                playerAnimations.SetBool("isdead", true);
+                playerAnimations.SetBool("walking", false);
+                playerAnimations.SetBool("running", false);
+                
+
+                respawning = true;
+
+                UIScriptHolder.GetComponent<LevelUI>().fadeAll = true;
             }
             else
             {
                 playerAnimations.SetBool("walking", false);
                 playerAnimations.SetBool("running", false);
+                playerAnimations.SetBool("isdead", false);
 
                 if (speed > 0f)
                 {
@@ -352,11 +377,6 @@ public class PlayerController : MonoBehaviour
             PlayerPrefs.SetString("Section Display", "true");
             PlayerPrefs.Save();
         }
-        else if (other.gameObject.tag == "Enemy")
-        {
-            Debug.Log("You dead.");
-            health = 0;
-        }
         else if (other.gameObject.tag == "newFloor")
         {
             if (scene.name == "NewTutorial")
@@ -384,14 +404,16 @@ public class PlayerController : MonoBehaviour
             if (scene.name == "NewTutorial")
             {
                 PlayerPrefs.SetString("Cutscene", "true");
+                PlayerPrefs.SetString("Paused", "true");
             }
 
             if (other.gameObject.name == "End")
             {
                 PlayerPrefs.SetString("Last Checkpoint", "End");
+                PlayerPrefs.Save();
             }
 
-            PlayerPrefs.Save();
+            //PlayerPrefs.Save();
         }
 
 
