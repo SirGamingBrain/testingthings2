@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public Light light;
+    public new Light light;
 
     int width = 0;
     int height = 0;
@@ -27,7 +27,6 @@ public class MainMenu : MonoBehaviour
     bool fadeUIIn = false;
     bool fadeAll = false;
     bool fadeAllIn = false;
-    bool fadeSettingsIn = false;
     bool tradeWindows = false;
     bool loadingScene = false;
 
@@ -35,8 +34,7 @@ public class MainMenu : MonoBehaviour
     public Button continueGame;
     public Button settingsB;
     public Button exitB;
-    public Button resolutionBUp;
-    public Button resolutionBDown;
+    public Button resolutionB;
     public Button fullscreenB;
     public Button qualityB;
     public Button applyB;
@@ -67,12 +65,12 @@ public class MainMenu : MonoBehaviour
     public AudioClip hovering;
     public AudioClip selecting;
 
-    Resolution[] resolutions;
+    readonly int[] heights = new int[] {450, 576, 720, 768, 900, 1080, 1440};
+    readonly int[] widths = new int[] {800, 1024, 1280, 1366, 1600, 1920, 2560};
+
     string[] qualities;
 
     float reversal = 0f;
-
-    string window = "main";
 
     //The name will be stored here, and other values will be grabbed from player prefs in order to make sure everything works.
     string lastScene = "NewTutorial";
@@ -82,7 +80,7 @@ public class MainMenu : MonoBehaviour
     {
         fadeScreen.SetActive(false);
 
-        //lastScene = PlayerPrefs.GetString("Last Section");
+        lastScene = PlayerPrefs.GetString("Last Section");
 
         if (!PlayerPrefs.HasKey("Screen Mode"))
         {
@@ -91,7 +89,7 @@ public class MainMenu : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("Resolution"))
         {
-            PlayerPrefs.SetInt("Resolution", 1920);
+            PlayerPrefs.SetInt("Resolution", 1080);
         }
 
         if (!PlayerPrefs.HasKey("Quality"))
@@ -99,7 +97,14 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.SetInt("Quality", 5);
         }
 
-        //We shall use these variables to hold the rest of the game to mark.
+        if (!PlayerPrefs.HasKey("Master Volume"))
+        {
+            PlayerPrefs.SetFloat("Master Volume", 1f);
+        }
+
+        PlayerPrefs.Save();
+
+        //We set the screen to either fullscreen or windowed based on the player's settings.
         if(PlayerPrefs.GetString("Screen Mode") == "true")
         {
             fullscreenB.GetComponentInChildren<Text>().text = "Fullscreen";
@@ -111,30 +116,34 @@ public class MainMenu : MonoBehaviour
             Screen.fullScreen = false;
         }
 
-        resolutions = Screen.resolutions;
+        //resolutions = Screen.resolutions;
 
-        foreach (var res in resolutions)
+        //We set the resolution of the game based on the player's settings.
+        foreach (int resolution in heights)
         {
-            if (res.width == PlayerPrefs.GetInt("Resolution"))
+            Debug.Log(resolution);
+            if (resolution == PlayerPrefs.GetInt("Resolution"))
             {
-                width = res.width;
-                height = res.height;
+                width = widths[index];
+                height = resolution;
                 break;
             }
+
             index += 1;
         }
 
         if (height == 0)
         {
-            index = resolutions.Length - 1;
+            index = 5;
 
-            height = resolutions[index].height;
-            width = resolutions[index].width;
+            height = heights[index];
+            width = widths[index];
         }
 
         resolutionText.text = (width + " x " + height);
         Screen.SetResolution(width,height,Screen.fullScreen);
 
+        //We set the quality of the game based on the player's settings.
         qualities = QualitySettings.names;
 
         foreach (string name in qualities)
@@ -156,9 +165,9 @@ public class MainMenu : MonoBehaviour
             qualityB.GetComponentInChildren<Text>().text = ("Level " + qualityNum);
         }
 
-        //A whole lot of buttons and stuff that I will also have to add to the in-game script.
+        //These are all of the buttons, and their respective alphas being set to the correct starting positions.
         SettingsWindow.alpha = 0f;
-        resolutionBUp.enabled = false;
+        resolutionB.enabled = false;
         fullscreenB.enabled = false;
         qualityB.enabled = false;
         applyB.enabled = false;
@@ -173,13 +182,14 @@ public class MainMenu : MonoBehaviour
 
         mainWindow.SetActive(true);
 
-        timeOut = generateTimeOut();
-        timeOn = generateTimeOn();
+        //This little thing here handles the background light in the scene.
+        timeOut = GenerateTimeOut();
+        timeOn = GenerateTimeOn();
 
-        //Grab the values of differing files.
-        //Video Options(Screen Resolution, Quality), Audio Options (Master Volume, Effect Volume), Controls (Controls Re-Bindable). 
+        //We tell the background brute to walk menacingly.
         brute.SetBool("Walk", true);
 
+        //Audio settings being laid out..
         music.loop = true;
 
         music.clip = mainmusic;
@@ -197,9 +207,9 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+        //Skip to the next comment as the lines below deal with fading out of the scene, or fading the UI;
         if (fadeUI == true)
         {
-            //Debug.Log("Working as intended!");
             UIAlpha -= Time.deltaTime;
             UI.alpha = UIAlpha;
             music.volume = UIAlpha * masterLevel * .5f;
@@ -230,7 +240,6 @@ public class MainMenu : MonoBehaviour
 
         if (fadeAll == true)
         {
-            //Debug.Log("Loading Scene");
             fadeAlpha += Time.deltaTime / 2f;
             Fade.alpha = fadeAlpha;
 
@@ -274,8 +283,7 @@ public class MainMenu : MonoBehaviour
                 {
                     settingsAlpha = 1f;
                     SettingsWindow.alpha = 1f;
-                    resolutionBUp.enabled = true;
-                    resolutionBDown.enabled = true;
+                    resolutionB.enabled = true;
                     fullscreenB.enabled = true;
                     qualityB.enabled = true;
                     applyB.enabled = true;
@@ -310,7 +318,9 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
+        // We gucci now.
 
+        //Runtime code that handles moving the brute at a fixed speed.
         reversal += Time.deltaTime/3f;
 
         if (reversal < 10f) {
@@ -333,6 +343,7 @@ public class MainMenu : MonoBehaviour
             brutey.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
         }
 
+        //Runtime code that handles the blinking light in the background.
         if (on)
         {
             timeOn -= Time.deltaTime;
@@ -361,24 +372,26 @@ public class MainMenu : MonoBehaviour
 
         if (reload)
         {
-            timeOut = generateTimeOut();
-            timeOn = generateTimeOn();
+            timeOut = GenerateTimeOut();
+            timeOn = GenerateTimeOn();
 
             on = true;
             reload = false;
         }
     }
 
-    float generateTimeOut()
+    //These two generate time functions generate and random interval for the light to be active or deactivated.
+    float GenerateTimeOut()
     {
         return Random.Range(0f, 2f);
     }
 
-    float generateTimeOn()
+    float GenerateTimeOn()
     {
         return Random.Range(.1f, .35f);
     }
 
+    //Button that handles creating a new session for the player to play through.
     public void NewGame()
     {
         fadeUI = true;
@@ -389,6 +402,7 @@ public class MainMenu : MonoBehaviour
         fadeScreen.SetActive(true);
     }
 
+    //Button that handles loading the previous area the player last left out on.
     public void Continue()
     {
         fadeUI = true;
@@ -396,6 +410,7 @@ public class MainMenu : MonoBehaviour
         fadeScreen.SetActive(true);
     }
 
+    //Button that tells the UI to swap the two windows.
     public void Settings()
     {
         tradeWindows = true;
@@ -405,63 +420,48 @@ public class MainMenu : MonoBehaviour
         exitB.enabled = false;
     }
 
-    public void changeFullscreen()
+    //Button that swaps between fullscreen and windowed mode.
+    public void ChangeFullscreen()
     {
         if (Screen.fullScreen == true)
         {
             fullscreenB.GetComponentInChildren<Text>().text = "Windowed";
             PlayerPrefs.SetString("Screen Mode", "false");
             Screen.fullScreen = false;
+            Screen.SetResolution(width, height, false);
         }
         else
         {
             fullscreenB.GetComponentInChildren<Text>().text = "Fullscreen";
             PlayerPrefs.SetString("Screen Mode", "true");
             Screen.fullScreen = true;
+            Screen.SetResolution(width, height, true);
         }
 
         Debug.Log(PlayerPrefs.GetString("Screen Mode"));
     }
 
-    public void changeResolutionUp()
+    //Button to change the resolution.
+    public void ChangeResolution()
     {
-        if (index < (resolutions.Length - 1))
+        if (index < 6)
         {
-            index ++;
+            index += 1;
         }
         else
         {
             index = 0;
         }
 
-        height = resolutions[index].height;
-        width = resolutions[index].width;
+        height = heights[index];
+        width = widths[index];
 
-        resolutionText.text = (resolutions[index].width + " x " + resolutions[index].height);
-        //Screen.SetResolution(resolutions[index].width, resolutions[index].height, Screen.fullScreen);
-        //PlayerPrefs.SetInt("Resolution", resolutions[index].width);
+        resolutionText.text = (width + " x " + height);
+        PlayerPrefs.SetInt("Resolution", height);
     }
 
-    public void changeResolutionDown()
-    {
-        if (index > 0)
-        {
-            index --;
-        }
-        else
-        {
-            index = resolutions.Length - 1;
-        }
-
-        //height = resolutions[index].height;
-        //width = resolutions[index].width;
-
-        resolutionText.text = (resolutions[index].width + " x " + resolutions[index].height);
-        //Screen.SetResolution(resolutions[index].width, resolutions[index].height, Screen.fullScreen);
-        //PlayerPrefs.SetInt("Resolution", resolutions[index].width);
-    }
-
-    public void changeQuality()
+    //Button to change the quality of the game.
+    public void ChangeQuality()
     {
         if (qualityNum < (qualities.Length - 1))
         {
@@ -477,14 +477,10 @@ public class MainMenu : MonoBehaviour
         qualityB.GetComponentInChildren<Text>().text = ("Level " + (qualityNum + 1));
     }
 
-    //Used to go back between the settings of the menu.
+    //Button that saves the current settings and return the player to the main menu window.
     public void SaveApply()
     {
-        //Screen.SetResolution(width, height, Screen.fullScreen);
-
-        fadeSettingsIn = false;
-        resolutionBUp.enabled = false;
-        resolutionBDown.enabled = false;
+        resolutionB.enabled = false;
         fullscreenB.enabled = false;
         qualityB.enabled = false;
         applyB.enabled = false;
@@ -492,36 +488,40 @@ public class MainMenu : MonoBehaviour
 
         tradeWindows = false;
 
-        PlayerPrefs.SetInt("Resolution", resolutions[index].width);
+        PlayerPrefs.SetInt("Resolution", height);
 
         if (PlayerPrefs.GetString("Screen Mode") == "true")
         {
-            Screen.SetResolution(resolutions[index].width, resolutions[index].height, true);
+            Screen.SetResolution(width, height, true);
         }
         else
         {
-            Screen.SetResolution(resolutions[index].width, resolutions[index].height, false);
+            Screen.SetResolution(width, height, false);
         }
 
         PlayerPrefs.Save();
     }
 
+    //Button that quits the game.
     public void ExitGame()
     {
         PlayerPrefs.Save();
         Application.Quit();
     }
 
+    //Script that handles when someone hovers over a button.
     public void HoverSound()
     {
         hover.Play();
     }
 
+    //Script that handles when someone clicks on screen.
     public void ClickSound()
     {
         select.Play();
     }
 
+    //Slider that changes the master volume of the game.
     public void MasterV(float value)
     {
         Debug.Log(masterS.value);
@@ -533,6 +533,7 @@ public class MainMenu : MonoBehaviour
         select.volume = masterLevel;
     }
 
+    //Script that loads the correct scene, called when the game has faded out.
     IEnumerator LoadScene(string scene)
     {
         // The Application loads the Scene in the background as the current Scene runs.
