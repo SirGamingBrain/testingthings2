@@ -577,6 +577,7 @@ public class LevelUI : MonoBehaviour
         select.volume = masterLevel * UIAlpha;
     }
 
+    //This function handles loading the scene in
     IEnumerator LoadScene(string scene)
     {
         // The Application loads the Scene in the background as the current Scene runs.
