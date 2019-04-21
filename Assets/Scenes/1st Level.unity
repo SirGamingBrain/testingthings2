@@ -325,7 +325,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1313151732}
-          m_MethodName: clickSound
+          m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -70707,7 +70707,7 @@ PrefabInstance:
       objectReference: {fileID: 1313151732}
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changeQuality
+      value: ChangeQuality
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -70782,7 +70782,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1313151732}
-          m_MethodName: clickSound
+          m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -78224,7 +78224,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1313151732}
-          m_MethodName: clickSound
+          m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -79132,6 +79132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd45b35ec80d3204a872e955d88c7573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptHolder: {fileID: 0}
   player: {fileID: 508405923}
 --- !u!81 &1298415213
 AudioListener:
@@ -79815,6 +79816,7 @@ GameObject:
   - component: {fileID: 1313151731}
   - component: {fileID: 1313151733}
   - component: {fileID: 1313151735}
+  - component: {fileID: 1313151736}
   m_Layer: 0
   m_Name: Level Scripts
   m_TagString: Untagged
@@ -79852,6 +79854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f66ac5735b54ac42a183728c7118296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptHolder: {fileID: 0}
   fadeAll: 0
   continueGame: {fileID: 8178679}
   settingsB: {fileID: 1857695562}
@@ -79861,6 +79864,7 @@ MonoBehaviour:
   qualityB: {fileID: 973244186}
   applyB: {fileID: 1273043753}
   fullscreenText: {fileID: 270899989}
+  resolutionText: {fileID: 1592406763}
   areaTitle: {fileID: 586200768}
   masterS: {fileID: 1762125109}
   UIGroup: {fileID: 1878929162}
@@ -79920,6 +79924,29 @@ MonoBehaviour:
   player: {fileID: 508405923}
   text: {fileID: 797761570}
   currentPanel: {fileID: 0}
+--- !u!114 &1313151736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313151730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc598280814843489db9a1f17894678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutscene: 0
+  paused: 0
+  tutorial: 0
+  taserCutscene: 0
+  displaySection: 0
+  tutorialTimer: 0
+  cutsceneTimer: 0
+  cutsceneBars: {fileID: 782765140}
+  playerModel: {fileID: 994128959}
+  playerbody: {fileID: 508405925}
+  playerAnimations: {fileID: 994128960}
 --- !u!1 &1315702470
 GameObject:
   m_ObjectHideFlags: 0
@@ -91167,6 +91194,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588186663}
   m_Mesh: {fileID: 4300000, guid: 7bcc9b232ae6bb6439d309f9dfedec0f, type: 3}
+--- !u!114 &1592406763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11400002, guid: 05a81c3d5091440058129444d28322f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864175860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1597239150
 GameObject:
   m_ObjectHideFlags: 0
@@ -91658,7 +91697,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1313151732}
-          m_MethodName: clickSound
+          m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -94750,7 +94789,7 @@ PrefabInstance:
       objectReference: {fileID: 1313151732}
     - target: {fileID: 11400000, guid: b6a1cf4e3eeaf9a4ca38bf8acb910a6d, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: masterV
+      value: MasterV
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b6a1cf4e3eeaf9a4ca38bf8acb910a6d, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -111951,7 +111990,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1313151732}
-          m_MethodName: clickSound
+          m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -112379,7 +112418,7 @@ PrefabInstance:
       objectReference: {fileID: 1313151732}
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changeResolution
+      value: ChangeResolution
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -112454,7 +112493,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1313151732}
-          m_MethodName: clickSound
+          m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -114592,7 +114631,7 @@ PrefabInstance:
       objectReference: {fileID: 1313151732}
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changeFullscreen
+      value: ChangeFullscreen
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -114667,7 +114706,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1313151732}
-          m_MethodName: clickSound
+          m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

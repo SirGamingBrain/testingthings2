@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    //A crapton of objects I'm not even gonna worry about commenting for now.
     public string sceneName = "null";
     string checkpointName = "null";
     string sectionName = "null";
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     public GameObject UIScriptHolder;
 
+    VariableHolder variableScript;
+
     public GameObject trap;
     public GameObject trapSpot;
     public GameObject currentTile;
@@ -59,12 +62,14 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //We find the script that contains all of the variables we need.
         UIScriptHolder = GameObject.Find("Level Scripts");
+        variableScript = UIScriptHolder.GetComponent<VariableHolder>();
 
-        PlayerPrefs.SetString("Paused", "false");
-
+        //We grab the rigidbody component of the player.
         rb = GetComponent<Rigidbody>();
 
+        //We grab the current scene and set it's name to a string holder. Same for the last checkpoint and the last level.
         scene = SceneManager.GetActiveScene();
 
         sceneName = scene.name;
@@ -73,40 +78,50 @@ public class PlayerController : MonoBehaviour
         
         checkpointName = PlayerPrefs.GetString("Last Checkpoint");
 
-        Debug.Log(checkpointName);
-
-        if (checkpointName == "new")
+        //Here we tell the player that if the previous checkpoint was at the end of a level or the beginning of one we ensure that they are dropped at the beginning of the level. Otherwise we just need to spawn them at the previos checkpoint.
+        //Also the taser is unlocked for the player at the third checkpoint.
+        if (checkpointName == "new" || checkpointName == "End")
         {
             spawnPoint = GameObject.Find("new");
-            PlayerPrefs.SetString("Paused", "true");
-            PlayerPrefs.SetString("Section Display", "true");
+            variableScript.displaySection = true;
         }
-        else if (checkpointName == "End")
+        else if ((checkpointName == "Checkpoint 3" || checkpointName == "Checkpoint 4") && sceneName == "2nd Level")
         {
-            spawnPoint = GameObject.Find("new");
-            PlayerPrefs.SetString("Paused", "true");
-            PlayerPrefs.SetString("Section Display", "true");
+            spawnPoint = GameObject.Find(checkpointName);
+            variableScript.displaySection = true;
+            hasTaser = true;
         }
         else
         {
             spawnPoint = GameObject.Find(checkpointName);
-            PlayerPrefs.SetString("Section Display", "true");
+            variableScript.displaySection = true;
         }
 
+        //If they've made it to the third level then they have the taser.
+        if (scene.name == "3rd Level")
+        {
+            hasTaser = true;
+        }
+
+        //We set the spawn point of the player.
         this.transform.position = spawnPoint.transform.position;
 
+        //We set the rotation of the player to be facing towards the camera at spawn for ease of access.
         player.transform.rotation = Quaternion.Euler(0f,90f,0f);
 
-        Debug.Log(sceneName + sectionName + checkpointName);
+        //Some debug information to tell us the scene's name, and the checkpoint we spawned at.
+        Debug.Log("Actual Name:" + sceneName + ", Spawnpoint: " + checkpointName);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "false") {
+        //We will only allow the player to perform their abilities if they aren't paused or a cutscene isn't playing.
+        if (variableScript.cutscene == false && variableScript.paused == false) {
+            
             //The player has basic movement in 8 directions.
             //Up, Down, Left, Right, Up-Left, Down-Left, Up-Right, Down-Right.
-            //Handles the basic controls of the player and their tools.
+            //This script handles the basic controls of the player and their tools.
             if ((drawGun == false && fireGun == false) && health > 0) {
 
                 if (respawning == true)
@@ -116,6 +131,7 @@ public class PlayerController : MonoBehaviour
                     playerAnimations.SetBool("isdead", false);
                 }
 
+                //This script handles whether or not the player is walking, running, or being idle. (Soon to be crouching)
                 if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift))
                 {
                     playerAnimations.SetBool("running", true);
@@ -133,9 +149,6 @@ public class PlayerController : MonoBehaviour
 
                 //These key's are used to speed up and slow down the player.
                 //The balance of unlimited sprint is traded off for even less speed rather than a real dash.
-
-                //Editing the sneaking state here
-                //Otherwise the player could be detected even if standing still
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     maxSpeed = 15f;
@@ -152,7 +165,7 @@ public class PlayerController : MonoBehaviour
                     sneaking = true;
                 }
                 
-                //This handles the build up of speed for the player, as well as the slow down.
+                //This handles the build up of speed for the player, as well as the slow down (might have to get rid of).
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
                     if (speed < maxSpeed)
@@ -180,9 +193,10 @@ public class PlayerController : MonoBehaviour
                     }
                 }
 
+                //Establish a new position variable which we set depending on where the player is going.
                 Vector3 newPosition;
 
-                //This area handles the rotation of the player by changing euler angles.
+                //This area handles the rotation and the new position of wherever the player is moving to at a fixed speed.
                 if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
                 {
                     newRotation = Quaternion.Euler(0f, -45f, 0f);
@@ -232,24 +246,21 @@ public class PlayerController : MonoBehaviour
                     rb.MovePosition(newPosition);
                 }
 
-                if (Input.GetKeyDown(KeyCode.M))
-                {
-                    health = 0;
-                }
-
                 //We then update the rotation and movment here based off of where were rotating and moving to and from.
                 player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, newRotation, 5f);
             }
             else if (health <= 0)
             {
+                rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+
                 playerAnimations.SetBool("isdead", true);
                 playerAnimations.SetBool("walking", false);
                 playerAnimations.SetBool("running", false);
-                
 
                 respawning = true;
 
                 UIScriptHolder.GetComponent<LevelUI>().fadeAll = true;
+                variableScript.paused = true;
             }
             else
             {
@@ -268,7 +279,7 @@ public class PlayerController : MonoBehaviour
             }
 
             //The player presses Q to whistle
-            //For a limited amount of time, enemies within the a certain range of the player will be alerted to his/her position.
+            //For a brief moment, enemies within a certain range of the player will be alerted to his/her position.
             if (Input.GetKeyDown(KeyCode.Q) && whistleCooldown == false)
             {
                 playerAudio.clip = whistle;
@@ -287,11 +298,13 @@ public class PlayerController : MonoBehaviour
                 lastWhistle -= Time.deltaTime;
             }
 
+            //The player presses space to use their taser, assuming they haven't already fired it once and they actually have the taser.
             if (Input.GetKeyDown(KeyCode.Space) && hasTaser == true && hasFired == false)
             {
                 drawGun = true;
             }
 
+            //These next two sections deal with handling the animations of firing.
             if (drawGun == true && speed == 0f)
             {
                 playerAnimations.SetBool("firing", true);
@@ -332,6 +345,7 @@ public class PlayerController : MonoBehaviour
                 playerAnimations.SetBool("firing", false);
             }
 
+            //If the player presses R then they will place down a trap.
             if (Input.GetKeyDown(KeyCode.R) && hasTraps == true)
             {
                 traps -= 1;
@@ -339,8 +353,7 @@ public class PlayerController : MonoBehaviour
 
                 temporaryTrap = Instantiate(trap, new Vector3(currentTile.transform.position.x, trapSpot.transform.position.y, currentTile.transform.position.z), Quaternion.Euler(0f, 0f, 0f)) as GameObject;
                 //Empty is on the ground underneath the player.
-                //When player attempts to place a trap, it locates the center of the tile under the player.
-                
+                //When player attempts to place a trap, it locates the center of the most recent tile stepped on by the player.
                 //Places trap on top of that tile.
                 //After 10 seconds, it gets destroyed (Leaving this in for testing purposes, but could become an actual feature).
                 // Explain it away as having a limited self storage battery.
@@ -352,18 +365,21 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if (PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "true")
+        else if (variableScript.cutscene == false && variableScript.paused == true)
         {
             playerAnimations.SetBool("walking", false);
             playerAnimations.SetBool("running", false);
         }
     }
 
+    //This script handles all of the possible things the player will run into when running past, into, or through certain objects.
     private void OnTriggerEnter(Collider other)
     {
+        //If the object is tagged as a refill, we check for a few things. No matter what we always give the player back their trap, and we set the last known checkpoint to be the thing they just walked through.
+        //We also check to see if they have a taser, if they do we give them their shot back so that they can fire again. Finally we set the section display to be faded in for the player.
         if (other.gameObject.tag == "refill")
         {
-            traps = 3;
+            traps = 1;
             hasTraps = true;
 
             if (hasTaser)
@@ -372,38 +388,15 @@ public class PlayerController : MonoBehaviour
             }
 
             PlayerPrefs.SetString("Last Checkpoint", other.gameObject.name);
-            PlayerPrefs.SetString("Last Section", scene.name);
-            PlayerPrefs.SetString("Section Display", "true");
-            PlayerPrefs.Save();
-        }
-        else if (other.gameObject.tag == "newFloor")
-        {
-            if (scene.name == "NewTutorial")
-            {
-                PlayerPrefs.SetString("Last Section", "NewTutorial");
-            }
-            else if (scene.name == "1st Level")
-            {
-                PlayerPrefs.SetString("Last Section", "1st Level");
-            }
-            else if (scene.name == "2nd Level")
-            {
-                PlayerPrefs.SetString("Last Section", "2nd Level");
-            }
-            else if (scene.name == "3rd Level")
-            {
-                PlayerPrefs.SetString("Last Section", "3rd Level");
-            }
-            PlayerPrefs.Save();
+            variableScript.displaySection = true;
         }
         else if (other.gameObject.tag == "lock")
         {
-            PlayerPrefs.SetString("Section Display","false");
+            variableScript.displaySection = false;
 
             if (scene.name == "NewTutorial")
             {
-                PlayerPrefs.SetString("Cutscene", "true");
-                PlayerPrefs.SetString("Paused", "true");
+                variableScript.cutscene = true;
             }
 
             if (other.gameObject.name == "End")
@@ -413,7 +406,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
+        //This script checks to see if the stuff we are walking over contains the name ground and if it does we set the position of where we will drop a trap to be on the last tile we just entered.
         if (other.name.Contains("Ground"))
         {
             currentTile = other.gameObject;

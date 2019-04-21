@@ -98,7 +98,6 @@ public class LevelUI : MonoBehaviour
         //We set the resolution of the game based on the player's settings.
         foreach (int resolution in heights)
         {
-            Debug.Log(resolution);
             if (resolution == PlayerPrefs.GetInt("Resolution"))
             {
                 width = widths[index];
@@ -266,7 +265,6 @@ public class LevelUI : MonoBehaviour
                 {
                     fadeGroup.alpha = 1f;
                     fadeAll = false;
-                    player.GetComponent<PlayerController>().health = 1;
                     StartCoroutine(LoadScene(PlayerPrefs.GetString("Last Section")));
                 }
             }
