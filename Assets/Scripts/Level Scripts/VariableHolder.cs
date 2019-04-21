@@ -9,16 +9,25 @@ public class VariableHolder : MonoBehaviour
     public bool cutscene = false;
     public bool paused = false;
     public bool tutorial = false;
-    public bool sectionDisplay = false;
+    public bool displaySection = false;
 
-    public string levelName = "null";
-    public string sectionName = "null";
-    public string displayLevelName = "null";
-    public string displaySectionName = "null";
-
-    float titleAlpha = 0f;
+    public float tutorialTimer = 0f;
 
     Scene scene;
+
+    // 2 - UI Stuff
+    public CanvasGroup cutsceneBars;
+
+    float barsAlpha = 0f;
+
+    // 3 - Player Stuff
+    public GameObject playerModel;
+
+    public Rigidbody playerbody;
+
+    Quaternion newRotation;
+
+    public Animator playerAnimations;
 
     // Start is called before the first frame update
     void Start()
@@ -28,38 +37,19 @@ public class VariableHolder : MonoBehaviour
         if (scene.name == "NewTutorial")
         {
             tutorial = true;
-            displayLevelName = "Medical Ward";
-        }
-        else if (scene.name == "1st Level")
-        {
-            tutorial = false;
-            displayLevelName = "Feeding Grounds";
-        }
-        else if (scene.name == "2nd Level")
-        {
-            tutorial = false;
-            displayLevelName = "Heart of the Hive";
-        }
-        else if (scene.name == "3rd Level")
-        {
-            tutorial = false;
-            displayLevelName = "Breeding Grounds";
-        }
-
-        if (sectionName == "new" || sectionName == "End")
-        {
-            sectionName = "new";
             cutscene = true;
-
-            if (scene.name == "NewTutorial")
-            {
-                sectionName = "Cryo Pod";
-            }
-            else
-            {
-                sectionName = "Entrance";
-            }
+            barsAlpha = 1f;
+            cutsceneBars.alpha = 1f;
         }
+        else
+        {
+            tutorial = false;
+            cutscene = true;
+            barsAlpha = 1f;
+            cutsceneBars.alpha = 1f;
+        }
+
+        displaySection = true;
     }
 
     // Update is called once per frame
@@ -67,7 +57,7 @@ public class VariableHolder : MonoBehaviour
     {
         if (tutorial == true)
         {
-
+            tutorialTimer += Time.deltaTime;
         }
     }
 }

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public GameObject scriptHolder;
+    VariableHolder variableScript;
+
     public GameObject player;
     private Vector3 newPlace;
     private Vector3 oldPlace;
 
-    private float cameraHeight = 10f;
+    readonly private float cameraHeight = 10f;
 
     private float moveTime;
 
@@ -20,26 +23,23 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scriptHolder = GameObject.Find("Level Scripts");
+        variableScript = scriptHolder.GetComponent<VariableHolder>();
+
         //We set the camera to start where the player starts.
         this.transform.position = new Vector3(player.transform.position.x, cameraHeight, player.transform.position.z - 6.5f);
 
         if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 3" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 4" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 5")
         {
-            waitTime = 1.6f;
+            waitTime = 1.5f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //If the intro cutscene shouldn't play, then the camera is set to follow the players commands.
-        //Or you haven't paused the game, don't worry about the code atm.
-        if ((PlayerPrefs.GetString("Cutscene") == "true" && PlayerPrefs.GetString("Paused") == "true"))
-        {
-            waitTime = 1.6f;
-            Debug.Log("I'm doing nothing!");
-        }
-        else if (PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "false") {
+        //Here we tell the camera to follow the player at all times when a cutscene isn't playing and we aren't paused. If we are paused the camera moves back to being on top of the player, and if we are in a cutscene we take away the control of the camera completely.
+        if (variableScript.cutscene == false && variableScript.paused == false) {
 
             oldPlace = this.transform.position;
 
@@ -164,7 +164,7 @@ public class CameraFollow : MonoBehaviour
 
             this.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
         }
-        else if (PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "true")
+        else if (variableScript.cutscene == false && variableScript.paused == true)
         {
             oldPlace = this.transform.position;
 
@@ -181,9 +181,9 @@ public class CameraFollow : MonoBehaviour
 
             this.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
         }
-        else
+        else if (variableScript.cutscene == true)
         {
-
+            waitTime = 1.5f;
         }
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelUI : MonoBehaviour
 {
+    public GameObject scriptHolder;
+    VariableHolder variableScript;
+
     string checkpointName;
     string sectionName;
 
@@ -14,10 +17,9 @@ public class LevelUI : MonoBehaviour
     int index = 0;
     int qualityNum = 0;
 
-    float fadeAlpha = 0f;
+    float fadeAlpha = 1f;
     float UIAlpha = 0f;
-    float textboxAlpha = 0f;
-    float titleAlpha = 1f;
+    float titleAlpha = 0f;
     float settingsAlpha = 0f;
 
     float masterLevel = 0f;
@@ -27,7 +29,6 @@ public class LevelUI : MonoBehaviour
     bool fadeUIIn = false;
     public bool fadeAll = false;
     bool fadeAllIn = false;
-    bool fadeSettingsIn = false;
 
     bool firstLoad = false;
     bool backingOut = false;
@@ -41,6 +42,7 @@ public class LevelUI : MonoBehaviour
     public Button applyB;
 
     public Text fullscreenText;
+    public Text resolutionText;
     public Text areaTitle;
 
     public Slider masterS;
@@ -60,7 +62,7 @@ public class LevelUI : MonoBehaviour
 
     public AudioSource hover;
     public AudioSource select;
-    public AudioSource audio;
+    new public AudioSource audio;
 
     public AudioClip levelMusic;
 
@@ -69,12 +71,17 @@ public class LevelUI : MonoBehaviour
 
     Scene scene;
 
-    Resolution[] resolutions;
+    readonly int[] heights = new int[] { 450, 576, 720, 768, 900, 1080, 1440 };
+    readonly int[] widths = new int[] { 800, 1024, 1280, 1366, 1600, 1920, 2560 };
+
     string[] qualities;
 
     // Start is called before the first frame update
     void Start()
     {
+        scriptHolder = GameObject.Find("Level Scripts");
+        variableScript = scriptHolder.GetComponent<VariableHolder>();
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         scene = SceneManager.GetActiveScene();
@@ -82,36 +89,35 @@ public class LevelUI : MonoBehaviour
         if (PlayerPrefs.GetString("Screen Mode") == "true")
         {
             fullscreenB.GetComponentInChildren<Text>().text = "Fullscreen";
-            Screen.fullScreen = true;
         }
         else
         {
             fullscreenB.GetComponentInChildren<Text>().text = "Windowed";
-            Screen.fullScreen = false;
         }
 
-        resolutions = Screen.resolutions;
-
-        foreach (var res in resolutions)
+        //We set the resolution of the game based on the player's settings.
+        foreach (int resolution in heights)
         {
-            if (res.width == PlayerPrefs.GetInt("Resolution"))
+            Debug.Log(resolution);
+            if (resolution == PlayerPrefs.GetInt("Resolution"))
             {
-                width = res.width;
-                height = res.height;
+                width = widths[index];
+                height = resolution;
+                break;
             }
+
             index += 1;
         }
 
         if (height == 0)
         {
-            index = resolutions.Length - 1;
+            index = 5;
 
-            height = resolutions[index].height;
-            width = resolutions[index].width;
+            height = heights[index];
+            width = widths[index];
         }
 
-        resolutionB.GetComponentInChildren<Text>().text = (width + " x " + height);
-        Screen.SetResolution(width, height, Screen.fullScreen);
+        resolutionText.text = (width + " x " + height);
 
         qualities = QualitySettings.names;
 
@@ -176,13 +182,7 @@ public class LevelUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetString("Last Checkpoint") == "End")
-        {
-            fadeAll = true;
-            PlayerPrefs.SetString("Cutscene", "true");
-        }
-
-        //This is just us slowly fading the black screen away from the player to reveal the opening animations.
+        //Skip to the next line of code as these areas deal with fading in and out the scene or the UI for the player.
         if (fadeAllIn == true)
         {
             if (player.GetComponent<PlayerController>().respawning == false) {
@@ -215,7 +215,6 @@ public class LevelUI : MonoBehaviour
             }
         }
 
-        //We are transitioning out of the game.
         if (fadeAll == true)
         {
             if (player.GetComponent<PlayerController>().respawning == false) {
@@ -273,7 +272,6 @@ public class LevelUI : MonoBehaviour
             }
         }
 
-        //We are closing the in game pause menu.
         if (fadeUI == true)
         {
             UIAlpha -= Time.deltaTime * 2f;
@@ -291,7 +289,6 @@ public class LevelUI : MonoBehaviour
             }
         }
 
-        //We are opening the in game pause menu.
         if (fadeUIIn == true)
         {
             UIAlpha += Time.deltaTime * 2f;
@@ -307,8 +304,10 @@ public class LevelUI : MonoBehaviour
                 fadeUIIn = false;
             }
         }
+        //You may now continue viewing things below.
 
-        if (tradeWindows == true && PlayerPrefs.GetString("Paused") == "true" && PlayerPrefs.GetString("Cutscene") == "false")
+        //If we aren't in a cutscene and the game is paused then we need to display the in game interface to the player, else we need to make sure it's not active.
+        if (tradeWindows == true)
         {
             UIAlpha -= Time.deltaTime * 2f;
             UIGroup.alpha = UIAlpha;
@@ -340,7 +339,7 @@ public class LevelUI : MonoBehaviour
                 }
             }
         }
-        else if (tradeWindows == false && PlayerPrefs.GetString("Paused") == "true" && PlayerPrefs.GetString("Cutscene") == "false")
+        else if (tradeWindows == false)
         {
             settingsAlpha -= Time.deltaTime * 2f;
             SettingsWindow.alpha = settingsAlpha;
@@ -371,24 +370,21 @@ public class LevelUI : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "false")
+        //Some escape key handling that helps fix issues with users pressing escape to exit a menu versus being forced to click on a button.
+        if (Input.GetKeyDown(KeyCode.Escape) && variableScript.paused == false)
         {
-            PlayerPrefs.SetString("Paused", "true");
-            PlayerPrefs.Save();
+            variableScript.paused = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "true" && tradeWindows == false)
+        else if (Input.GetKeyDown(KeyCode.Escape) && variableScript.paused == true && tradeWindows == false)
         {
-            PlayerPrefs.SetString("Paused", "false");
-            PlayerPrefs.Save();
+            variableScript.paused = false;
             continueGame.enabled = false;
             settingsB.enabled = false;
             exitB.enabled = false;
             fadeUI = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && PlayerPrefs.GetString("Cutscene") == "false" && PlayerPrefs.GetString("Paused") == "true" && tradeWindows == true)
+        else if (Input.GetKeyDown(KeyCode.Escape) && variableScript.paused == true && tradeWindows == true)
         {
-            PlayerPrefs.Save();
-            fadeSettingsIn = false;
             resolutionB.enabled = false;
             fullscreenB.enabled = false;
             qualityB.enabled = false;
@@ -398,28 +394,29 @@ public class LevelUI : MonoBehaviour
             tradeWindows = false;
         }
 
-        if (PlayerPrefs.GetString("Section Display") == "true")
+        //Text handling, that tells the section title to be faded in or out and sets the text of the scene.
+        if (variableScript.displaySection == true)
         {
             if (titleAlpha < 1f)
             {
-                if (PlayerPrefs.GetString("Last Section") == "NewTutorial")
+                if (scene.name == "NewTutorial")
                 {
                     sectionName = "Medical Ward";
                 }
-                else if (PlayerPrefs.GetString("Last Section") == "1st Level")
+                else if (scene.name == "1st Level")
                 {
                     sectionName = "Feeding Grounds";
                 }
-                else if (PlayerPrefs.GetString("Last Section") == "2nd Level")
+                else if (scene.name == "2nd Level")
                 {
                     sectionName = "Heart of the Hive";
                 }
-                else if (PlayerPrefs.GetString("Last Section") == "3rd Level")
+                else if (scene.name == "3rd Level")
                 {
                     sectionName = "Breeding Grounds";
                 }
 
-                if (PlayerPrefs.GetString("Last Checkpoint") == "new" && PlayerPrefs.GetString("Last Section") == "NewTutorial")
+                if (PlayerPrefs.GetString("Last Checkpoint") == "new" && scene.name == "NewTutorial")
                 {
                     checkpointName = "Cryo Pod";
                 }
@@ -457,10 +454,10 @@ public class LevelUI : MonoBehaviour
         }
     }
 
+    //Button that handles returning the player back into the game from the menu.
     public void Back()
     {
-        PlayerPrefs.SetString("Paused", "false");
-        PlayerPrefs.Save();
+        variableScript.paused = false;
 
         fadeUI = true;
         continueGame.enabled = false;
@@ -468,6 +465,7 @@ public class LevelUI : MonoBehaviour
         exitB.enabled = false;
     }
 
+    //Button that trades the in game menu for the settings menu.
     public void Settings()
     {
         tradeWindows = true;
@@ -476,7 +474,8 @@ public class LevelUI : MonoBehaviour
         exitB.enabled = false;
     }
 
-    public void changeFullscreen()
+    //Button to switch between windowed or fullscreen mode.
+    public void ChangeFullscreen()
     {
             if (Screen.fullScreen == true)
             {
@@ -494,26 +493,27 @@ public class LevelUI : MonoBehaviour
             Debug.Log(PlayerPrefs.GetString("Screen Mode"));
     }
 
-    public void changeResolution()
+    //Button to change the resolution.
+    public void ChangeResolution()
     {
-            if (index < (resolutions.Length - 1))
-            {
-                index += 1;
-            }
-            else
-            {
-                index = 0;
-            }
+        if (index < 6)
+        {
+            index += 1;
+        }
+        else
+        {
+            index = 0;
+        }
 
-            height = resolutions[index].height;
-            width = resolutions[index].width;
+        height = heights[index];
+        width = widths[index];
 
-            resolutionB.GetComponentInChildren<Text>().text = (width + " x " + height);
-            //Screen.SetResolution(width, height, Screen.fullScreen);
-            PlayerPrefs.SetString("Resolution", height.ToString());
+        resolutionText.text = (width + " x " + height);
+        PlayerPrefs.SetInt("Resolution", height);
     }
 
-    public void changeQuality()
+    //Button the change the in game quality of the scene.
+    public void ChangeQuality()
     {
         if (qualityNum < (qualities.Length - 1))
         {
@@ -529,12 +529,11 @@ public class LevelUI : MonoBehaviour
         qualityB.GetComponentInChildren<Text>().text = ("Level " + (qualityNum + 1));
     }
 
-    //Used to go back between the settings of the menu.
+    //Used to save settings and return to the in game menu.
     public void SaveApply()
     {
         Screen.SetResolution(width, height, Screen.fullScreen);
 
-        fadeSettingsIn = false;
         resolutionB.enabled = false;
         fullscreenB.enabled = false;
         qualityB.enabled = false;
@@ -546,28 +545,32 @@ public class LevelUI : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    //Button that handles exiting the game.
     public void ExitGame()
     {
-        PlayerPrefs.SetString("Paused", "false");
+        variableScript.paused = true;
         PlayerPrefs.Save();
         fadeUI = true;
         fadeAll = true;
         backingOut = true;
     }
 
+    //Function to handle the noise on hovering over a button.
     public void HoverSound()
     {
         hover.clip = hovering;
             hover.Play();
     }
-
-    public void clickSound()
+    
+    //Function to handle the noise on clicking a button.
+    public void ClickSound()
     {
         select.clip = selecting;
             select.Play();
     }
 
-    public void masterV(float value)
+    //This button handles the slider for the master volume.
+    public void MasterV(float value)
     {
         Debug.Log(masterS.value);
         masterLevel = value;
@@ -577,7 +580,7 @@ public class LevelUI : MonoBehaviour
         select.volume = masterLevel * UIAlpha;
     }
 
-    //This function handles loading the scene in
+    //This function handles loading the scene in or out.
     IEnumerator LoadScene(string scene)
     {
         // The Application loads the Scene in the background as the current Scene runs.

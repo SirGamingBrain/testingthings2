@@ -116,8 +116,6 @@ public class MainMenu : MonoBehaviour
             Screen.fullScreen = false;
         }
 
-        //resolutions = Screen.resolutions;
-
         //We set the resolution of the game based on the player's settings.
         foreach (int resolution in heights)
         {

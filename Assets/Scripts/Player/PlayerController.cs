@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private float gunCounter = 0f;
     private float speed = 0f;
     private float maxSpeed = 10f;
-    private float bulletSpeed = 1000f;
+    readonly private float bulletSpeed = 1000f;
 
     private bool hasTaser = false;
     private bool hasTraps = false;
@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     private bool hasFired = false;
     private bool drawGun = false;
     private bool fireGun = false;
-    private bool holsterGun = false;
 
     public bool cutscenePlaying = false;
     public bool respawning = false;
@@ -412,8 +411,6 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetString("Last Checkpoint", "End");
                 PlayerPrefs.Save();
             }
-
-            //PlayerPrefs.Save();
         }
 
 

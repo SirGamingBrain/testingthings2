@@ -47,7 +47,6 @@ public class AcessPanelManager : MonoBehaviour
                     text.text = " ";
                 }
 
-
                 //Finally we check to see that if the player hits the E key, and the specific access panel is interactable, then the panel's door will be opened.
                 if (Input.GetKeyDown(KeyCode.E) && AccessPanelScripts.interactable == true)
                 {
