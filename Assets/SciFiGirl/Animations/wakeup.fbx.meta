@@ -1,0 +1,1063 @@
+fileFormatVersion: 2
+guid: 37dbb3e92f40447769b81b96c21a2920
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: SciFiGirl:Arm_L
+    100002: SciFiGirl:Arm_R
+    100004: SciFiGirl:Chest
+    100006: SciFiGirl:Eye_L
+    100008: SciFiGirl:Eye_L_end
+    100010: SciFiGirl:Eye_R
+    100012: SciFiGirl:Eye_R_end
+    100014: SciFiGirl:Foot_L
+    100016: SciFiGirl:Foot_R
+    100018: SciFiGirl:ForeArm_L
+    100020: SciFiGirl:ForeArm_R
+    100022: SciFiGirl:Hand_L
+    100024: SciFiGirl:Hand_R
+    100026: SciFiGirl:HandTarget_L
+    100028: SciFiGirl:HandTarget_L_end
+    100030: SciFiGirl:HandTarget_R
+    100032: SciFiGirl:HandTarget_R_end
+    100034: SciFiGirl:Head
+    100036: SciFiGirl:Hips
+    100038: SciFiGirl:index1_L
+    100040: SciFiGirl:index1_R
+    100042: SciFiGirl:index2_L
+    100044: SciFiGirl:index2_R
+    100046: SciFiGirl:index3_L
+    100048: SciFiGirl:index3_L_end
+    100050: SciFiGirl:index3_R
+    100052: SciFiGirl:index3_R_end
+    100054: SciFiGirl:LegTarget_L
+    100056: SciFiGirl:LegTarget_L_end
+    100058: SciFiGirl:LegTarget_R
+    100060: SciFiGirl:LegTarget_R_end
+    100062: SciFiGirl:LowerLeg_L
+    100064: SciFiGirl:LowerLeg_R
+    100066: SciFiGirl:mid1_L
+    100068: SciFiGirl:mid1_R
+    100070: SciFiGirl:mid2_L
+    100072: SciFiGirl:mid2_R
+    100074: SciFiGirl:mid3_L
+    100076: SciFiGirl:mid3_L_end
+    100078: SciFiGirl:mid3_R
+    100080: SciFiGirl:mid3_R_end
+    100082: SciFiGirl:Neck
+    100084: SciFiGirl:pinky1_L
+    100086: SciFiGirl:pinky1_R
+    100088: SciFiGirl:pinky2_L
+    100090: SciFiGirl:pinky2_R
+    100092: SciFiGirl:pinky3_L
+    100094: SciFiGirl:pinky3_L_end
+    100096: SciFiGirl:pinky3_R
+    100098: SciFiGirl:pinky3_R_end
+    100100: SciFiGirl:ring1_L
+    100102: SciFiGirl:ring1_R
+    100104: SciFiGirl:ring2_L
+    100106: SciFiGirl:ring2_R
+    100108: SciFiGirl:ring3_L
+    100110: SciFiGirl:ring3_L_end
+    100112: SciFiGirl:ring3_R
+    100114: SciFiGirl:ring3_R_end
+    100116: SciFiGirl:Shoulder_L
+    100118: SciFiGirl:Shoulder_R
+    100120: SciFiGirl:Spine
+    100122: SciFiGirl:thumb1_L
+    100124: SciFiGirl:thumb1_R
+    100126: SciFiGirl:thumb2_L
+    100128: SciFiGirl:thumb2_R
+    100130: SciFiGirl:thumb3_L
+    100132: SciFiGirl:thumb3_L_end
+    100134: SciFiGirl:thumb3_R
+    100136: SciFiGirl:thumb3_R_end
+    100138: SciFiGirl:Toes_L
+    100140: SciFiGirl:Toes_L_end
+    100142: SciFiGirl:Toes_R
+    100144: SciFiGirl:Toes_R_end
+    100146: SciFiGirl:UpperLeg_L
+    100148: SciFiGirl:UpperLeg_R
+    100150: SciFiGirl:weapon_bone
+    100152: SciFiGirl:weapon_bone_end
+    100154: //RootNode
+    400000: SciFiGirl:Arm_L
+    400002: SciFiGirl:Arm_R
+    400004: SciFiGirl:Chest
+    400006: SciFiGirl:Eye_L
+    400008: SciFiGirl:Eye_L_end
+    400010: SciFiGirl:Eye_R
+    400012: SciFiGirl:Eye_R_end
+    400014: SciFiGirl:Foot_L
+    400016: SciFiGirl:Foot_R
+    400018: SciFiGirl:ForeArm_L
+    400020: SciFiGirl:ForeArm_R
+    400022: SciFiGirl:Hand_L
+    400024: SciFiGirl:Hand_R
+    400026: SciFiGirl:HandTarget_L
+    400028: SciFiGirl:HandTarget_L_end
+    400030: SciFiGirl:HandTarget_R
+    400032: SciFiGirl:HandTarget_R_end
+    400034: SciFiGirl:Head
+    400036: SciFiGirl:Hips
+    400038: SciFiGirl:index1_L
+    400040: SciFiGirl:index1_R
+    400042: SciFiGirl:index2_L
+    400044: SciFiGirl:index2_R
+    400046: SciFiGirl:index3_L
+    400048: SciFiGirl:index3_L_end
+    400050: SciFiGirl:index3_R
+    400052: SciFiGirl:index3_R_end
+    400054: SciFiGirl:LegTarget_L
+    400056: SciFiGirl:LegTarget_L_end
+    400058: SciFiGirl:LegTarget_R
+    400060: SciFiGirl:LegTarget_R_end
+    400062: SciFiGirl:LowerLeg_L
+    400064: SciFiGirl:LowerLeg_R
+    400066: SciFiGirl:mid1_L
+    400068: SciFiGirl:mid1_R
+    400070: SciFiGirl:mid2_L
+    400072: SciFiGirl:mid2_R
+    400074: SciFiGirl:mid3_L
+    400076: SciFiGirl:mid3_L_end
+    400078: SciFiGirl:mid3_R
+    400080: SciFiGirl:mid3_R_end
+    400082: SciFiGirl:Neck
+    400084: SciFiGirl:pinky1_L
+    400086: SciFiGirl:pinky1_R
+    400088: SciFiGirl:pinky2_L
+    400090: SciFiGirl:pinky2_R
+    400092: SciFiGirl:pinky3_L
+    400094: SciFiGirl:pinky3_L_end
+    400096: SciFiGirl:pinky3_R
+    400098: SciFiGirl:pinky3_R_end
+    400100: SciFiGirl:ring1_L
+    400102: SciFiGirl:ring1_R
+    400104: SciFiGirl:ring2_L
+    400106: SciFiGirl:ring2_R
+    400108: SciFiGirl:ring3_L
+    400110: SciFiGirl:ring3_L_end
+    400112: SciFiGirl:ring3_R
+    400114: SciFiGirl:ring3_R_end
+    400116: SciFiGirl:Shoulder_L
+    400118: SciFiGirl:Shoulder_R
+    400120: SciFiGirl:Spine
+    400122: SciFiGirl:thumb1_L
+    400124: SciFiGirl:thumb1_R
+    400126: SciFiGirl:thumb2_L
+    400128: SciFiGirl:thumb2_R
+    400130: SciFiGirl:thumb3_L
+    400132: SciFiGirl:thumb3_L_end
+    400134: SciFiGirl:thumb3_R
+    400136: SciFiGirl:thumb3_R_end
+    400138: SciFiGirl:Toes_L
+    400140: SciFiGirl:Toes_L_end
+    400142: SciFiGirl:Toes_R
+    400144: SciFiGirl:Toes_R_end
+    400146: SciFiGirl:UpperLeg_L
+    400148: SciFiGirl:UpperLeg_R
+    400150: SciFiGirl:weapon_bone
+    400152: SciFiGirl:weapon_bone_end
+    400154: //RootNode
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: SciFiGirl:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:UpperLeg_L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:UpperLeg_R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:LowerLeg_L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:LowerLeg_R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Foot_L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Foot_R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Chest
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Shoulder_L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Shoulder_R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Arm_L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Arm_R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:ForeArm_L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:ForeArm_R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Hand_L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Hand_R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Toes_L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Toes_R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Eye_L
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:Eye_R
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:thumb1_L
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:thumb2_L
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:thumb3_L
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:index1_L
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:index2_L
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:index3_L
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:mid1_L
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:mid2_L
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:mid3_L
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:ring1_L
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:ring2_L
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:ring3_L
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:pinky1_L
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:pinky2_L
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:pinky3_L
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:thumb1_R
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:thumb2_R
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:thumb3_R
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:index1_R
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:index2_R
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:index3_R
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:mid1_R
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:mid2_R
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:mid3_R
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:ring1_R
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:ring2_R
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:ring3_R
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:pinky1_R
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:pinky2_R
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: SciFiGirl:pinky3_R
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: wakeup(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:HandTarget_L
+      parentName: wakeup(Clone)
+      position: {x: -1.964739, y: 0.1064654, z: 3.980862}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:HandTarget_L_end
+      parentName: SciFiGirl:HandTarget_L
+      position: {x: -0, y: 0.2703281, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:HandTarget_R
+      parentName: wakeup(Clone)
+      position: {x: 1.964739, y: 0.1064654, z: 3.980862}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:HandTarget_R_end
+      parentName: SciFiGirl:HandTarget_R
+      position: {x: -0, y: 0.2703281, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:Hips
+      parentName: wakeup(Clone)
+      position: {x: -0, y: 0, z: 3.011596}
+      rotation: {x: 0.7614702, y: -0.00000007727142, z: -0.00000009077431, w: 0.6481999}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:Spine
+      parentName: SciFiGirl:Hips
+      position: {x: -1.349748e-15, y: 0.6200796, z: -0.00000002235174}
+      rotation: {x: 6.39984e-17, y: 0.9989303, z: 0.04624289, w: -5.8335285e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:Chest
+      parentName: SciFiGirl:Spine
+      position: {x: -3.551584e-16, y: 0.5766295, z: 0.000000007450581}
+      rotation: {x: -0.000000040312592, y: 0.99066174, z: 0.1363429, w: -0.0000000055481455}
+      scale: {x: 1, y: 0.9999998, z: 0.9999999}
+    - name: SciFiGirl:Neck
+      parentName: SciFiGirl:Chest
+      position: {x: 3.430078e-10, y: 0.8809596, z: -0.00000001862645}
+      rotation: {x: 0.000000017520799, y: 0.97626776, z: 0.21656726, w: 0.0000000038866705}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: SciFiGirl:Head
+      parentName: SciFiGirl:Neck
+      position: {x: 1.44329e-15, y: 0.3247762, z: -0.0000001378357}
+      rotation: {x: 0.000000031955043, y: 0.99012494, z: 0.14018774, w: 0.0000000045243835}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:Eye_L
+      parentName: SciFiGirl:Head
+      position: {x: -0.1154759, y: 0.259713, z: 0.2229903}
+      rotation: {x: -0.18446222, y: 0.6639352, z: 0.7034583, w: -0.1740986}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:Eye_L_end
+      parentName: SciFiGirl:Eye_L
+      position: {x: -0, y: 0.07911614, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:Eye_R
+      parentName: SciFiGirl:Head
+      position: {x: 0.115476, y: 0.259713, z: 0.2229903}
+      rotation: {x: 0.18446232, y: 0.6639351, z: 0.70345825, w: 0.17409846}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:Eye_R_end
+      parentName: SciFiGirl:Eye_R
+      position: {x: -0, y: 0.07911614, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:Shoulder_L
+      parentName: SciFiGirl:Chest
+      position: {x: 3.430078e-10, y: 0.8809596, z: -0.00000001862645}
+      rotation: {x: -0.5317374, y: 0.33852553, z: 0.5671895, w: 0.53004897}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:Arm_L
+      parentName: SciFiGirl:Shoulder_L
+      position: {x: 0.00000002235174, y: 0.569662, z: -0.00000027649}
+      rotation: {x: 0.11109525, y: 0.009786755, z: 0.06551841, w: 0.99159944}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:ForeArm_L
+      parentName: SciFiGirl:Arm_L
+      position: {x: 0.00000002607703, y: 0.8689742, z: 0.00000007155953}
+      rotation: {x: 0.002231508, y: 0.00029312161, z: 0.039403096, w: 0.9992209}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: SciFiGirl:Hand_L
+      parentName: SciFiGirl:ForeArm_L
+      position: {x: -0.000000007450581, y: 0.8370202, z: -0.0000001033659}
+      rotation: {x: 0.029323408, y: -0.008512973, z: -0.016437288, w: 0.9993986}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:index1_L
+      parentName: SciFiGirl:Hand_L
+      position: {x: -0.09846295, y: 0.2892663, z: -0.002390976}
+      rotation: {x: -0.027444772, y: -0.043746762, z: 0.053707827, w: 0.9972204}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:index2_L
+      parentName: SciFiGirl:index1_L
+      position: {x: -0.00000003166497, y: 0.1030318, z: 0.0000002183951}
+      rotation: {x: -0.005464834, y: -0.009982208, z: 0.0055654184, w: 0.9999198}
+      scale: {x: 0.9999998, y: 0.9999999, z: 1}
+    - name: SciFiGirl:index3_L
+      parentName: SciFiGirl:index2_L
+      position: {x: 0.00000000372529, y: 0.08216276, z: -0.0000005844049}
+      rotation: {x: -0.0005213011, y: 0.0003679776, z: 0.011376551, w: 0.9999351}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:index3_L_end
+      parentName: SciFiGirl:index3_L
+      position: {x: -0, y: 0.09056664, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:mid1_L
+      parentName: SciFiGirl:Hand_L
+      position: {x: -0.03004951, y: 0.3014984, z: 0.01360134}
+      rotation: {x: -0.028210001, y: -0.03670415, z: -0.0083666695, w: 0.9988929}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: SciFiGirl:mid2_L
+      parentName: SciFiGirl:mid1_L
+      position: {x: -0.000000007450581, y: 0.1054123, z: -0.00000006658956}
+      rotation: {x: -0.013998354, y: 0.00007199676, z: -0.010593946, w: 0.9998459}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:mid3_L
+      parentName: SciFiGirl:mid2_L
+      position: {x: -0.00000001117587, y: 0.08235259, z: -0.0000003934838}
+      rotation: {x: 0.0018639, y: 0.0003461174, z: 0.0056958036, w: 0.999982}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: SciFiGirl:mid3_L_end
+      parentName: SciFiGirl:mid3_L
+      position: {x: -0, y: 0.08871449, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:pinky1_L
+      parentName: SciFiGirl:Hand_L
+      position: {x: 0.09991392, y: 0.2764318, z: 0.009879044}
+      rotation: {x: 0.0070394278, y: 0.06781262, z: -0.025083015, w: 0.9973579}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:pinky2_L
+      parentName: SciFiGirl:pinky1_L
+      position: {x: -0.00000004470348, y: 0.07461432, z: -0.0000003371388}
+      rotation: {x: -0.010798639, y: 0.0008238602, z: 0.00766816, w: 0.99991196}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: SciFiGirl:pinky3_L
+      parentName: SciFiGirl:pinky2_L
+      position: {x: -0.00000005960464, y: 0.064209, z: -0.00000005215406}
+      rotation: {x: 0.017719101, y: -0.0017898733, z: -0.010348291, w: 0.99978787}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:pinky3_L_end
+      parentName: SciFiGirl:pinky3_L
+      position: {x: -0, y: 0.06570999, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:ring1_L
+      parentName: SciFiGirl:Hand_L
+      position: {x: 0.03985066, y: 0.2927546, z: 0.01747678}
+      rotation: {x: -0.009063651, y: 0.029642373, z: -0.024720192, w: 0.99921376}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: SciFiGirl:ring2_L
+      parentName: SciFiGirl:ring1_L
+      position: {x: -0.00000001117587, y: 0.1039638, z: -0.0000001643784}
+      rotation: {x: 0.003093561, y: 0.00023734658, z: -0.008994895, w: 0.99995476}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:ring3_L
+      parentName: SciFiGirl:ring2_L
+      position: {x: -0.000000007450581, y: 0.07769015, z: -0.0000003427267}
+      rotation: {x: -0.010232062, y: -0.0009959423, z: -0.007046259, w: 0.99992234}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:ring3_L_end
+      parentName: SciFiGirl:ring3_L
+      position: {x: -0, y: 0.08602677, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:thumb1_L
+      parentName: SciFiGirl:Hand_L
+      position: {x: -0.05411593, y: 0.05800678, z: -0.03632225}
+      rotation: {x: 0.047899507, y: -0.05514216, z: 0.3963232, w: 0.9152011}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: SciFiGirl:thumb2_L
+      parentName: SciFiGirl:thumb1_L
+      position: {x: 0.0000001927838, y: 0.1115599, z: 0.0000001820736}
+      rotation: {x: -0.037297964, y: -0.0021049138, z: -0.02103606, w: 0.99908054}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: SciFiGirl:thumb3_L
+      parentName: SciFiGirl:thumb2_L
+      position: {x: -0.00000000372529, y: 0.1205577, z: -0.0000006631017}
+      rotation: {x: -0.00953128, y: 0.0099194255, z: -0.039196882, w: 0.9991369}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: SciFiGirl:thumb3_L_end
+      parentName: SciFiGirl:thumb3_L
+      position: {x: -0, y: 0.1151411, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:Shoulder_R
+      parentName: SciFiGirl:Chest
+      position: {x: 1.429412e-14, y: 0.8809596, z: -0.00000001862645}
+      rotation: {x: -0.53599125, y: -0.33394414, z: -0.5698993, w: 0.5257467}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: SciFiGirl:Arm_R
+      parentName: SciFiGirl:Shoulder_R
+      position: {x: -0.00000001490116, y: 0.5696621, z: -0.0000007294548}
+      rotation: {x: 0.07906557, y: -0.4542056, z: -0.124498755, w: 0.8786046}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:ForeArm_R
+      parentName: SciFiGirl:Arm_R
+      position: {x: -0.00000000372529, y: 0.8689739, z: -0.000000174829}
+      rotation: {x: 0.010665275, y: -0.43182462, z: -0.0019883804, w: 0.90189236}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: SciFiGirl:Hand_R
+      parentName: SciFiGirl:ForeArm_R
+      position: {x: -0, y: 0.83702, z: 0.0000002483139}
+      rotation: {x: -0.20122412, y: 0.0045060082, z: 0.017954139, w: 0.97937036}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:index1_R
+      parentName: SciFiGirl:Hand_R
+      position: {x: 0.09846297, y: 0.2892663, z: -0.002391453}
+      rotation: {x: -0.027444737, y: 0.04374676, z: -0.05370783, w: 0.9972204}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:index2_R
+      parentName: SciFiGirl:index1_R
+      position: {x: 0.00000005587935, y: 0.1030324, z: -0.00000001885928}
+      rotation: {x: -0.005464888, y: 0.0099822255, z: -0.0055654333, w: 0.9999198}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: SciFiGirl:index3_R
+      parentName: SciFiGirl:index2_R
+      position: {x: -0.00000001117587, y: 0.08216243, z: 0.0000002528541}
+      rotation: {x: -0.0005211894, y: -0.0003679647, z: -0.011376551, w: 0.9999351}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:index3_R_end
+      parentName: SciFiGirl:index3_R
+      position: {x: -0, y: 0.09056664, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:mid1_R
+      parentName: SciFiGirl:Hand_R
+      position: {x: 0.03004954, y: 0.3014984, z: 0.01360086}
+      rotation: {x: -0.028209992, y: 0.03670414, z: 0.008366674, w: 0.9988929}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: SciFiGirl:mid2_R
+      parentName: SciFiGirl:mid1_R
+      position: {x: -0.00000002235174, y: 0.1054126, z: -0.0000001885928}
+      rotation: {x: -0.013998329, y: -0.00007199576, z: 0.010593946, w: 0.9998459}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: SciFiGirl:mid3_R
+      parentName: SciFiGirl:mid2_R
+      position: {x: -0.00000000372529, y: 0.08235245, z: -0.000000515487}
+      rotation: {x: 0.0018639016, y: -0.0003461174, z: -0.0056958036, w: 0.999982}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:mid3_R_end
+      parentName: SciFiGirl:mid3_R
+      position: {x: -0, y: 0.08871449, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:pinky1_R
+      parentName: SciFiGirl:Hand_R
+      position: {x: -0.0999139, y: 0.2764318, z: 0.009878556}
+      rotation: {x: 0.007038889, y: -0.067812584, z: 0.025084943, w: 0.99735785}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:pinky2_R
+      parentName: SciFiGirl:pinky1_R
+      position: {x: -0.00000004470348, y: 0.07461413, z: 0.0000001229346}
+      rotation: {x: -0.010798717, y: -0.000823864, z: -0.0076681497, w: 0.99991196}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: SciFiGirl:pinky3_R
+      parentName: SciFiGirl:pinky2_R
+      position: {x: -0.00000002235174, y: 0.0642086, z: 0.0000005345792}
+      rotation: {x: 0.01771913, y: 0.0017898647, z: 0.010348282, w: 0.99978787}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: SciFiGirl:pinky3_R_end
+      parentName: SciFiGirl:pinky3_R
+      position: {x: -0, y: 0.06570999, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:ring1_R
+      parentName: SciFiGirl:Hand_R
+      position: {x: -0.03985065, y: 0.2927546, z: 0.0174763}
+      rotation: {x: -0.009061347, y: -0.02964272, z: 0.024716806, w: 0.9992138}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:ring2_R
+      parentName: SciFiGirl:ring1_R
+      position: {x: 0.00000001862645, y: 0.1039637, z: -0.0000001685694}
+      rotation: {x: 0.0030935593, y: -0.00023734049, z: 0.008994895, w: 0.99995476}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:ring3_R
+      parentName: SciFiGirl:ring2_R
+      position: {x: -0.00000000372529, y: 0.07769014, z: -0.0000007064082}
+      rotation: {x: -0.010232088, y: 0.0009959404, z: 0.0070462534, w: 0.99992234}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:ring3_R_end
+      parentName: SciFiGirl:ring3_R
+      position: {x: -0, y: 0.08602677, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:thumb1_R
+      parentName: SciFiGirl:Hand_R
+      position: {x: 0.05411597, y: 0.05800678, z: -0.03632274}
+      rotation: {x: -0.30421734, y: 0.2157936, z: -0.15147842, w: 0.9153902}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: SciFiGirl:thumb2_R
+      parentName: SciFiGirl:thumb1_R
+      position: {x: -0.0000002486631, y: 0.11156, z: 0.0000003031455}
+      rotation: {x: -0.037297983, y: 0.0021049906, z: 0.021036072, w: 0.99908054}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: SciFiGirl:thumb3_R
+      parentName: SciFiGirl:thumb2_R
+      position: {x: 0.00000001117587, y: 0.1205578, z: 0.0000004209578}
+      rotation: {x: -0.009530643, y: -0.009919294, z: 0.039200824, w: 0.99913675}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:thumb3_R_end
+      parentName: SciFiGirl:thumb3_R
+      position: {x: -0, y: 0.1151411, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:weapon_bone
+      parentName: SciFiGirl:Hand_R
+      position: {x: -0.02861629, y: 0.243614, z: -0.02642772}
+      rotation: {x: 0.18570696, y: 0.18660209, z: -0.66243184, w: 0.7013392}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:weapon_bone_end
+      parentName: SciFiGirl:weapon_bone
+      position: {x: -0, y: 0.303061, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:UpperLeg_L
+      parentName: SciFiGirl:Hips
+      position: {x: -0.3667249, y: 0.07056223, z: -0.04438209}
+      rotation: {x: 0.7033202, y: -0.08265695, z: -0.7026287, w: 0.069436766}
+      scale: {x: 1, y: 1, z: 1.000005}
+    - name: SciFiGirl:LowerLeg_L
+      parentName: SciFiGirl:UpperLeg_L
+      position: {x: -0.000000004947651, y: 1.566803, z: -0.00000003919946}
+      rotation: {x: 0.028724141, y: 0.705852, z: -0.05526344, w: 0.70561594}
+      scale: {x: 0.9999998, y: 0.9999997, z: 0.9999999}
+    - name: SciFiGirl:Foot_L
+      parentName: SciFiGirl:LowerLeg_L
+      position: {x: -0.000000003667083, y: 1.29655, z: -0.000000001222361}
+      rotation: {x: -0.0077834423, y: 0.80575126, z: -0.5921794, w: 0.005283918}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:Toes_L
+      parentName: SciFiGirl:Foot_L
+      position: {x: 0.00000001679129, y: 0.4508984, z: 0.000000001462809}
+      rotation: {x: 0.18451566, y: -0.000009423037, z: -0.0000018640277, w: 0.9828296}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: SciFiGirl:Toes_L_end
+      parentName: SciFiGirl:Toes_L
+      position: {x: -0, y: 0.2466667, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:UpperLeg_R
+      parentName: SciFiGirl:Hips
+      position: {x: 0.3667249, y: 0.07056223, z: -0.04438226}
+      rotation: {x: 0.70332026, y: 0.08265662, z: 0.7026287, w: 0.069436625}
+      scale: {x: 1, y: 1, z: 1.000006}
+    - name: SciFiGirl:LowerLeg_R
+      parentName: SciFiGirl:UpperLeg_R
+      position: {x: 4.074536e-10, y: 1.566803, z: 0.000000004940091}
+      rotation: {x: 0.028724143, y: -0.705852, z: 0.055263445, w: 0.70561606}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: SciFiGirl:Foot_R
+      parentName: SciFiGirl:LowerLeg_R
+      position: {x: 0.00000001141598, y: 1.296551, z: 0.000000003550667}
+      rotation: {x: 0.007783436, y: 0.8057513, z: -0.5921793, w: -0.0052839126}
+      scale: {x: 1, y: 0.9999996, z: 1}
+    - name: SciFiGirl:Toes_R
+      parentName: SciFiGirl:Foot_R
+      position: {x: -0.00000001821011, y: 0.4508983, z: 0.00000002139768}
+      rotation: {x: 0.18451566, y: 0.00000942218, z: 0.0000018656092, w: 0.9828296}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:Toes_R_end
+      parentName: SciFiGirl:Toes_R
+      position: {x: -0, y: 0.2466667, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:LegTarget_L
+      parentName: wakeup(Clone)
+      position: {x: 0.37164, y: 0.02871012, z: 0.2305021}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: SciFiGirl:LegTarget_L_end
+      parentName: SciFiGirl:LegTarget_L
+      position: {x: -0, y: 0.3539902, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiGirl:LegTarget_R
+      parentName: wakeup(Clone)
+      position: {x: -0.37164, y: 0.02871012, z: 0.2305021}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: SciFiGirl:LegTarget_R_end
+      parentName: SciFiGirl:LegTarget_R
+      position: {x: -0, y: 0.3539902, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
