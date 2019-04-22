@@ -84,6 +84,12 @@ public class PlayerController : MonoBehaviour
         {
             spawnPoint = GameObject.Find("new");
             variableScript.displaySection = true;
+
+            if (sectionName == "NewTutorial")
+            {
+                Debug.Log("Playing intro animation");
+                playerAnimations.SetTrigger("waking");
+            }
         }
         else if ((checkpointName == "Checkpoint 3" || checkpointName == "Checkpoint 4") && sceneName == "2nd Level")
         {
@@ -136,15 +142,23 @@ public class PlayerController : MonoBehaviour
                 {
                     playerAnimations.SetBool("running", true);
                 }
+                else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftControl))
+                {
+                    playerAnimations.SetBool("running", false);
+                    playerAnimations.SetBool("walking", false);
+                    playerAnimations.SetBool("crouching", true);
+                }
                 else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
                     playerAnimations.SetBool("running", false);
                     playerAnimations.SetBool("walking", true);
+                    playerAnimations.SetBool("crouching", false);
                 }
                 else
                 {
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", false);
+                    playerAnimations.SetBool("crouching", false);
                 }
 
                 //These key's are used to speed up and slow down the player.
@@ -267,6 +281,7 @@ public class PlayerController : MonoBehaviour
                 playerAnimations.SetBool("walking", false);
                 playerAnimations.SetBool("running", false);
                 playerAnimations.SetBool("isdead", false);
+                playerAnimations.ResetTrigger("waking");
 
                 if (speed > 0f)
                 {

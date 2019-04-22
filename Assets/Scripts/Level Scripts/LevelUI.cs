@@ -305,7 +305,7 @@ public class LevelUI : MonoBehaviour
         //You may now continue viewing things below.
 
         //If we aren't in a cutscene and the game is paused then we need to display the in game interface to the player, else we need to make sure it's not active.
-        if (tradeWindows == true)
+        if (tradeWindows == true && variableScript.paused == true)
         {
             UIAlpha -= Time.deltaTime * 2f;
             UIGroup.alpha = UIAlpha;
@@ -337,7 +337,7 @@ public class LevelUI : MonoBehaviour
                 }
             }
         }
-        else if (tradeWindows == false)
+        else if (tradeWindows == false && variableScript.paused == true)
         {
             settingsAlpha -= Time.deltaTime * 2f;
             SettingsWindow.alpha = settingsAlpha;

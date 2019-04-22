@@ -183,7 +183,7 @@ public class CameraFollow : MonoBehaviour
         }
         else if (variableScript.cutscene == true)
         {
-            waitTime = 1.5f;
+            waitTime = 1.6f;
         }
     }
 }

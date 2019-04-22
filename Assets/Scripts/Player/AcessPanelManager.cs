@@ -16,9 +16,17 @@ public class AcessPanelManager : MonoBehaviour
     public GameObject currentPanel;
     AccessPanelVariables AccessPanelScripts;
 
+    public AudioSource accessAudio;
+
+    public AudioClip accessClip;
+
     public void Start()
     {
         accessPanels = GameObject.FindGameObjectsWithTag("door access");
+
+        accessAudio.loop = false;
+
+        accessAudio.volume = PlayerPrefs.GetFloat("Master Volume");
     }
 
     // Update is called once per frame
