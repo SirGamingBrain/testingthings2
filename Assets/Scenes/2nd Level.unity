@@ -9537,7 +9537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &290441447
 Transform:
   m_ObjectHideFlags: 0
@@ -15873,15 +15873,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
-        type: 3}
-      propertyPath: m_Name
-      value: Checkpoint 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2781613855678856586, guid: e78d2283f01d3054c8b39ad16e3634bc,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
+        type: 3}
+      propertyPath: m_Name
+      value: Checkpoint 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78d2283f01d3054c8b39ad16e3634bc, type: 3}
@@ -21005,15 +21005,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
-        type: 3}
-      propertyPath: m_Name
-      value: Checkpoint 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2781613855678856586, guid: e78d2283f01d3054c8b39ad16e3634bc,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
+        type: 3}
+      propertyPath: m_Name
+      value: Checkpoint 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78d2283f01d3054c8b39ad16e3634bc, type: 3}
@@ -30331,15 +30331,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
-        type: 3}
-      propertyPath: m_Name
-      value: Checkpoint 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2781613855678856586, guid: e78d2283f01d3054c8b39ad16e3634bc,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
+        type: 3}
+      propertyPath: m_Name
+      value: Checkpoint 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78d2283f01d3054c8b39ad16e3634bc, type: 3}
@@ -35117,7 +35117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1232501880
 Transform:
   m_ObjectHideFlags: 0
@@ -35256,15 +35256,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
-        type: 3}
-      propertyPath: m_Name
-      value: Checkpoint 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2781613855678856586, guid: e78d2283f01d3054c8b39ad16e3634bc,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
+        type: 3}
+      propertyPath: m_Name
+      value: Checkpoint 1
       objectReference: {fileID: 0}
     - target: {fileID: 2781613855678856589, guid: e78d2283f01d3054c8b39ad16e3634bc,
         type: 3}
@@ -37249,6 +37249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd45b35ec80d3204a872e955d88c7573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptHolder: {fileID: 0}
   player: {fileID: 508405923}
 --- !u!81 &1298415213
 AudioListener:
@@ -38145,6 +38146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f66ac5735b54ac42a183728c7118296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptHolder: {fileID: 0}
   fadeAll: 0
   continueGame: {fileID: 8178679}
   settingsB: {fileID: 1857695562}
@@ -38154,6 +38156,7 @@ MonoBehaviour:
   qualityB: {fileID: 973244186}
   applyB: {fileID: 1273043753}
   fullscreenText: {fileID: 270899989}
+  resolutionText: {fileID: 0}
   areaTitle: {fileID: 586200768}
   masterS: {fileID: 1762125109}
   UIGroup: {fileID: 1878929162}
@@ -40354,15 +40357,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
-        type: 3}
-      propertyPath: m_Name
-      value: Checkpoint 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2781613855678856586, guid: e78d2283f01d3054c8b39ad16e3634bc,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781613855678856588, guid: e78d2283f01d3054c8b39ad16e3634bc,
+        type: 3}
+      propertyPath: m_Name
+      value: Checkpoint 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78d2283f01d3054c8b39ad16e3634bc, type: 3}
@@ -56862,7 +56865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1986946246
 Transform:
   m_ObjectHideFlags: 0
