@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
             spawnPoint = GameObject.Find("new");
             variableScript.displaySection = true;
 
-            if (sectionName == "NewTutorial")
+            if (sectionName == "NewTutorial" && checkpointName == "new")
             {
                 Debug.Log("Playing intro animation");
                 playerAnimations.SetTrigger("waking");
@@ -312,12 +312,11 @@ public class PlayerController : MonoBehaviour
 
                 //We then update the rotation and movment here based off of where were rotating and moving to and from.
                 player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, newRotation, 10f);
-
-
             }
             else if (health <= 0)
             {
                 rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
                 playerAnimations.SetBool("isdead", true);
                 playerAnimations.SetBool("walking", false);
@@ -474,6 +473,7 @@ public class PlayerController : MonoBehaviour
             if (scene.name == "NewTutorial")
             {
                 variableScript.cutscene = true;
+                Debug.Log("Cutscene should begin soon.");
             }
 
             if (other.gameObject.name == "End")

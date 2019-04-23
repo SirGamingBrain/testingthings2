@@ -12,6 +12,7 @@ public class VariableHolder : MonoBehaviour
     public bool tutorial = false;
     public bool taserCutscene = false;
     public bool displaySection = false;
+    public bool levelEnd = false;
 
     public float tutorialTimer = 0f;
     public float cutsceneTimer = 0f;
@@ -61,6 +62,14 @@ public class VariableHolder : MonoBehaviour
             cutscene = true;
             barsAlpha = 1f;
             cutsceneBars.alpha = 1f;
+            moveTime = 0f;
+        }
+        else if (scene.name == "NewTutorial")
+        {
+            tutorial = true;
+            barsAlpha = 0f;
+            cutsceneBars.alpha = 0f;
+            moveTime = 0f;
         }
         else if (PlayerPrefs.GetString("Last Checkpoint") == "End" || PlayerPrefs.GetString("Last Checkpoint") == "new")
         {
@@ -95,8 +104,9 @@ public class VariableHolder : MonoBehaviour
                 if (cutsceneTimer >= 10.2f)
                 {
                     cutsceneTimer = 0f;
-
+                    displaySection = false;
                     cutscene = false;
+                    moveTime = 0f;
                 }
                 else if (cutsceneTimer >= 7.2f)
                 {
@@ -171,8 +181,27 @@ public class VariableHolder : MonoBehaviour
 
                     cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
                 }
+                else if (cutsceneTimer >= 4.1f)
+                {
+                    moveTime = 0f;
+                }
                 else if (cutsceneTimer >= 0f)
                 {
+                    oldPlace = this.transform.position;
+
+                    newPlace = new Vector3(player.transform.position.x, cameraHeight, player.transform.position.z - 6.5f);
+
+                    moveTime += Time.deltaTime;
+
+                    if (moveTime > 3f)
+                    {
+                        moveTime = 3f;
+                    }
+
+                    float perc = moveTime / 3f;
+
+                    this.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
+
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
                     playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
                     Vector3 newPosition = player.transform.position + (transform.right * .008f * 2.3f);
@@ -183,13 +212,13 @@ public class VariableHolder : MonoBehaviour
             }
             else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
             {
-                if (cutsceneTimer >= 5f)
+                if (cutsceneTimer >= 4f)
                 {
                     cutsceneTimer = 0f;
-                    cutscene = true;
+                    cutscene = false;
                     showText = true;
                 }
-                else if (cutsceneTimer >= 1f)
+                else if (cutsceneTimer >= .5f)
                 {
                     if (playerTextAlpha < 1f)
                     {
@@ -208,18 +237,16 @@ public class VariableHolder : MonoBehaviour
 
                     moveTime += Time.deltaTime;
 
-                    if (moveTime > 2f)
+                    if (moveTime > 3f)
                     {
-                        moveTime = 2f;
+                        moveTime = 3f;
                     }
 
-                    float perc = moveTime / 2f;
+                    float perc = moveTime / 3f;
 
                     cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
 
                     playerAnimations.SetBool("running", false);
-
-                    moveTime = 0f;
                 }
                 else if (cutsceneTimer >= 0f)
                 {
@@ -232,51 +259,22 @@ public class VariableHolder : MonoBehaviour
                     playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
                     Vector3 newPosition = player.transform.position + (transform.right * .008f * 15f);
                     playerbody.MovePosition(newPosition);
+                    Debug.Log("Beginning cutscene 1");
+                    moveTime = 0f;
                 }
 
                 cutsceneTimer += Time.deltaTime;
             }
             else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
             {
-                if (cutsceneTimer >= 6f)
+                if (cutsceneTimer >= 4f)
                 {
                     cutsceneTimer = 0f;
-                    PlayerPrefs.SetString("Cutscene", "false");
-                    PlayerPrefs.SetString("Paused", "false");
+                    cutscene = false;
                     showText = true;
                 }
-                else if (cutsceneTimer >= 1f)
+                else if (cutsceneTimer >= .41f)
                 {
-
-                    if (playerTextAlpha < 1f)
-                    {
-                        playerTextAlpha += Time.deltaTime;
-                        playerText.alpha = playerTextAlpha;
-                    }
-                    else if (playerTextAlpha > 1f)
-                    {
-                        playerTextAlpha = 1f;
-                        playerText.alpha = playerTextAlpha;
-                    }
-
-                    oldPlace = cameraPlacement.transform.position;
-
-                    newPlace = new Vector3(101f, 4f, 4f);
-
-                    moveTime += Time.deltaTime;
-
-                    if (moveTime > 3f)
-                    {
-                        moveTime = 3f;
-                    }
-
-                    float perc = moveTime / 3f;
-
-                    cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
-                }
-                else if (cutsceneTimer >= 1f)
-                {
-
                     if (playerTextAlpha < 1f)
                     {
                         playerTextAlpha += Time.deltaTime;
@@ -303,28 +301,15 @@ public class VariableHolder : MonoBehaviour
 
                     cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
                 }
-                else if (cutsceneTimer >= .6f)
+                else if (cutsceneTimer >= .4f)
                 {
-                    playerWords.text = "I hear a creature up ahead, I don't think I can run past him...";
-
-                    if (playerTextAlpha < 1f)
-                    {
-                        playerTextAlpha += Time.deltaTime;
-                        playerText.alpha = playerTextAlpha;
-                    }
-                    else if (playerTextAlpha > 1f)
-                    {
-                        playerTextAlpha = 1f;
-                        playerText.alpha = playerTextAlpha;
-                    }
-
                     playerAnimations.SetBool("running", false);
-                    PlayerPrefs.SetString("Paused", "true");
                     moveTime = 0f;
                 }
                 else if (cutsceneTimer >= 0f)
                 {
-                    PlayerPrefs.SetString("Section Display", "true");
+                    playerWords.text = "I hear a creature up ahead, but I don't think I can run past him...";
+
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", true);
 
@@ -355,13 +340,35 @@ public class VariableHolder : MonoBehaviour
             {
                 barsAlpha -= Time.deltaTime * 2f;
                 cutsceneBars.alpha = barsAlpha;
-                playerText.alpha = barsAlpha;
             }
             else if (barsAlpha < 0f)
             {
                 barsAlpha = 0f;
                 cutsceneBars.alpha = barsAlpha;
-                playerText.alpha = barsAlpha;
+            }
+
+            if (showText == true)
+            {
+                if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
+                {
+                    cutsceneText.text = "Press Q to call over enemies towards you.";
+                }
+                else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
+                {
+                    cutsceneText.text = "Press R to lay down an electric trap to stun enemies.";
+                }
+
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    cutsceneText.text = "";
+                    showText = false;
+                }
+                else if (Input.GetKeyDown(KeyCode.R))
+                {
+                    cutsceneText.text = "";
+                    showText = false;
+                    tutorial = false;
+                }
             }
         }
         else if (taserCutscene == true && cutscene == true)
@@ -396,6 +403,7 @@ public class VariableHolder : MonoBehaviour
                 }
                 else if (cutsceneTimer >= 0f)
                 {
+                    levelEnd = true;
                     playerAnimations.SetBool("running", true);
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
@@ -407,29 +415,6 @@ public class VariableHolder : MonoBehaviour
             else
             {
                 cutscene = false;
-
-                if (showText == true)
-                {
-                    if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
-                    {
-                        cutsceneText.text = "Press Q to call over enemies towards you.";
-                    }
-                    else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
-                    {
-                        cutsceneText.text = "Press R to lay down an electric trap to stun enemies.";
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.Q))
-                    {
-                        cutsceneText.text = "";
-                        showText = false;
-                    }
-                    else if (Input.GetKeyDown(KeyCode.R))
-                    {
-                        cutsceneText.text = "";
-                        showText = false;
-                    }
-                }
             }
         }
     }

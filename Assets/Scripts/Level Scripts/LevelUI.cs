@@ -181,6 +181,11 @@ public class LevelUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (variableScript.levelEnd == true)
+        {
+            fadeAll = true;
+        }
+
         //Skip to the next line of code as these areas deal with fading in and out the scene or the UI for the player.
         if (fadeAllIn == true)
         {
