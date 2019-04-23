@@ -8,6 +8,7 @@ public class AcessPanelManager : MonoBehaviour
     public GameObject player;
 
     float distance;
+    float volume;
 
     public Text text;
 
@@ -26,12 +27,16 @@ public class AcessPanelManager : MonoBehaviour
 
         accessAudio.loop = false;
 
-        accessAudio.volume = PlayerPrefs.GetFloat("Master Volume");
+        accessAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .8f);
+
+        accessAudio.clip = accessClip;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         //For every access panel in the level.
         foreach (GameObject accessPanel in accessPanels)
         {
@@ -60,6 +65,7 @@ public class AcessPanelManager : MonoBehaviour
                 {
                     AccessPanelScripts.interactable = false;
                     AccessPanelScripts.checkpointDoor.SetBool("Open", true);
+                    accessAudio.Play();
                 }
                 break;
             }

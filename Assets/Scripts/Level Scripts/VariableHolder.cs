@@ -68,6 +68,11 @@ public class VariableHolder : MonoBehaviour
             cutscene = true;
             barsAlpha = 1f;
             cutsceneBars.alpha = 1f;
+
+            if (PlayerPrefs.GetString("Last Checkpoint") == "End")
+            {
+                PlayerPrefs.SetString("Last Checkpoint", "new");
+            }
         }
         else
         {
@@ -85,8 +90,6 @@ public class VariableHolder : MonoBehaviour
     {
         if (tutorial == true && cutscene == true)
         {
-            tutorialTimer += Time.deltaTime;
-
             if (PlayerPrefs.GetString("Last Checkpoint") == "new")
             {
                 if (cutsceneTimer >= 10.2f)
@@ -354,9 +357,46 @@ public class VariableHolder : MonoBehaviour
         {
             cutsceneTimer += Time.deltaTime;
         }
-        else
+        else if (cutscene == true && tutorial == false)
         {
+            if (PlayerPrefs.GetString("Last Checkpoint") == "new")
+            {
+                if (cutsceneTimer >= 2.5f)
+                {
+                    cutsceneTimer = 0f;
+                    cutscene = false;
+                }
+                else if (cutsceneTimer >= 0f)
+                {
+                    playerAnimations.SetBool("running", true);
 
+                    newRotation = Quaternion.Euler(0f, 90f, 0f);
+                    playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+                    Vector3 newPosition = player.transform.position + (transform.right * .01f * 15f);
+                    playerbody.MovePosition(newPosition);
+                }
+            }
+            else if (PlayerPrefs.GetString("Last Checkpoint") == "End")
+            {
+                if (cutsceneTimer >= 4f)
+                {
+                    cutsceneTimer = 0f;
+                    cutscene = false;
+                }
+                else if (cutsceneTimer >= 0f)
+                {
+                    playerAnimations.SetBool("running", true);
+
+                    newRotation = Quaternion.Euler(0f, 90f, 0f);
+                    playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+                    Vector3 newPosition = player.transform.position + (transform.right * .01f * 15f);
+                    playerbody.MovePosition(newPosition);
+                }
+            }
+            else
+            {
+                cutscene = false;
+            }
         }
     }
 }

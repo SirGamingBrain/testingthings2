@@ -188,13 +188,13 @@ public class LevelUI : MonoBehaviour
 
                 fadeAlpha -= Time.deltaTime / 2f;
                 fadeGroup.alpha = fadeAlpha;
-                audio.volume = masterLevel * .8f * Mathf.Abs(1f - fadeAlpha);
+                audio.volume = masterLevel * .6f * Mathf.Abs(1f - fadeAlpha);
 
                 if (fadeAlpha <= 0f)
                 {
                     fadeAllIn = false;
                     fadeGroup.alpha = 0;
-                    audio.volume = masterLevel * .8f;
+                    audio.volume = masterLevel * .6f;
                     fadeObject.SetActive(false);
                 }
             }
@@ -221,7 +221,7 @@ public class LevelUI : MonoBehaviour
 
                 fadeAlpha += Time.deltaTime / 2f;
                 fadeGroup.alpha = fadeAlpha;
-                audio.volume = masterLevel * .8f * Mathf.Abs(1f - fadeAlpha);
+                audio.volume = masterLevel * .6f * Mathf.Abs(1f - fadeAlpha);
 
                 if (fadeAlpha > 1f)
                 {
@@ -259,7 +259,7 @@ public class LevelUI : MonoBehaviour
 
                 fadeAlpha += Time.deltaTime / 2.5f;
                 fadeGroup.alpha = fadeAlpha;
-                audio.volume = masterLevel * .8f * Mathf.Abs(1f - fadeAlpha);
+                audio.volume = masterLevel * .6f * Mathf.Abs(1f - fadeAlpha);
 
                 if (fadeAlpha > 1f)
                 {
@@ -275,14 +275,14 @@ public class LevelUI : MonoBehaviour
             UIAlpha -= Time.deltaTime * 2f;
             UIGroup.alpha = UIAlpha;
 
-            hover.volume = UIAlpha * masterLevel * .5f;
-            select.volume = UIAlpha * masterLevel * .5f;
+            hover.volume = UIAlpha * masterLevel * .7f;
+            select.volume = UIAlpha * masterLevel * .7f;
 
             if (UIAlpha <= 0f)
             {
                 UIAlpha = 0f;
-                hover.volume = UIAlpha * masterLevel * .5f;
-                select.volume = UIAlpha * masterLevel * .5f;
+                hover.volume = UIAlpha * masterLevel * .7f;
+                select.volume = UIAlpha * masterLevel * .7f;
                 fadeUI = false;
             }
         }
@@ -291,14 +291,14 @@ public class LevelUI : MonoBehaviour
         {
             UIAlpha += Time.deltaTime * 2f;
             UIGroup.alpha = UIAlpha;
-            hover.volume = UIAlpha * masterLevel * .5f;
-            select.volume = UIAlpha * masterLevel * .5f;
+            hover.volume = UIAlpha * masterLevel * .7f;
+            select.volume = UIAlpha * masterLevel * .7f;
 
             if (UIAlpha >= 1f)
             {
                 UIAlpha = 1f;
-                hover.volume = UIAlpha * masterLevel * .5f;
-                select.volume = UIAlpha * masterLevel * .5f;
+                hover.volume = UIAlpha * masterLevel * .7f;
+                select.volume = UIAlpha * masterLevel * .7f;
                 fadeUIIn = false;
             }
         }
@@ -309,16 +309,16 @@ public class LevelUI : MonoBehaviour
         {
             UIAlpha -= Time.deltaTime * 2f;
             UIGroup.alpha = UIAlpha;
-            hover.volume = UIAlpha * masterLevel * .5f;
-            select.volume = UIAlpha * masterLevel * .5f;
+            hover.volume = UIAlpha * masterLevel * .7f;
+            select.volume = UIAlpha * masterLevel * .7f;
 
             if (UIAlpha <= 0f)
             {
                 mainWindow.SetActive(false);
                 UIGroup.alpha = 0f;
                 UIAlpha = 0f;
-                hover.volume = UIAlpha * masterLevel * .5f;
-                select.volume = UIAlpha * masterLevel * .5f;
+                hover.volume = UIAlpha * masterLevel * .7f;
+                select.volume = UIAlpha * masterLevel * .7f;
 
                 settingsWindow.SetActive(true);
 
@@ -350,16 +350,16 @@ public class LevelUI : MonoBehaviour
 
                 UIAlpha += Time.deltaTime * 2f;
                 UIGroup.alpha = UIAlpha;
-                hover.volume = UIAlpha * masterLevel * .5f;
-                select.volume = UIAlpha * masterLevel * .5f;
+                hover.volume = UIAlpha * masterLevel * .7f;
+                select.volume = UIAlpha * masterLevel * .7f;
 
                 mainWindow.SetActive(true);
 
                 if (UIAlpha >= 1f)
                 {
                     UIAlpha = 1f;
-                    hover.volume = UIAlpha * masterLevel * .5f;
-                    select.volume = UIAlpha * masterLevel * .5f;
+                    hover.volume = UIAlpha * masterLevel * .7f;
+                    select.volume = UIAlpha * masterLevel * .7f;
                     UIGroup.alpha = 1f;
                     continueGame.enabled = true;
                     settingsB.enabled = true;
@@ -574,8 +574,8 @@ public class LevelUI : MonoBehaviour
         masterLevel = value;
         PlayerPrefs.SetFloat("Master Volume", value);
         PlayerPrefs.Save();
-        hover.volume = masterLevel * UIAlpha;
-        select.volume = masterLevel * UIAlpha;
+        hover.volume = masterLevel * UIAlpha * .7f;
+        select.volume = masterLevel * UIAlpha * .7f;
     }
 
     //This function handles loading the scene in or out.
