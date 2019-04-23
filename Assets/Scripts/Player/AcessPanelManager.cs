@@ -8,7 +8,6 @@ public class AcessPanelManager : MonoBehaviour
     public GameObject player;
 
     float distance;
-    float volume;
 
     public Text text;
 
@@ -27,7 +26,7 @@ public class AcessPanelManager : MonoBehaviour
 
         accessAudio.loop = false;
 
-        accessAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .8f);
+        accessAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .6f);
 
         accessAudio.clip = accessClip;
     }
@@ -35,7 +34,7 @@ public class AcessPanelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        accessAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .6f);
 
         //For every access panel in the level.
         foreach (GameObject accessPanel in accessPanels)

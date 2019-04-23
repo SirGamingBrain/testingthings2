@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip stepping1;
     public AudioClip stepping2;
+    public AudioClip placingTrap;
     public AudioClip whistle;
     public AudioClip tasing;
 
@@ -137,7 +138,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerAudio.volume = PlayerPrefs.GetFloat("Master Volume");
+        playerAudio.volume = PlayerPrefs.GetFloat("Master Volume") * .5f;
         footAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .25f);
 
         //We will only allow the player to perform their abilities if they aren't paused or a cutscene isn't playing.
@@ -203,6 +204,11 @@ public class PlayerController : MonoBehaviour
                     playerAnimations.SetBool("running", false);
                     playerAnimations.SetBool("crouching", false);
                     footSteps.SetBool("running", false);
+                }
+
+                if (Input.GetKeyDown(KeyCode.M))
+                {
+                    health = 0;
                 }
 
                 //These key's are used to speed up and slow down the player.
@@ -306,6 +312,8 @@ public class PlayerController : MonoBehaviour
 
                 //We then update the rotation and movment here based off of where were rotating and moving to and from.
                 player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, newRotation, 10f);
+
+
             }
             else if (health <= 0)
             {
@@ -319,7 +327,8 @@ public class PlayerController : MonoBehaviour
                 respawning = true;
 
                 UIScriptHolder.GetComponent<LevelUI>().fadeAll = true;
-                variableScript.paused = true;
+                variableScript.tutorial = false;
+                variableScript.cutscene = true;
             }
             else
             {
@@ -341,7 +350,7 @@ public class PlayerController : MonoBehaviour
 
             //The player presses Q to whistle
             //For a brief moment, enemies within a certain range of the player will be alerted to his/her position.
-            if (Input.GetKeyDown(KeyCode.Q) && whistleCooldown == false)
+            if (Input.GetKeyDown(KeyCode.Q) && whistleCooldown == false && health > 0)
             {
                 playerAudio.clip = whistle;
                 playerAudio.Play();
@@ -360,7 +369,7 @@ public class PlayerController : MonoBehaviour
             }
 
             //The player presses space to use their taser, assuming they haven't already fired it once and they actually have the taser.
-            if (Input.GetKeyDown(KeyCode.Space) && hasTaser == true && hasFired == false)
+            if (Input.GetKeyDown(KeyCode.Space) && hasTaser == true && hasFired == false && health > 0)
             {
                 drawGun = true;
             }
@@ -407,12 +416,19 @@ public class PlayerController : MonoBehaviour
             }
 
             //If the player presses R then they will place down a trap.
-            if (Input.GetKeyDown(KeyCode.R) && hasTraps == true)
+            if (Input.GetKeyDown(KeyCode.R) && hasTraps == true && health > 0)
             {
+                playerAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .5f);
+                playerAudio.clip = placingTrap;
+                playerAudio.loop = false;
+                playerAudio.Play();
+
                 traps -= 1;
                 GameObject temporaryTrap;
 
                 temporaryTrap = Instantiate(trap, new Vector3(currentTile.transform.position.x, trapSpot.transform.position.y, currentTile.transform.position.z), Quaternion.Euler(0f, 0f, 0f)) as GameObject;
+
+                temporaryTrap.GetComponent<AudioSource>().volume = (PlayerPrefs.GetFloat("Master Volume") * .2f);
                 //Empty is on the ground underneath the player.
                 //When player attempts to place a trap, it locates the center of the most recent tile stepped on by the player.
                 //Places trap on top of that tile.

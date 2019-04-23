@@ -27658,7 +27658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733103979786434}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.5, y: 0, z: 0}
+  m_LocalPosition: {x: -3.5, y: -0.466, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1}
   m_Children: []
   m_Father: {fileID: 1770983069}
@@ -31605,7 +31605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9149609954734322811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 1.515, z: -0}
+  m_LocalPosition: {x: -3.5, y: 1, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9149609954195840355}
@@ -31640,6 +31640,7 @@ MonoBehaviour:
   footAudio: {fileID: 0}
   stepping1: {fileID: 8300000, guid: d3d7c439c1a74f94ca3f459347028dee, type: 3}
   stepping2: {fileID: 8300000, guid: d1d74671032bb024a892c207f486e51d, type: 3}
+  placingTrap: {fileID: 8300000, guid: 0a523cb3b8808d5449a97dff77477206, type: 3}
   whistle: {fileID: 8300000, guid: cc24410b4c0788f4ba8fbd809454fc3e, type: 3}
   tasing: {fileID: 8300000, guid: 9b462543cdcb8864e8e53ba7b86f9eb2, type: 3}
   gun: {fileID: 9149762240742100525}

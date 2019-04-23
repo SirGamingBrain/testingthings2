@@ -208,32 +208,30 @@ public class VariableHolder : MonoBehaviour
 
                     moveTime += Time.deltaTime;
 
-                    if (moveTime > .5f)
+                    if (moveTime > 2f)
                     {
-                        moveTime = .5f;
+                        moveTime = 2f;
                     }
 
-                    float perc = moveTime / .5f;
+                    float perc = moveTime / 2f;
 
                     cameraPlacement.transform.position = Vector3.Lerp(oldPlace, newPlace, perc);
 
                     playerAnimations.SetBool("running", false);
 
                     moveTime = 0f;
-                    PlayerPrefs.SetString("Section Display", "true");
                 }
                 else if (cutsceneTimer >= 0f)
                 {
-                    playerWords.text = "I might be able to lure these guys away with a whistle by pressing Q...";
+                    playerWords.text = "I might be able to lure these guys away with a noise...";
 
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", true);
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
                     playerModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-                    Vector3 newPosition = player.transform.position + (transform.right * .008f * 10f);
+                    Vector3 newPosition = player.transform.position + (transform.right * .008f * 15f);
                     playerbody.MovePosition(newPosition);
-                    PlayerPrefs.SetString("Paused", "true");
                 }
 
                 cutsceneTimer += Time.deltaTime;
@@ -352,6 +350,19 @@ public class VariableHolder : MonoBehaviour
                 playerTextAlpha = 0f;
                 playerText.alpha = 0f;
             }
+
+            if (barsAlpha > 0f)
+            {
+                barsAlpha -= Time.deltaTime * 2f;
+                cutsceneBars.alpha = barsAlpha;
+                playerText.alpha = barsAlpha;
+            }
+            else if (barsAlpha < 0f)
+            {
+                barsAlpha = 0f;
+                cutsceneBars.alpha = barsAlpha;
+                playerText.alpha = barsAlpha;
+            }
         }
         else if (taserCutscene == true && cutscene == true)
         {
@@ -396,6 +407,29 @@ public class VariableHolder : MonoBehaviour
             else
             {
                 cutscene = false;
+
+                if (showText == true)
+                {
+                    if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
+                    {
+                        cutsceneText.text = "Press Q to call over enemies towards you.";
+                    }
+                    else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
+                    {
+                        cutsceneText.text = "Press R to lay down an electric trap to stun enemies.";
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Q))
+                    {
+                        cutsceneText.text = "";
+                        showText = false;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        cutsceneText.text = "";
+                        showText = false;
+                    }
+                }
             }
         }
     }
