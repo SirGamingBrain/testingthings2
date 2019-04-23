@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ca925df425ff04c86b1e40508e3c78f9
+guid: 78ff2be08200e4560befe4d8358ffec0
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -681,13 +681,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: crouchwalkbake(Clone)
+    - name: crouchwalk(Clone)
       parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:HandTarget_L
-      parentName: crouchwalkbake(Clone)
+      parentName: crouchwalk(Clone)
       position: {x: -1.964739, y: 0.1064654, z: 3.980862}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -697,7 +697,7 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:HandTarget_R
-      parentName: crouchwalkbake(Clone)
+      parentName: crouchwalk(Clone)
       position: {x: 1.964739, y: 0.1064654, z: 3.980862}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -707,8 +707,8 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:Hips
-      parentName: crouchwalkbake(Clone)
-      position: {x: 0, y: 0.19203258, z: 2.8895125}
+      parentName: crouchwalk(Clone)
+      position: {x: 0, y: 0.19203258, z: 2.96736}
       rotation: {x: 0.63277185, y: 0.038024742, z: 0.026057865, w: 0.7729651}
       scale: {x: 1, y: 0.9999999, z: 0.9999999}
     - name: SciFiGirl:Spine
@@ -759,12 +759,12 @@ ModelImporter:
     - name: SciFiGirl:Arm_L
       parentName: SciFiGirl:Shoulder_L
       position: {x: 0.00000002235174, y: 0.569662, z: -0.00000027649}
-      rotation: {x: 0.018420743, y: 0.68050665, z: 0.17578967, w: 0.7111044}
+      rotation: {x: 0.13428293, y: -0.06797419, z: 0.096135035, w: 0.9839237}
       scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
     - name: SciFiGirl:ForeArm_L
       parentName: SciFiGirl:Arm_L
       position: {x: 0.00000002607703, y: 0.8689742, z: 0.00000007155953}
-      rotation: {x: 0.0058977427, y: 0.0034292026, z: 0.026363408, w: 0.99962914}
+      rotation: {x: 0.0058824844, y: 0.0034393284, z: 0.028882833, w: 0.99955964}
       scale: {x: 0.9999999, y: 1, z: 1}
     - name: SciFiGirl:Hand_L
       parentName: SciFiGirl:ForeArm_L
@@ -814,7 +814,7 @@ ModelImporter:
     - name: SciFiGirl:pinky1_L
       parentName: SciFiGirl:Hand_L
       position: {x: 0.09991392, y: 0.2764318, z: 0.009879044}
-      rotation: {x: 0.0070419014, y: 0.067813, z: -0.025084067, w: 0.9973579}
+      rotation: {x: 0.0070403847, y: 0.067812815, z: -0.025083225, w: 0.99735785}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:pinky2_L
       parentName: SciFiGirl:pinky1_L
@@ -834,7 +834,7 @@ ModelImporter:
     - name: SciFiGirl:ring1_L
       parentName: SciFiGirl:Hand_L
       position: {x: 0.03985066, y: 0.2927546, z: 0.01747678}
-      rotation: {x: -0.009061783, y: 0.029642614, z: -0.02471921, w: 0.99921376}
+      rotation: {x: -0.0090620695, y: 0.029642623, z: -0.024719503, w: 0.9992138}
       scale: {x: 1, y: 0.9999999, z: 1}
     - name: SciFiGirl:ring2_L
       parentName: SciFiGirl:ring1_L
@@ -854,7 +854,7 @@ ModelImporter:
     - name: SciFiGirl:thumb1_L
       parentName: SciFiGirl:Hand_L
       position: {x: -0.05411593, y: 0.05800678, z: -0.03632225}
-      rotation: {x: -0.24824983, y: -0.1785553, z: 0.2576347, w: 0.9165776}
+      rotation: {x: 0.10568542, y: -0.03781452, z: 0.38586342, w: 0.9157019}
       scale: {x: 0.9999999, y: 0.9999999, z: 1}
     - name: SciFiGirl:thumb2_L
       parentName: SciFiGirl:thumb1_L
@@ -864,7 +864,7 @@ ModelImporter:
     - name: SciFiGirl:thumb3_L
       parentName: SciFiGirl:thumb2_L
       position: {x: -0.00000000372529, y: 0.1205577, z: -0.0000006631017}
-      rotation: {x: -0.009530625, y: 0.009919468, z: -0.039197948, w: 0.99913687}
+      rotation: {x: -0.009530722, y: 0.00991938, z: -0.03920278, w: 0.9991366}
       scale: {x: 1, y: 1, z: 0.9999999}
     - name: SciFiGirl:thumb3_L_end
       parentName: SciFiGirl:thumb3_L
@@ -879,12 +879,12 @@ ModelImporter:
     - name: SciFiGirl:Arm_R
       parentName: SciFiGirl:Shoulder_R
       position: {x: -0.00000001490116, y: 0.5696621, z: -0.0000007294548}
-      rotation: {x: 0.10209183, y: -0.16433738, z: -0.042622928, w: 0.9801805}
+      rotation: {x: 0.10034417, y: -0.072832435, z: -0.031243436, w: 0.9917915}
       scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
     - name: SciFiGirl:ForeArm_R
       parentName: SciFiGirl:Arm_R
       position: {x: -0.00000000372529, y: 0.8689739, z: -0.000000174829}
-      rotation: {x: 0.00524736, y: -0.010327723, z: -0.0027382867, w: 0.9999292}
+      rotation: {x: 0.00970891, y: -0.011116884, z: -0.010750115, w: 0.9998333}
       scale: {x: 0.9999999, y: 1, z: 0.9999999}
     - name: SciFiGirl:Hand_R
       parentName: SciFiGirl:ForeArm_R
@@ -934,7 +934,7 @@ ModelImporter:
     - name: SciFiGirl:pinky1_R
       parentName: SciFiGirl:Hand_R
       position: {x: -0.0999139, y: 0.2764318, z: 0.009878556}
-      rotation: {x: 0.0070374957, y: -0.067812115, z: 0.025084779, w: 0.9973579}
+      rotation: {x: 0.007041162, y: -0.067812845, z: 0.025082313, w: 0.9973579}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:pinky2_R
       parentName: SciFiGirl:pinky1_R
@@ -954,7 +954,7 @@ ModelImporter:
     - name: SciFiGirl:ring1_R
       parentName: SciFiGirl:Hand_R
       position: {x: -0.03985065, y: 0.2927546, z: 0.0174763}
-      rotation: {x: -0.009061406, y: -0.029642537, z: 0.024717493, w: 0.9992139}
+      rotation: {x: -0.009061648, y: -0.029642597, z: 0.024718225, w: 0.9992139}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:ring2_R
       parentName: SciFiGirl:ring1_R
@@ -974,7 +974,7 @@ ModelImporter:
     - name: SciFiGirl:thumb1_R
       parentName: SciFiGirl:Hand_R
       position: {x: 0.05411597, y: 0.05800678, z: -0.03632274}
-      rotation: {x: -0.04680832, y: 0.087918796, z: -0.3897084, w: 0.9155363}
+      rotation: {x: 0.012909606, y: 0.06661966, z: -0.39731792, w: 0.91516864}
       scale: {x: 0.9999999, y: 1, z: 1}
     - name: SciFiGirl:thumb2_R
       parentName: SciFiGirl:thumb1_R
@@ -984,7 +984,7 @@ ModelImporter:
     - name: SciFiGirl:thumb3_R
       parentName: SciFiGirl:thumb2_R
       position: {x: 0.00000001117587, y: 0.1205578, z: 0.0000004209578}
-      rotation: {x: -0.009527758, y: -0.009919368, z: 0.039200135, w: 0.99913675}
+      rotation: {x: -0.0095309485, y: -0.009919282, z: 0.039204918, w: 0.99913657}
       scale: {x: 1, y: 0.9999999, z: 0.9999999}
     - name: SciFiGirl:thumb3_R_end
       parentName: SciFiGirl:thumb3_R
@@ -1004,17 +1004,17 @@ ModelImporter:
     - name: SciFiGirl:UpperLeg_L
       parentName: SciFiGirl:Hips
       position: {x: -0.3667249, y: 0.07056223, z: -0.04438209}
-      rotation: {x: -0.7121601, y: -0.008848952, z: 0.7014383, w: 0.027093977}
+      rotation: {x: -0.7085372, y: 0.01537179, z: 0.70550513, w: 0.0011678729}
       scale: {x: 1, y: 1, z: 1.000005}
     - name: SciFiGirl:LowerLeg_L
       parentName: SciFiGirl:UpperLeg_L
       position: {x: -0.000000004947651, y: 1.566803, z: -0.00000003919946}
-      rotation: {x: -0.18658379, y: -0.66365904, z: 0.1989105, w: -0.69654703}
+      rotation: {x: -0.21115948, y: -0.6570063, z: 0.2247187, w: -0.68793595}
       scale: {x: 0.9999998, y: 0.9999997, z: 0.9999999}
     - name: SciFiGirl:Foot_L
       parentName: SciFiGirl:LowerLeg_L
       position: {x: -0.000000003667083, y: 1.29655, z: -0.000000001222361}
-      rotation: {x: -0.026015503, y: 0.6723087, z: -0.7397195, w: 0.01180699}
+      rotation: {x: -0.27247438, y: 0.23875225, z: -0.050970618, w: 0.9306756}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:Toes_L
       parentName: SciFiGirl:Foot_L
@@ -1029,22 +1029,22 @@ ModelImporter:
     - name: SciFiGirl:UpperLeg_R
       parentName: SciFiGirl:Hips
       position: {x: 0.3667249, y: 0.07056223, z: -0.04438226}
-      rotation: {x: 0.7708271, y: 0.03452951, z: 0.6350351, w: -0.03692918}
+      rotation: {x: 0.73289454, y: 0.019742055, z: 0.679052, w: -0.036936514}
       scale: {x: 1, y: 1, z: 1.000006}
     - name: SciFiGirl:LowerLeg_R
       parentName: SciFiGirl:UpperLeg_R
       position: {x: 4.074536e-10, y: 1.566803, z: 0.000000004940091}
-      rotation: {x: 0.2213303, y: -0.6473877, z: 0.20236534, w: 0.7006786}
+      rotation: {x: 0.21260713, y: -0.65363234, z: 0.20243627, w: 0.6975546}
       scale: {x: 0.9999999, y: 0.9999999, z: 1}
     - name: SciFiGirl:Foot_R
       parentName: SciFiGirl:LowerLeg_R
       position: {x: 0.00000001141598, y: 1.296551, z: 0.000000003550667}
-      rotation: {x: -0.028985418, y: 0.66326576, z: -0.7478219, w: -0.0009105501}
+      rotation: {x: -0.02392732, y: 0.5371621, z: -0.8430287, w: -0.013673602}
       scale: {x: 1, y: 0.9999996, z: 1}
     - name: SciFiGirl:Toes_R
       parentName: SciFiGirl:Foot_R
       position: {x: -0.00000001821011, y: 0.4508983, z: 0.00000002139768}
-      rotation: {x: 0.39426064, y: 0.000009602286, z: -0.00000023252251, w: 0.91899866}
+      rotation: {x: 0.4453692, y: 0.00000957397, z: -0.0000007727015, w: 0.895347}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:Toes_R_end
       parentName: SciFiGirl:Toes_R
@@ -1052,7 +1052,7 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:LegTarget_L
-      parentName: crouchwalkbake(Clone)
+      parentName: crouchwalk(Clone)
       position: {x: 0.37164, y: 0.02871012, z: 0.2305021}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 0.9999999, z: 1}
@@ -1062,7 +1062,7 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: SciFiGirl:LegTarget_R
-      parentName: crouchwalkbake(Clone)
+      parentName: crouchwalk(Clone)
       position: {x: -0.37164, y: 0.02871012, z: 0.2305021}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 0.9999999, z: 1}
