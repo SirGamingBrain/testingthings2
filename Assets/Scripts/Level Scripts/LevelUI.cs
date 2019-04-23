@@ -188,13 +188,13 @@ public class LevelUI : MonoBehaviour
 
                 fadeAlpha -= Time.deltaTime / 2f;
                 fadeGroup.alpha = fadeAlpha;
-                audio.volume = masterLevel * .6f * Mathf.Abs(1f - fadeAlpha);
+                audio.volume = masterLevel * .3f * Mathf.Abs(1f - fadeAlpha);
 
                 if (fadeAlpha <= 0f)
                 {
                     fadeAllIn = false;
                     fadeGroup.alpha = 0;
-                    audio.volume = masterLevel * .6f;
+                    audio.volume = masterLevel * .3f;
                     fadeObject.SetActive(false);
                 }
             }
@@ -221,7 +221,7 @@ public class LevelUI : MonoBehaviour
 
                 fadeAlpha += Time.deltaTime / 2f;
                 fadeGroup.alpha = fadeAlpha;
-                audio.volume = masterLevel * .6f * Mathf.Abs(1f - fadeAlpha);
+                audio.volume = masterLevel * .3f * Mathf.Abs(1f - fadeAlpha);
 
                 if (fadeAlpha > 1f)
                 {
@@ -259,7 +259,7 @@ public class LevelUI : MonoBehaviour
 
                 fadeAlpha += Time.deltaTime / 2.5f;
                 fadeGroup.alpha = fadeAlpha;
-                audio.volume = masterLevel * .6f * Mathf.Abs(1f - fadeAlpha);
+                audio.volume = masterLevel * .4f * Mathf.Abs(1f - fadeAlpha);
 
                 if (fadeAlpha > 1f)
                 {

@@ -28,11 +28,6 @@ public class CameraFollow : MonoBehaviour
 
         //We set the camera to start where the player starts.
         this.transform.position = new Vector3(player.transform.position.x, cameraHeight, player.transform.position.z - 6.5f);
-
-        if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 3" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 4" || PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 5")
-        {
-            waitTime = 1.5f;
-        }
     }
 
     // Update is called once per frame
@@ -42,6 +37,11 @@ public class CameraFollow : MonoBehaviour
         if (variableScript.cutscene == false && variableScript.paused == false) {
 
             oldPlace = this.transform.position;
+
+            if (newPlace == new Vector3(0f, 0f, 0f))
+            {
+                newPlace = oldPlace;
+            }
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
             {

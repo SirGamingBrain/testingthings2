@@ -24,16 +24,23 @@ public class PlayerController : MonoBehaviour
     private bool hasFired = false;
     private bool drawGun = false;
     private bool fireGun = false;
+    private bool leftStep = false;
+    private bool rightStep = false;
 
     public bool cutscenePlaying = false;
     public bool respawning = false;
+
+    public Material material1;
 
     private Scene scene;
 
     public Quaternion newRotation;
 
     public AudioSource playerAudio;
+    public AudioSource footAudio;
 
+    public AudioClip stepping1;
+    public AudioClip stepping2;
     public AudioClip whistle;
     public AudioClip tasing;
 
@@ -48,9 +55,12 @@ public class PlayerController : MonoBehaviour
     public GameObject trap;
     public GameObject trapSpot;
     public GameObject currentTile;
+    public GameObject rightFoot;
+    public GameObject leftFoot;
 
     public Animator gunAnimation;
     public Animator playerAnimations;
+    public Animator footSteps;
 
     public bool whistleCooldown = false;
     float lastWhistle = 0.0f;
@@ -62,6 +72,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Grabbing footstep source.
+        footAudio = this.GetComponent<AudioSource>();
+
         //We find the script that contains all of the variables we need.
         UIScriptHolder = GameObject.Find("Level Scripts");
         variableScript = UIScriptHolder.GetComponent<VariableHolder>();
@@ -117,11 +130,16 @@ public class PlayerController : MonoBehaviour
 
         //Some debug information to tell us the scene's name, and the checkpoint we spawned at.
         Debug.Log("Actual Name:" + sceneName + ", Spawnpoint: " + checkpointName);
+
+        footAudio.clip = stepping1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        playerAudio.volume = PlayerPrefs.GetFloat("Master Volume");
+        footAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .25f);
+
         //We will only allow the player to perform their abilities if they aren't paused or a cutscene isn't playing.
         if (variableScript.cutscene == false && variableScript.paused == false) {
             
@@ -129,6 +147,28 @@ public class PlayerController : MonoBehaviour
             //Up, Down, Left, Right, Up-Left, Down-Left, Up-Right, Down-Right.
             //This script handles the basic controls of the player and their tools.
             if ((drawGun == false && fireGun == false) && health > 0) {
+
+                //Debug.Log("Right Foot: " + rightFoot.transform.position.y + "Left Foot: " + leftFoot.transform.position.y);
+
+                if ((rightFoot.transform.position.y < .09f) && rightStep == false)
+                {
+                    footAudio.Play();
+                    rightStep = true;
+                }
+                else if ((rightFoot.transform.position.y > .275f) && rightStep == true)
+                {
+                    rightStep = false;
+                }
+
+                if ((leftFoot.transform.position.y < .09f) && leftStep == false)
+                {
+                    footAudio.Play();
+                    leftStep = true;
+                }
+                else if ((leftFoot.transform.position.y < .275f) && leftStep == true)
+                {
+                    leftStep = false;
+                }
 
                 if (respawning == true)
                 {
@@ -141,24 +181,28 @@ public class PlayerController : MonoBehaviour
                 if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift))
                 {
                     playerAnimations.SetBool("running", true);
+                    footSteps.SetBool("running", true);
                 }
                 else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftControl))
                 {
                     playerAnimations.SetBool("running", false);
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("crouching", true);
+                    footSteps.SetBool("running", false);
                 }
                 else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
                     playerAnimations.SetBool("running", false);
                     playerAnimations.SetBool("walking", true);
                     playerAnimations.SetBool("crouching", false);
+                    footSteps.SetBool("running", false);
                 }
                 else
                 {
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", false);
                     playerAnimations.SetBool("crouching", false);
+                    footSteps.SetBool("running", false);
                 }
 
                 //These key's are used to speed up and slow down the player.
@@ -261,7 +305,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //We then update the rotation and movment here based off of where were rotating and moving to and from.
-                player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, newRotation, 5f);
+                player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, newRotation, 10f);
             }
             else if (health <= 0)
             {
@@ -270,6 +314,7 @@ public class PlayerController : MonoBehaviour
                 playerAnimations.SetBool("isdead", true);
                 playerAnimations.SetBool("walking", false);
                 playerAnimations.SetBool("running", false);
+                footSteps.SetBool("running", false);
 
                 respawning = true;
 
@@ -281,6 +326,7 @@ public class PlayerController : MonoBehaviour
                 playerAnimations.SetBool("walking", false);
                 playerAnimations.SetBool("running", false);
                 playerAnimations.SetBool("isdead", false);
+                footSteps.SetBool("running", false);
                 playerAnimations.ResetTrigger("waking");
 
                 if (speed > 0f)
@@ -422,9 +468,19 @@ public class PlayerController : MonoBehaviour
         }
 
         //This script checks to see if the stuff we are walking over contains the name ground and if it does we set the position of where we will drop a trap to be on the last tile we just entered.
+        //We also use this to distinct if we are stepping on something squishy or not!
         if (other.name.Contains("Ground"))
         {
             currentTile = other.gameObject;
+
+            if (other.GetComponent<Renderer>().material == material1)
+            {
+                footAudio.clip = stepping2;
+            }
+            else
+            {
+                footAudio.clip = stepping1;
+            }
         }
     }
 }
