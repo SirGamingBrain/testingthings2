@@ -14,13 +14,43 @@ public class CheatingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerPrefs.SetString("Last Section", "NewTutorial");
+            PlayerPrefs.SetString("Last Checkpoint", "new");
+            SceneManager.LoadScene("NewTutorial");
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            PlayerPrefs.SetString("Last Section", "NewTutorial");
+            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 1");
+            SceneManager.LoadScene("NewTutorial");
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerPrefs.SetString("Last Section", "NewTutorial");
+            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 2");
+            SceneManager.LoadScene("NewTutorial");
+        }
+        else if (Input.GetKeyDown(KeyCode.J))
         {
             PlayerPrefs.SetString("Last Section", "1st Level");
             PlayerPrefs.SetString("Last Checkpoint", "new");
             SceneManager.LoadScene("1st Level");
         }
-        else if (Input.GetKeyDown(KeyCode.J))
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerPrefs.SetString("Last Section", "1st Level");
+            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 2");
+            SceneManager.LoadScene("1st Level");
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            PlayerPrefs.SetString("Last Section", "1st Level");
+            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 3");
+            SceneManager.LoadScene("1st Level");
+        }
+        else if (Input.GetKeyDown(KeyCode.B))
         {
             PlayerPrefs.SetString("Last Section", "2nd Level");
             PlayerPrefs.SetString("Last Checkpoint", "new");
@@ -28,50 +58,37 @@ public class CheatingScript : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
-            PlayerPrefs.SetString("Last Section", "1st Level");
+            PlayerPrefs.SetString("Last Section", "2nd Level");
             PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 2");
-            PlayerPrefs.Save();
-            SceneManager.LoadScene("1st Level");
+            SceneManager.LoadScene("2nd Level");
         }
-        else if (Input.GetKeyDown(KeyCode.K))
+        else if (Input.GetKeyDown(KeyCode.M))
         {
-            SceneManager.LoadScene("Main Menu");
-        }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            PlayerPrefs.SetString("Last Section", "NewTutorial");
-            PlayerPrefs.SetString("Last Checkpoint", "new");
-            SceneManager.LoadScene("NewTutorial");
-        }
-        else if (Input.GetKeyDown(KeyCode.Y))
-        {
-            PlayerPrefs.SetString("Last Section", "NewTutorial");
-            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 1");
-            SceneManager.LoadScene("NewTutorial");
+            PlayerPrefs.SetString("Last Section", "2nd Level");
+            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 4");
+            SceneManager.LoadScene("2nd Level");
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            PlayerPrefs.SetString("Last Section", "NewTutorial");
+            PlayerPrefs.SetString("Last Section", "3rd Level");
+            PlayerPrefs.SetString("Last Checkpoint", "new");
+            SceneManager.LoadScene("3rd Level");
+        }
+        else if (Input.GetKeyDown(KeyCode.H))
+        {
+            PlayerPrefs.SetString("Last Section", "3rd Level");
             PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 2");
-            SceneManager.LoadScene("NewTutorial");
+            SceneManager.LoadScene("3rd Level");
         }
-        else if (Input.GetKeyDown(KeyCode.I))
+        else if (Input.GetKeyDown(KeyCode.V))
         {
-            PlayerPrefs.SetString("Last Section", "2nd Level");
-            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 3");
-            SceneManager.LoadScene("2nd Level");
+            PlayerPrefs.SetString("Last Section", "3rd Level");
+            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint 5");
+            SceneManager.LoadScene("3rd Level");
         }
-        else if (Input.GetKeyDown(KeyCode.O))
+        else if (Input.GetKeyDown(KeyCode.RightControl))
         {
-            PlayerPrefs.SetString("Last Section", "1st Level");
-            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint ?");
-            SceneManager.LoadScene("1st Level");
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            PlayerPrefs.SetString("Last Section", "2nd Level");
-            PlayerPrefs.SetString("Last Checkpoint", "Checkpoint ?");
-            SceneManager.LoadScene("2nd Level");
+            SceneManager.LoadScene("Main Menu");
         }
     }
 }

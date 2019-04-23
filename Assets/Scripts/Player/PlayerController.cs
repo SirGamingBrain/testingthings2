@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         sceneName = scene.name;
 
         sectionName = PlayerPrefs.GetString("Last Section");
+        PlayerPrefs.SetString("Last Section", sectionName);
         
         checkpointName = PlayerPrefs.GetString("Last Checkpoint");
 
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
                 playerAnimations.SetTrigger("waking");
             }
         }
-        else if ((checkpointName == "Checkpoint 3" || checkpointName == "Checkpoint 4") && sceneName == "2nd Level")
+        else if ((checkpointName == "Checkpoint 3" || checkpointName == "Checkpoint 4") && (sceneName == "2nd Level" || sceneName == "3rd Level"))
         {
             spawnPoint = GameObject.Find(checkpointName);
             variableScript.displaySection = true;
@@ -472,6 +473,11 @@ public class PlayerController : MonoBehaviour
 
             if (scene.name == "NewTutorial")
             {
+                if (other.gameObject.name == "End")
+                {
+                    variableScript.tutorial = false;
+                }
+
                 variableScript.cutscene = true;
                 Debug.Log("Cutscene should begin soon.");
             }
