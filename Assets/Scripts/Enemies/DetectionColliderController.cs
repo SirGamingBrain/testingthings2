@@ -42,8 +42,10 @@ public class DetectionColliderController : MonoBehaviour
     
     void FixedUpdate()
     {
+        //If a brute is alert
         if (bruteAlert)
         {
+            //Resize the detection sphere
             detectionRadius = this.transform.localScale;
             BruteResize();
             this.transform.localScale = detectionRadius;
@@ -56,12 +58,15 @@ public class DetectionColliderController : MonoBehaviour
 
     }
 
+    //As long as another object is within this collider
     void OnTriggerStay (Collider other)
     {
         //while the player remains in the detection sphere
         if (other.gameObject.tag == "Player")
         {
             //Keeps track that the player is near
+            //Saves the direction of the player
+            //Save the angle between the enemy and the player
             playerNear = true;
             Vector3 direction = other.transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
@@ -73,8 +78,10 @@ public class DetectionColliderController : MonoBehaviour
                 //Checks to see if the player is obscured
                 if (Physics.Raycast(transform.position, direction.normalized, out hit, enemy.GetComponent<EnemyBase>().viewDistance))
                 {
+                    //If the player is not obscured
                     if (hit.collider.gameObject.tag == "Player")
                     {
+                        //Chase the Player
                         CatchPlayer();
                     }
                 }
@@ -82,12 +89,14 @@ public class DetectionColliderController : MonoBehaviour
             //If the player is near the enemy and running
             if (!other.GetComponent<PlayerController>().sneaking)
             {
+                //Chase the Player
                 CatchPlayer();
             }
         }
     }
 
     //Trying to get the field of view to be visually drawn
+    //Not working the way I want it to, so currently disabled
     /*
     void DrawFieldOfView()
     {
@@ -165,21 +174,24 @@ public class DetectionColliderController : MonoBehaviour
         }
     }*/
 
-    //Notes that the player is no longer near if they leave the detection sphere
+    //When leaving the detection collider
     void OnTriggerExit(Collider other)
     {
+        //If the player leaves the detection collider
         if (other.gameObject.tag == "Player")
         {
+            //The player is no longer considered near the enemy
             playerNear = false;
         }
     }
 
-    //Sends the enemy the necessary information for them to keep track of the player
+    //Sets the enemy to being alert
     void CatchPlayer()
     {
         enemy.GetComponent<EnemyBase>().alertStatus = true;
     }
 
+    //Resizes the sphere for the scout's view
     void ScoutResize()
     {
         detectionRadius.x = enemy.GetComponent<ScoutController>().viewDistance;
@@ -187,6 +199,7 @@ public class DetectionColliderController : MonoBehaviour
         detectionRadius.z = enemy.GetComponent<ScoutController>().viewDistance;
     }
 
+    //Resizes the sphere for the grunt's view
     void GruntResize()
     {
         detectionRadius.x = enemy.GetComponent<EnemyBase>().viewDistance;
@@ -194,6 +207,7 @@ public class DetectionColliderController : MonoBehaviour
         detectionRadius.z = enemy.GetComponent<EnemyBase>().viewDistance;
     }
 
+    //Resizes the sphere for the brute's view
     void BruteResize()
     {
         detectionRadius.x = enemy.GetComponent<BruteController>().viewDistance;

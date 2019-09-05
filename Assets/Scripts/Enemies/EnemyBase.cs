@@ -58,6 +58,9 @@ public class EnemyBase : MonoBehaviour
         waiting = false;
     }
 
+	//Initializes the states for this agent
+	//Finds the Player
+	//Begins navigating along waypoints
     void Start()
     {
         startingPositon = this.transform.position;
@@ -70,6 +73,7 @@ public class EnemyBase : MonoBehaviour
     void FixedUpdate()
     {
         //Reduces the frozen state of the enemy over time
+		//Once the frozen state is 0 or below, the enemy returns to being active
         lastFreeze -= 0.1f;
         if (lastFreeze <= 0)
         {
@@ -81,33 +85,42 @@ public class EnemyBase : MonoBehaviour
         }
 
         Die();
+
         //Keeps track of the player's location
         playerPosition = player.transform.position;
 
         //Only react when not frozen
         if (!freeze)
         {
+			//If the enemy is not alert and not waiting
             if (!alertStatus && !waiting)
             {
+				//If the enemy has only 1 or less spaces to patrol
                 if (patrolPoints.Length <= 1)
                 {
+					//Sets the enemy to remain still in a guarding position
                     animationController.SetInteger("battle", 0);
                     animationController.SetInteger("moving", 0);
+					//If the player whistles and they are less than Twice the Sight distance of the agent away
                     if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2))
                     {
-                        //Go after the player
+                        //The enemy chases the player and becomes Alert
                         targetPosition = playerPosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                         alertStatus = true;
                     }
                 }
+				//If the enemy has at least 2 locations to patrol between
                 else
                 {
+					//Patrol between the points
                     Patrol();
                 }
             }
+			//If the enemy is alert
             if (alertStatus)
             {
+				//Pursue the player
                 ChasePlayer();
             }
         }
@@ -115,7 +128,8 @@ public class EnemyBase : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Get hit and freeze in place when frozen
+        //On colliding with taser shot
+		//Sets state to Frozen
         if (collision.gameObject.tag == "Taser")
         {
             animationController.Play("hit_1");
@@ -142,9 +156,12 @@ public class EnemyBase : MonoBehaviour
     //Move to the next patrol position
     public void NextPosition()
     {
+		//If there are no waypoints to patrol to
         if (patrolPoints.Length == 0)
             return;
 
+		//The next waypoint is set to the next point in patrolPoints
+		//Then the next waypoint is readied in the system
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[patrolPosition].position;
         patrolPosition = (patrolPosition + 1) % patrolPoints.Length;
     }
@@ -153,6 +170,10 @@ public class EnemyBase : MonoBehaviour
     //They do not get a new destination until after the freeze timer runs out
     public void FreezeState()
     {
+		//The Speed is reduced to 0
+		//They are no longer Alert
+		//Their destination is the location they currently stand in
+		//They are Frozen
         currentSpeed = 0;
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 0;
         lastFreeze = freezeTimer;
@@ -164,10 +185,13 @@ public class EnemyBase : MonoBehaviour
     //Chase down the plauyer
     public void ChasePlayer()
     {
+		//Set the animation to chasing
         animationController.SetInteger("battle", 1);
         animationController.SetInteger("moving", 1);
         
+		//Set the agent to the faster, alert speed
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = alertSpeed;
+
         //If the player is still in the detection sphere, chase after the player
         if (detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
@@ -177,11 +201,13 @@ public class EnemyBase : MonoBehaviour
         //If the enemy makes it to the targeted position but the player is no longer within the detection sphere
         if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
+			//Enemy is no longer alert
             alertStatus = false;
         }
         //If the enemy makes it to the targeted position and the player is within the detection sphere
         if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
+			//Continue to chase the player
             targetPosition = playerPosition;
         }
     }
@@ -193,6 +219,7 @@ public class EnemyBase : MonoBehaviour
         animationController.SetInteger("battle", 0);
         animationController.SetInteger("moving", 1);
 
+		//Sets the agent to move at the patrolling pace
         currentSpeed = patrolSpeed;
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
 
@@ -216,7 +243,7 @@ public class EnemyBase : MonoBehaviour
     }
 
     //Play the death animation
-    //Eventually will also delete the object after some time
+    //Disable the NavMeshAgent, so the dead enemy doesn't move
     public void Die()
     {
         if (currentHealth <= 0)
@@ -229,8 +256,13 @@ public class EnemyBase : MonoBehaviour
     //Allows the enemies to reset without resetting the level entirely
     public void Respawn()
     {
+		//Resets the enemy to be in their starting position so that the experience is consistent
+		//The starting position is wherever they are placed, so it can change dynamically
+		//The enemy begins navigating to their first patrol point
+		//Reenables the NavMeshAgent
         GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPositon);
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
+		GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
         currentHealth = maxHealth;
         currentSpeed = patrolSpeed;
         alertStatus = false;
