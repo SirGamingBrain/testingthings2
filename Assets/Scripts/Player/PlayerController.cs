@@ -180,11 +180,13 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //This script handles whether or not the player is walking, running, or being idle. (Soon to be crouching)
+                //If the player is pressing Shift and any of the primary movement keys, they are set to run
                 if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift))
                 {
                     playerAnimations.SetBool("running", true);
                     footSteps.SetBool("running", true);
                 }
+                //If they are pressing Control and any of the primary movement keys, they are set to crouch and walk
                 else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftControl))
                 {
                     playerAnimations.SetBool("running", false);
@@ -192,6 +194,7 @@ public class PlayerController : MonoBehaviour
                     playerAnimations.SetBool("crouching", true);
                     footSteps.SetBool("running", false);
                 }
+                //If they press only one of the primary movement keys, they are set to walk
                 else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
                     playerAnimations.SetBool("running", false);
@@ -199,6 +202,7 @@ public class PlayerController : MonoBehaviour
                     playerAnimations.SetBool("crouching", false);
                     footSteps.SetBool("running", false);
                 }
+                //If they are pressing nothing, the player is idle
                 else
                 {
                     playerAnimations.SetBool("walking", false);
@@ -207,6 +211,7 @@ public class PlayerController : MonoBehaviour
                     footSteps.SetBool("running", false);
                 }
 
+                //Instant kill cheat
                 if (Input.GetKeyDown(KeyCode.M))
                 {
                     health = 0;
@@ -214,16 +219,19 @@ public class PlayerController : MonoBehaviour
 
                 //These key's are used to speed up and slow down the player.
                 //The balance of unlimited sprint is traded off for even less speed rather than a real dash.
+                //Sprinting
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     maxSpeed = 15f;
                     sneaking = false;
                 }
+                //Sneaking
                 else if (Input.GetKey(KeyCode.LeftControl))
                 {
                     maxSpeed = 4f;
                     sneaking = true;
                 }
+                //Walking
                 else
                 {
                     maxSpeed = 6.5f;
