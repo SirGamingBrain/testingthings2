@@ -109,14 +109,14 @@ public class BruteController : EnemyBase
         //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
 
         //If the enemy makes it to the targeted position but the player is no longer within the detection sphere
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !detectionSphere.GetComponent<DetectionColliderController>().playerNear)
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !detectionSphere.GetComponent<DetectionColliderController>().playerNear && alertStatus)
         {
             //Brute is no longer alert
             alertStatus = false;
         }
 
         //If the enemy makes it to the targeted position and the player is within the detection sphere
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && detectionSphere.GetComponent<DetectionColliderController>().playerNear)
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && detectionSphere.GetComponent<DetectionColliderController>().playerNear && alertStatus)
         {
             //Continue chasing player
             targetPosition = playerPosition;
@@ -125,7 +125,7 @@ public class BruteController : EnemyBase
         //If the enemy can see the player and the player is within the charge range
         Vector3 direction = player.transform.position - transform.position;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, direction.normalized, out hit, chargeRange))
+        if (Physics.Raycast(transform.position, direction.normalized, out hit, chargeRange) && alertStatus)
         {
             //If the Brute can see the player within charge range and their charge is not on cooldown
             if (hit.collider.gameObject.tag == "Player" && !chargeCooldown)
@@ -159,7 +159,7 @@ public class BruteController : EnemyBase
         //If the player whistles and is less than 1.2 * the view distance away
         if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 1.2))
         {
-            //Target the player and pursue
+            //Target the distraction point and navigate towards it
             targetPosition = playerPosition;
             GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
         }

@@ -113,7 +113,6 @@ public class ScoutController : EnemyBase
                         //Become Alert
                         targetPosition = playerPosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
-                        alertStatus = true;
                     }
 
                 }
@@ -153,7 +152,7 @@ public class ScoutController : EnemyBase
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
 
         //If the scout is almost at its destinatiion
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f)
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.2f)
         {
             //Begin waiting before moving on to the next position
             StartCoroutine(Wait());

@@ -104,10 +104,9 @@ public class EnemyBase : MonoBehaviour
 					//If the player whistles and they are less than Twice the Sight distance of the agent away
                     if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2))
                     {
-                        //The enemy chases the player and becomes Alert
+                        //The enemy heads toward the distraction point
                         targetPosition = playerPosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
-                        alertStatus = true;
                     }
                 }
 				//If the enemy has at least 2 locations to patrol between
@@ -199,13 +198,13 @@ public class EnemyBase : MonoBehaviour
         }
         //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
         //If the enemy makes it to the targeted position but the player is no longer within the detection sphere
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !detectionSphere.GetComponent<DetectionColliderController>().playerNear)
+        if (alertStatus && GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
 			//Enemy is no longer alert
             alertStatus = false;
         }
         //If the enemy makes it to the targeted position and the player is within the detection sphere
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && detectionSphere.GetComponent<DetectionColliderController>().playerNear)
+        if (alertStatus && GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
 			//Continue to chase the player
             targetPosition = playerPosition;
@@ -224,21 +223,13 @@ public class EnemyBase : MonoBehaviour
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
 
         //If not alert and almost at the destination
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !alertStatus)
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.2f && !alertStatus)
         {
             //Set the animation to idle and wait
             animationController.SetInteger("battle", 0);
             animationController.SetInteger("moving", 0);
             StartCoroutine(Wait());
             NextPosition();
-        }
-        //If the player whistles and they are close enough
-        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2.5))
-        {
-            //Go after the player
-            targetPosition = playerPosition;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
-            alertStatus = true;
         }
     }
 
