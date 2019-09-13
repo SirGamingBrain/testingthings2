@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
                     footSteps.SetBool("running", false);
                 }
 
-                //Instant kill cheat
+                //Instant kill cheat for resetting the player
                 if (Input.GetKeyDown(KeyCode.M))
                 {
                     health = 0;
@@ -324,8 +324,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (health <= 0)
             {
-                rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
-                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
                 playerAnimations.SetBool("isdead", true);
                 playerAnimations.SetBool("walking", false);
