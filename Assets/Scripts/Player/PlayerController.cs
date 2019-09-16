@@ -408,15 +408,6 @@ public class PlayerController : MonoBehaviour
 
                 GameObject temporaryBullet;
                 temporaryBullet = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation) as GameObject;
-                //Bullet travels a set range before dissapearing (Might have a set time, would be easier to track)
-
-                Rigidbody temporaryRigidbody;
-                temporaryRigidbody = temporaryBullet.GetComponent<Rigidbody>();
-
-                temporaryBullet.transform.Translate(0, 0, bulletSpeed);
-                //temporaryRigidbody.AddForce(player.transform.forward * bulletSpeed);
-
-                Destroy(temporaryBullet, .5f);
 
                 fireGun = false;
                 hasFired = true;
