@@ -84,6 +84,7 @@ public class EnemyBase : MonoBehaviour
             freeze = true;
         }
 
+        //Checks to see if the enemy has died yet
         Die();
 
         //Keeps track of the player's location
@@ -133,10 +134,11 @@ public class EnemyBase : MonoBehaviour
         {
             animationController.Play("hit_1");
             FreezeState();
+            Debug.Log("Hit By Taser");
         }
 
         //Attack when colliding with the player and resets alertness as player should be dead
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && currentHealth > 0)
         {
             animationController.Play("attack2");
             player.GetComponent<PlayerController>().health -= 1;
@@ -174,7 +176,7 @@ public class EnemyBase : MonoBehaviour
 		//Their destination is the location they currently stand in
 		//They are Frozen
         currentSpeed = 0;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 0;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
         lastFreeze = freezeTimer;
         alertStatus = false;
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = this.transform.position;
@@ -223,7 +225,7 @@ public class EnemyBase : MonoBehaviour
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
 
         //If not alert and almost at the destination
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.2f && !alertStatus)
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.25f && !alertStatus)
         {
             //Set the animation to idle and wait
             animationController.SetInteger("battle", 0);

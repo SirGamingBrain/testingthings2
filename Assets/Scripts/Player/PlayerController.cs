@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float gunCounter = 0f;
     private float speed = 0f;
     private float maxSpeed = 10f;
-    readonly private float bulletSpeed = 1000f;
+    readonly private float bulletSpeed = 0.1f;
 
     private bool hasTaser = false;
     private bool hasTraps = false;
@@ -324,6 +324,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (health <= 0)
             {
+                //Freezes the position of the player in place when they die
                 rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
                 playerAnimations.SetBool("isdead", true);
@@ -412,7 +413,8 @@ public class PlayerController : MonoBehaviour
                 Rigidbody temporaryRigidbody;
                 temporaryRigidbody = temporaryBullet.GetComponent<Rigidbody>();
 
-                temporaryRigidbody.AddForce(player.transform.forward * bulletSpeed);
+                temporaryBullet.transform.Translate(0, 0, bulletSpeed);
+                //temporaryRigidbody.AddForce(player.transform.forward * bulletSpeed);
 
                 Destroy(temporaryBullet, .5f);
 

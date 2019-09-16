@@ -149,7 +149,7 @@ public class BruteController : EnemyBase
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
 
         //If close to current destination
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f)
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.25f)
         {
             //Begin waiting before moving to next position
             StartCoroutine(Wait());

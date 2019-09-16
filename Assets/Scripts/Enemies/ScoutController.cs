@@ -42,6 +42,9 @@ public class ScoutController : EnemyBase
     
     void FixedUpdate()
     {
+        //Checks to see if the enemy has died yet
+        Die();
+
         //Makes a list of all other enemies in the level and constantly searches for the closest one that is not itself
         allFriends = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -79,6 +82,9 @@ public class ScoutController : EnemyBase
         //If not frozen
         if (!freeze)
         {
+            //Allows the animations of the scout to play
+            animationController.enabled = true;
+
             //If alert
             if (alertStatus)
             {
@@ -124,6 +130,15 @@ public class ScoutController : EnemyBase
                 }
             }
         }
+        //If the scout is frozen
+        else
+        {
+
+            //The animation that the scout is in is paused
+            //The Scout stops waiting if it is currently waiting
+            animationController.enabled = false;
+            waiting = false;
+        }
 
         //If the value of the scream is 0 or less
         if (lastScream <= 0)
@@ -152,7 +167,7 @@ public class ScoutController : EnemyBase
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
 
         //If the scout is almost at its destinatiion
-        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.2f)
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.25f)
         {
             //Begin waiting before moving on to the next position
             StartCoroutine(Wait());
@@ -206,6 +221,15 @@ public class ScoutController : EnemyBase
         alertStatus = false;
         freeze = false;
         screamCooldown = false;
+    }
+
+    public void Die()
+    {
+        if (currentHealth <= 0)
+        {
+            animationController.Play("DieLeft");
+            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        }
     }
 
     //Default stats for a spawned Scout
