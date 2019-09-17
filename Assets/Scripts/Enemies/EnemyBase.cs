@@ -16,7 +16,9 @@ public class EnemyBase : MonoBehaviour
     public float patrolWait = 2.0f;
     public float viewDistance = 10.0f;
     public bool alertStatus;
+    public bool distracted;
 
+    int distractPosition;
     public int patrolPosition;
     public Transform[] patrolPoints;
 
@@ -96,8 +98,23 @@ public class EnemyBase : MonoBehaviour
 			//If the enemy is not alert and not waiting
             if (!alertStatus && !waiting)
             {
+                if (distracted)
+                {
+                    //Speed is walk speed
+                    //Save current destination as pre-distraction destination
+                    //Head to distraction
+                    //Make it to the distraction
+                    //If nothing is found, return to the predistraction destination
+                    //Completely ignores running
+                    currentSpeed = patrolSpeed;
+                    distractPosition = patrolPosition;
+                    if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.25f)
+                    {
+                        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[distractPosition].position;
+                    }
+                }
 				//If the enemy has only 1 or less spaces to patrol
-                if (patrolPoints.Length <= 1)
+                else if (patrolPoints.Length <= 1 && !distracted)
                 {
 					//Sets the enemy to remain still in a guarding position
                     animationController.SetInteger("battle", 0);
@@ -108,6 +125,7 @@ public class EnemyBase : MonoBehaviour
                         //The enemy heads toward the distraction point
                         targetPosition = playerPosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+                        distracted = true;
                     }
                 }
 				//If the enemy has at least 2 locations to patrol between

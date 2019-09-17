@@ -406,8 +406,10 @@ public class PlayerController : MonoBehaviour
                 playerAudio.loop = false;
                 playerAudio.Play();
 
+                Vector3 barrelOffset = new Vector3(3, 1, 0);
+
                 GameObject temporaryBullet;
-                temporaryBullet = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation) as GameObject;
+                temporaryBullet = Instantiate(bullet, barrel.transform.position + barrelOffset, barrel.transform.rotation) as GameObject;
 
                 fireGun = false;
                 hasFired = true;

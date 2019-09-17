@@ -90,7 +90,8 @@ public class ScoutController : EnemyBase
             {
                 //Set speed to alert
                 currentSpeed = alertSpeed;
-                
+                GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
+
                 //If the scream is not on cooldown
                 if (!screamCooldown)
                 {
@@ -105,6 +106,9 @@ public class ScoutController : EnemyBase
             //If not alert and not waiting
             if (!alertStatus && !waiting)
             {
+                currentSpeed = patrolSpeed;
+                GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
+
                 //If is 1 or less patrol points
                 if (patrolPoints.Length <= 1)
                 {
@@ -116,7 +120,6 @@ public class ScoutController : EnemyBase
                     {
                         //Target the position of the player
                         //Move towards the player's position
-                        //Become Alert
                         targetPosition = playerPosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                     }
