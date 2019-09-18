@@ -86,8 +86,8 @@ public class DetectionColliderController : MonoBehaviour
                     }
                 }
             }
-            //If the player is near the enemy and running
-            if (!other.GetComponent<PlayerController>().sneaking)
+            //If the player is near the enemy and running and the enemy is not distracted
+            if (!other.GetComponent<PlayerController>().sneaking && !enemy.GetComponent<EnemyBase>().distracted)
             {
                 //Chase the Player
                 CatchPlayer();
