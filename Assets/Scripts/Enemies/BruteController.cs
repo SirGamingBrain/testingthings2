@@ -7,7 +7,6 @@ public class BruteController : EnemyBase
     Vector3 chargePoint;
     float chargeSpeed = 25.0f;
     float chargeRange = 25.0f;
-    bool charging;
 
     bool chargeCooldown = false;
     public float lastCharge = 0.0f;
@@ -30,7 +29,6 @@ public class BruteController : EnemyBase
 
     void Start()
     {
-        charging = false;
         animationController = GetComponent<Animator>();
         freeze = false;
         currentHealth = maxHealth;
@@ -192,7 +190,6 @@ public class BruteController : EnemyBase
         currentSpeed = chargeSpeed;
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = chargePoint;
-        charging = true;
     }
 
     //Sets the Brute to respawn in case of a level reset
@@ -222,6 +219,7 @@ public class BruteController : EnemyBase
         fieldOfView = 90.0f;
         alertStatus = false;
         waiting = false;
-        charging = false;
+        freeze = false;
+        chargeCooldown = false;
     }
 }

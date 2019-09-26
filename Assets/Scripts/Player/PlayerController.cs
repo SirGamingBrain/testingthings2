@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
     public bool whistleCooldown = false;
     float lastWhistle = 0.0f;
+    public Vector3 whistlePosition;
 
     private Rigidbody rb;
 
@@ -360,6 +361,7 @@ public class PlayerController : MonoBehaviour
             //For a brief moment, enemies within a certain range of the player will be alerted to his/her position.
             if (Input.GetKeyDown(KeyCode.Q) && whistleCooldown == false && health > 0)
             {
+                whistlePosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
                 playerAudio.clip = whistle;
                 playerAudio.Play();
                 whistleCooldown = true;

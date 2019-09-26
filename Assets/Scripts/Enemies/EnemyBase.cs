@@ -108,9 +108,12 @@ public class EnemyBase : MonoBehaviour
                     //Completely ignores running
                     currentSpeed = patrolSpeed;
                     distractPosition = patrolPosition;
+                    GetComponent<UnityEngine.AI.NavMeshAgent>().destination = player.GetComponent<PlayerController>().whistlePosition;
                     if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.25f)
                     {
+                        //Wait Coroutine
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[distractPosition].position;
+                        distracted = false;
                     }
                 }
 				//If the enemy has only 1 or less spaces to patrol
@@ -123,7 +126,7 @@ public class EnemyBase : MonoBehaviour
                     if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2))
                     {
                         //The enemy heads toward the distraction point
-                        targetPosition = playerPosition;
+                        targetPosition = player.GetComponent<PlayerController>().whistlePosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                         distracted = true;
                     }
