@@ -107,12 +107,24 @@ public class EnemyBase : MonoBehaviour
                     //If nothing is found, return to the predistraction destination
                     //Completely ignores running
                     currentSpeed = patrolSpeed;
+                    GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
                     distractPosition = patrolPosition;
+                    animationController.SetInteger("battle", 0);
+                    animationController.SetInteger("moving", 1);
                     GetComponent<UnityEngine.AI.NavMeshAgent>().destination = player.GetComponent<PlayerController>().whistlePosition;
-                    if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.25f)
+                    if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 2.5f)
                     {
-                        //Wait Coroutine
-                        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[distractPosition].position;
+                        //Wait Coroutine, possibly
+                        if (patrolPoints.Length <= 1)
+                        {
+                            targetPosition = startingPositon;
+
+                        }
+                        else
+                        {
+                            targetPosition = patrolPoints[distractPosition].position;
+                        }
+                        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                         distracted = false;
                     }
                 }
@@ -122,10 +134,24 @@ public class EnemyBase : MonoBehaviour
 					//Sets the enemy to remain still in a guarding position
                     animationController.SetInteger("battle", 0);
                     animationController.SetInteger("moving", 0);
-					//If the player whistles and they are less than Twice the Sight distance of the agent away
+
+                    //If the enemy is not standing in the position they started in
+                    if (Vector3.Distance(this.gameObject.transform.position, startingPositon) > 0.25f)
+                    {
+                        //Sets the enemy to walking
+                        currentSpeed = patrolSpeed;
+                        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
+                        animationController.SetInteger("battle", 0);
+                        animationController.SetInteger("moving", 1);
+                        //The agent paths back to their starting position
+                        targetPosition = startingPositon;
+                        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+                    }
+
+                    //If the player whistles and they are less than Twice the Sight distance of the agent away
                     if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2))
                     {
-                        //The enemy heads toward the distraction point
+                        //The enemy becomes distracted
                         targetPosition = player.GetComponent<PlayerController>().whistlePosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                         distracted = true;
@@ -244,6 +270,15 @@ public class EnemyBase : MonoBehaviour
 		//Sets the agent to move at the patrolling pace
         currentSpeed = patrolSpeed;
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
+
+        //If the player whistles and they are less than Twice the Sight distance of the agent away
+        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2))
+        {
+            //The enemy becomes distracted
+            targetPosition = player.GetComponent<PlayerController>().whistlePosition;
+            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+            distracted = true;
+        }
 
         //If not alert and almost at the destination
         if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.25f && !alertStatus)

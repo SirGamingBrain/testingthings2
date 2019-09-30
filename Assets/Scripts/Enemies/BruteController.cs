@@ -154,13 +154,13 @@ public class BruteController : EnemyBase
             NextPosition();
         }
 
-        //If the player whistles and is less than 1.2 * the view distance away
-        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 1.2))
-        {
-            //Target the distraction point and navigate towards it
-            targetPosition = playerPosition;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
-        }
+        ////If the player whistles and is less than 1.2 * the view distance away
+        //if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 1.2))
+        //{
+        //    //Target the distraction point and navigate towards it
+        //    targetPosition = playerPosition;
+        //    GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+        //}
     }
 
     //Sit in a single position and use an idle animation
@@ -169,13 +169,13 @@ public class BruteController : EnemyBase
         //Starts the idle animation
         animationController.Play("Idle");
         
-        //If the player whistles and is less than 1.2 * it's view distance
-        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 1.2))
-        {
-            //Target and pursue the player
-            targetPosition = playerPosition;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
-        }
+        ////If the player whistles and is less than 1.2 * it's view distance
+        //if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 1.2))
+        //{
+        //    //Target and pursue the player
+        //    targetPosition = playerPosition;
+        //    GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+        //}
     }
 
     //Charge attack towards the player
