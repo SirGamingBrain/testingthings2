@@ -8072,7 +8072,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2098938155}
   playerNear: 0
-  bruteAlert: 0
   meshResolution: 0
   viewMeshFilter: {fileID: 0}
   targetMask:
@@ -8691,7 +8690,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1544901903}
   playerNear: 0
-  bruteAlert: 0
   meshResolution: 0
   viewMeshFilter: {fileID: 0}
   targetMask:
@@ -9275,7 +9273,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1969513618}
   playerNear: 0
-  bruteAlert: 0
   meshResolution: 0
   viewMeshFilter: {fileID: 0}
   targetMask:
@@ -9413,7 +9410,7 @@ MonoBehaviour:
   freeze: 0
   freezeTimer: 2
   lastFreeze: 0
-  startingPositon: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   playerPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   fieldOfView: 120
@@ -12684,7 +12681,7 @@ MonoBehaviour:
   freeze: 0
   freezeTimer: 2
   lastFreeze: 0
-  startingPositon: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   playerPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   fieldOfView: 120
@@ -13398,7 +13395,7 @@ MonoBehaviour:
   freeze: 0
   freezeTimer: 2
   lastFreeze: 0
-  startingPositon: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   playerPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   fieldOfView: 120

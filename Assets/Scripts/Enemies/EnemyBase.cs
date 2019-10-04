@@ -27,7 +27,7 @@ public class EnemyBase : MonoBehaviour
     public float freezeTimer = 15.0f;
     public float lastFreeze = 0.0f;
 
-    public Vector3 startingPositon;
+    public Vector3 startingPosition;
     public Vector3 playerPosition;
     public Vector3 targetPosition;
 
@@ -65,7 +65,7 @@ public class EnemyBase : MonoBehaviour
 	//Begins navigating along waypoints
     void Start()
     {
-        startingPositon = this.transform.position;
+        startingPosition = this.transform.position;
         animationController = GetComponent<Animator>();
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -117,8 +117,7 @@ public class EnemyBase : MonoBehaviour
                         //Wait Coroutine, possibly
                         if (patrolPoints.Length <= 1)
                         {
-                            targetPosition = startingPositon;
-
+                            targetPosition = startingPosition;
                         }
                         else
                         {
@@ -136,7 +135,7 @@ public class EnemyBase : MonoBehaviour
                     animationController.SetInteger("moving", 0);
 
                     //If the enemy is not standing in the position they started in
-                    if (Vector3.Distance(this.gameObject.transform.position, startingPositon) > 0.25f)
+                    if (Vector3.Distance(this.gameObject.transform.position, startingPosition) > 0.25f)
                     {
                         //Sets the enemy to walking
                         currentSpeed = patrolSpeed;
@@ -144,7 +143,7 @@ public class EnemyBase : MonoBehaviour
                         animationController.SetInteger("battle", 0);
                         animationController.SetInteger("moving", 1);
                         //The agent paths back to their starting position
-                        targetPosition = startingPositon;
+                        targetPosition = startingPosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                     }
 
@@ -309,7 +308,7 @@ public class EnemyBase : MonoBehaviour
 		//The starting position is wherever they are placed, so it can change dynamically
 		//The enemy begins navigating to their first patrol point
 		//Reenables the NavMeshAgent
-        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPositon);
+        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPosition);
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
 		GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
         currentHealth = maxHealth;

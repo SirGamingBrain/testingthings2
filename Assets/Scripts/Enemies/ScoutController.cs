@@ -236,7 +236,7 @@ public class ScoutController : EnemyBase
         //Set the scout's health to max
         //Sets the speed to the patrol speed
         //Resets alert status
-        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPositon);
+        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPosition);
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
         currentHealth = maxHealth;
         currentSpeed = patrolSpeed;
