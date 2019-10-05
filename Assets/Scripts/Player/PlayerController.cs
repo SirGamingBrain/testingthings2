@@ -408,10 +408,13 @@ public class PlayerController : MonoBehaviour
                 playerAudio.loop = false;
                 playerAudio.Play();
 
+                //Offset that ensures that the bullet doesn't spawn inside the player
+                //Needs to be adjusted dynamically rather than left static
+                //Check the distance between two constants on the player to determine which direction the offset should face
                 Vector3 barrelOffset = new Vector3(3, 1, 0);
 
                 GameObject temporaryBullet;
-                temporaryBullet = Instantiate(bullet, barrel.transform.position + barrelOffset, barrel.transform.rotation) as GameObject;
+                temporaryBullet = Instantiate(bullet, barrel.transform.position /*+ barrelOffset*/, barrel.transform.rotation) as GameObject;
 
                 fireGun = false;
                 hasFired = true;
