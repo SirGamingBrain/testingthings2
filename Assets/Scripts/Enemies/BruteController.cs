@@ -5,9 +5,8 @@ using UnityEngine;
 public class BruteController : EnemyBase
 {
     Vector3 chargePoint;
-    float chargeSpeed = 25.0f;
+    float chargeSpeed = 40.0f;
     float chargeRange = 25.0f;
-    bool charging;
 
     bool chargeCooldown = false;
     public float lastCharge = 0.0f;
@@ -30,7 +29,7 @@ public class BruteController : EnemyBase
 
     void Start()
     {
-        charging = false;
+        startingPosition = this.transform.position;
         animationController = GetComponent<Animator>();
         freeze = false;
         currentHealth = maxHealth;
@@ -45,6 +44,9 @@ public class BruteController : EnemyBase
     
     void FixedUpdate()
     {
+        //Keeps track of the player's location
+        playerPosition = player.transform.position;
+
         //If not frozen
         if (!freeze)
         {
@@ -55,8 +57,7 @@ public class BruteController : EnemyBase
                 //Increase the amount that the Brute can see
                 //Set the Brute to Alert and Chase the player
                 targetPosition = player.transform.position;
-                viewDistance = 45;
-                detectionSphere.GetComponent<DetectionColliderController>().bruteAlert = true;
+                viewDistance = 40;
                 ChasePlayer();
             }
             //If not alert and not waiting
@@ -65,7 +66,6 @@ public class BruteController : EnemyBase
                 //Reduce amount that Brute can see
                 //Set the Brute to not alert
                 viewDistance = 25;
-                detectionSphere.GetComponent<DetectionColliderController>().bruteAlert = false;
 
                 //If there is 1 or less patrol points
                 if (patrolPoints.Length <= 1)
@@ -98,15 +98,14 @@ public class BruteController : EnemyBase
     {
         //Set speed to alert speed
         currentSpeed = alertSpeed;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = alertSpeed;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
 
         //If the player is still in the detection sphere, chase after the player
         if (detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
-            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = playerPosition;
+            targetPosition = playerPosition;
+            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
         }
-
-        //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
 
         //If the enemy makes it to the targeted position but the player is no longer within the detection sphere
         if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && !detectionSphere.GetComponent<DetectionColliderController>().playerNear && alertStatus)
@@ -120,9 +119,10 @@ public class BruteController : EnemyBase
         {
             //Continue chasing player
             targetPosition = playerPosition;
+            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
         }
 
-        //If the enemy can see the player and the player is within the charge range
+        //The enemy sends out a ray to detect if they can see the player in their charging range
         Vector3 direction = player.transform.position - transform.position;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction.normalized, out hit, chargeRange) && alertStatus)
@@ -155,44 +155,38 @@ public class BruteController : EnemyBase
             StartCoroutine(Wait());
             NextPosition();
         }
-
-        //If the player whistles and is less than 1.2 * the view distance away
-        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 1.2))
-        {
-            //Target the distraction point and navigate towards it
-            targetPosition = playerPosition;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
-        }
     }
 
     //Sit in a single position and use an idle animation
     void Lounge()
     {
-        //Starts the idle animation
-        animationController.Play("Idle");
-        
-        //If the player whistles and is less than 1.2 * it's view distance
-        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 1.2))
+        //Sends the Brute back to their starting position
+        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = startingPosition;
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 2.5f)
         {
-            //Target and pursue the player
-            targetPosition = playerPosition;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+            //Starts the idle animation
+            animationController.Play("Idle");
+        }
+        else
+        {
+            //Plays the walk animation if the enemy is moving to their starting position
+            animationController.Play("Walk");
         }
     }
 
     //Charge attack towards the player
     void Charge()
     {
+        Debug.Log("Charging");
         //The run animation begins
         //The Brute targets the current position of the player
         //The Brute begins running it's charge speed
         //The Brute is set to charging
         animationController.Play("Run");
-        chargePoint = player.transform.position;
+        //chargePoint = player.transform.position;
         currentSpeed = chargeSpeed;
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = chargePoint;
-        charging = true;
+        //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = chargePoint;
     }
 
     //Sets the Brute to respawn in case of a level reset
@@ -201,7 +195,7 @@ public class BruteController : EnemyBase
         //Sends the Brute back to their starting position
         //Sets their patrol to their first patrol point
         //Resest their health, speed, and alert status
-        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPositon);
+        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPosition);
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
         currentHealth = maxHealth;
         currentSpeed = patrolSpeed;
@@ -222,6 +216,7 @@ public class BruteController : EnemyBase
         fieldOfView = 90.0f;
         alertStatus = false;
         waiting = false;
-        charging = false;
+        freeze = false;
+        chargeCooldown = false;
     }
 }

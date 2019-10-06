@@ -90,7 +90,8 @@ public class ScoutController : EnemyBase
             {
                 //Set speed to alert
                 currentSpeed = alertSpeed;
-                
+                GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
+
                 //If the scream is not on cooldown
                 if (!screamCooldown)
                 {
@@ -105,6 +106,31 @@ public class ScoutController : EnemyBase
             //If not alert and not waiting
             if (!alertStatus && !waiting)
             {
+                currentSpeed = patrolSpeed;
+                GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
+
+                //When distracted
+                if (distracted)
+                {
+                    //Run to the next hiding spot
+                    currentSpeed = alertSpeed;
+                    if(hidingSpots.Length < 1)
+                    {
+                        distracted = false;
+                    }
+                    else
+                    {
+                        targetPosition = hidingSpots[0].position;
+                        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+                    }
+
+                    //If the scout makes it to the hiding spot, the distraction is over
+                    if (Vector3.Distance(this.gameObject.transform.position, targetPosition) < 0.25f)
+                    {
+                        distracted = false;
+                    }
+                }
+
                 //If is 1 or less patrol points
                 if (patrolPoints.Length <= 1)
                 {
@@ -114,11 +140,8 @@ public class ScoutController : EnemyBase
                     //If the player whistles and is within 2.5 * the view distance of the scout
                     if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2.5))
                     {
-                        //Target the position of the player
-                        //Move towards the player's position
-                        //Become Alert
-                        targetPosition = playerPosition;
-                        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+                        //Becomes distracted
+                        distracted = true;
                     }
 
                 }
@@ -177,9 +200,8 @@ public class ScoutController : EnemyBase
         //If the player whistles and the player is 2.5 * the view distance from the scout
         if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2.5))
         {
-            //Target the player and then move to the location of the player
-            targetPosition = playerPosition;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
+            //Become distracted
+            distracted = true;
         }
     }
 
@@ -214,7 +236,7 @@ public class ScoutController : EnemyBase
         //Set the scout's health to max
         //Sets the speed to the patrol speed
         //Resets alert status
-        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPositon);
+        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPosition);
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
         currentHealth = maxHealth;
         currentSpeed = patrolSpeed;
