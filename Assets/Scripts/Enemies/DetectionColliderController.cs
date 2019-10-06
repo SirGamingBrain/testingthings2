@@ -11,7 +11,6 @@ public class DetectionColliderController : MonoBehaviour
 
     public GameObject enemy;
     public bool playerNear = false;
-    public bool bruteAlert = false;
     Vector3 detectionRadius;
 
     public float meshResolution;
@@ -42,15 +41,10 @@ public class DetectionColliderController : MonoBehaviour
     
     void FixedUpdate()
     {
-        //If a brute is alert
-        if (bruteAlert)
-        {
-            //Resize the detection sphere
-            detectionRadius = this.transform.localScale;
-            BruteResize();
-            this.transform.localScale = detectionRadius;
-            bruteAlert = false;
-        }
+        //Updates the size of the detection sphere of the Brute as it changes when Alert and Passive
+        detectionRadius = this.transform.localScale;
+        BruteResize();
+        this.transform.localScale = detectionRadius;
     }
 
     void OnAwake()
