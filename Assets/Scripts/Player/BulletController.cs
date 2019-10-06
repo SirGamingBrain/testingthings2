@@ -27,6 +27,9 @@ public class BulletController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        gameObject.SetActive(false);
+        if (other.gameObject.tag != "Detection Sphere")
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

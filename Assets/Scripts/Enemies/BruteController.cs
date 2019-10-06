@@ -5,7 +5,7 @@ using UnityEngine;
 public class BruteController : EnemyBase
 {
     Vector3 chargePoint;
-    float chargeSpeed = 25.0f;
+    float chargeSpeed = 40.0f;
     float chargeRange = 25.0f;
 
     bool chargeCooldown = false;
@@ -177,15 +177,16 @@ public class BruteController : EnemyBase
     //Charge attack towards the player
     void Charge()
     {
+        Debug.Log("Charging");
         //The run animation begins
         //The Brute targets the current position of the player
         //The Brute begins running it's charge speed
         //The Brute is set to charging
         animationController.Play("Run");
-        chargePoint = player.transform.position;
+        //chargePoint = player.transform.position;
         currentSpeed = chargeSpeed;
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = chargePoint;
+        //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = chargePoint;
     }
 
     //Sets the Brute to respawn in case of a level reset

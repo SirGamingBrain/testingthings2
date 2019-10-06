@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public GameObject player;
     public GameObject UIScriptHolder;
+    Vector3 barrelOffset;
 
     VariableHolder variableScript;
 
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
     public GameObject currentTile;
     public GameObject rightFoot;
     public GameObject leftFoot;
+    GameObject playerModel;
 
     public Animator gunAnimation;
     public Animator playerAnimations;
@@ -74,6 +76,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Gets the player model reference
+        playerModel = GameObject.FindGameObjectWithTag("Player Model");
+
         //Grabbing footstep source.
         footAudio = this.GetComponent<AudioSource>();
 
@@ -120,7 +125,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //If they've made it to the third level then they have the taser.
-        if (scene.name == "3rd Level")
+        if (scene.name == "3rd Level" || scene.name == "Test Scene")
         {
             hasTaser = true;
         }
@@ -138,7 +143,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         playerAudio.volume = PlayerPrefs.GetFloat("Master Volume") * .5f;
         footAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .25f);
@@ -411,10 +416,33 @@ public class PlayerController : MonoBehaviour
                 //Offset that ensures that the bullet doesn't spawn inside the player
                 //Needs to be adjusted dynamically rather than left static
                 //Check the distance between two constants on the player to determine which direction the offset should face
-                Vector3 barrelOffset = new Vector3(3, 1, 0);
+                //0 forward
+                if (playerModel.transform.rotation.y < 0.003f && playerModel.transform.rotation.y > -0.003f)
+                {
+                    barrelOffset = new Vector3(0, 1, 1);
+                    Debug.Log("Facing Forward");
+                }
+                //-0.707 - left
+                else if (playerModel.transform.rotation.y > -0.708f && playerModel.transform.rotation.y < 0.706f)
+                {
+                    barrelOffset = new Vector3(-1, 1, 0);
+                    Debug.Log("Facing Left");
+                }
+                //0.7 right
+                else if (playerModel.transform.rotation.y > 0.5f && playerModel.transform.rotation.y < 0.8f)
+                {
+                    barrelOffset = new Vector3(1, 1, 0);
+                    Debug.Log("Facing Right");
+                }
+                //1 backward
+                else if (playerModel.transform.rotation.y < 1.1f && playerModel.transform.rotation.y > 0.8f)
+                {
+                    barrelOffset = new Vector3(0, 1, -1);
+                    Debug.Log("Facing Backward");
+                }
 
                 GameObject temporaryBullet;
-                temporaryBullet = Instantiate(bullet, barrel.transform.position /*+ barrelOffset*/, barrel.transform.rotation) as GameObject;
+                temporaryBullet = Instantiate(bullet, barrel.transform.position + barrelOffset, barrel.transform.rotation) as GameObject;
 
                 fireGun = false;
                 hasFired = true;

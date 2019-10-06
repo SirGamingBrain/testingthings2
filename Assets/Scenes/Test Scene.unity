@@ -3732,6 +3732,11 @@ PrefabInstance:
       propertyPath: UIScriptHolder
       value: 
       objectReference: {fileID: 2005366289}
+    - target: {fileID: 8348357163731074679, guid: 14191e13fe11e2a4f961c94633f9feef,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Model
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14191e13fe11e2a4f961c94633f9feef, type: 3}
 --- !u!1001 &624194284
@@ -8053,7 +8058,7 @@ GameObject:
   - component: {fileID: 1212208190}
   m_Layer: 0
   m_Name: DetectionSphere
-  m_TagString: Untagged
+  m_TagString: Detection Sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8671,7 +8676,7 @@ GameObject:
   - component: {fileID: 1443038092}
   m_Layer: 0
   m_Name: DetectionSphere
-  m_TagString: Untagged
+  m_TagString: Detection Sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9254,7 +9259,7 @@ GameObject:
   - component: {fileID: 1526967431}
   m_Layer: 0
   m_Name: DetectionSphere
-  m_TagString: Untagged
+  m_TagString: Detection Sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13817,5 +13822,9 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[0]
       value: 
       objectReference: {fileID: 273135791}
+    - target: {fileID: 1341318581, guid: 4e44e0bbee4a70e4899060df78f10634, type: 3}
+      propertyPath: m_TagString
+      value: Detection Sphere
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e44e0bbee4a70e4899060df78f10634, type: 3}

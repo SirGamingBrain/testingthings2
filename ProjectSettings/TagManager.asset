@@ -13,6 +13,8 @@ TagManager:
   - newFloor
   - lock
   - entranceLock
+  - Player Model
+  - Detection Sphere
   layers:
   - Default
   - TransparentFX

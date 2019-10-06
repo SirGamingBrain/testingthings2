@@ -180,6 +180,7 @@ public class EnemyBase : MonoBehaviour
         {
             animationController.Play("hit_1");
             FreezeState();
+            currentHealth -= 1;
             Debug.Log("Hit By Taser");
         }
 
