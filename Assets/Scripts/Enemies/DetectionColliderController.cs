@@ -43,7 +43,10 @@ public class DetectionColliderController : MonoBehaviour
     {
         //Updates the size of the detection sphere of the Brute as it changes when Alert and Passive
         detectionRadius = this.transform.localScale;
-        BruteResize();
+        if (enemy.GetComponent<BruteController>() != null)
+        {
+            BruteResize();
+        }
         this.transform.localScale = detectionRadius;
     }
 
