@@ -226,6 +226,7 @@ public class EnemyBase : MonoBehaviour
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
         lastFreeze = freezeTimer;
         alertStatus = false;
+        distracted = false;
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = this.transform.position;
         freeze = true;
     }

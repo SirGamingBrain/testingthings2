@@ -1305,14 +1305,15 @@ MonoBehaviour:
   patrolWait: 2
   viewDistance: 15
   alertStatus: 0
+  distracted: 0
   patrolPosition: 0
   patrolPoints:
   - {fileID: 0}
   waiting: 0
   freeze: 0
-  freezeTimer: 2
+  freezeTimer: 15
   lastFreeze: 0
-  startingPositon: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   playerPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   fieldOfView: 120
@@ -1581,7 +1582,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1398537943}
   playerNear: 0
-  bruteAlert: 0
   meshResolution: 0
   viewMeshFilter: {fileID: 0}
   targetMask:
