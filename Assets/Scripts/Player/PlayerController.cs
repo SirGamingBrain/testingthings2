@@ -420,25 +420,21 @@ public class PlayerController : MonoBehaviour
                 if (playerModel.transform.rotation.y < 0.003f && playerModel.transform.rotation.y > -0.003f)
                 {
                     barrelOffset = new Vector3(0, 1, 1);
-                    Debug.Log("Facing Forward");
                 }
                 //-0.707 - left
                 else if (playerModel.transform.rotation.y > -0.708f && playerModel.transform.rotation.y < 0.706f)
                 {
                     barrelOffset = new Vector3(-1, 1, 0);
-                    Debug.Log("Facing Left");
                 }
                 //0.7 right
                 else if (playerModel.transform.rotation.y > 0.5f && playerModel.transform.rotation.y < 0.8f)
                 {
                     barrelOffset = new Vector3(1, 1, 0);
-                    Debug.Log("Facing Right");
                 }
                 //1 backward
                 else if (playerModel.transform.rotation.y < 1.1f && playerModel.transform.rotation.y > 0.8f)
                 {
                     barrelOffset = new Vector3(0, 1, -1);
-                    Debug.Log("Facing Backward");
                 }
 
                 GameObject temporaryBullet;

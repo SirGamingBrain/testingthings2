@@ -112,7 +112,7 @@ public class VariableHolder : MonoBehaviour
                 {
                     if (playerTextAlpha < 1f)
                     {
-                        playerWords.text = "Seems like these untouched checkpoint zones are gonna be my ticket out of here...";
+                        playerWords.text = "Seems like these emergency supply zones are gonna be my ticket out of here...";
                         playerTextAlpha += Time.deltaTime;
                         playerText.alpha = playerTextAlpha;
                     }
@@ -143,7 +143,7 @@ public class VariableHolder : MonoBehaviour
                     {
                         playerTextAlpha = 0f;
                         playerText.alpha = playerTextAlpha;
-                        playerWords.text = "Seems like these untouched checkpoint zones are gonna be my ticket out of here...";
+                        playerWords.text = "Seems like these emergency supply zones are gonna be my ticket out of here...";
                     }
                     else if (playerTextAlpha <= 1f)
                     {
@@ -351,11 +351,11 @@ public class VariableHolder : MonoBehaviour
             {
                 if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
                 {
-                    cutsceneText.text = "Press Q to call over enemies towards you.";
+                    cutsceneText.text = "Press Q to distract enemies and call them over towards you by whistling.";
                 }
                 else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
                 {
-                    cutsceneText.text = "Press R to lay down an electric trap to stun enemies.";
+                    cutsceneText.text = "Press R to lay down an electric trap that damages and stuns enemies.";
                 }
 
                 if (Input.GetKeyDown(KeyCode.Q))

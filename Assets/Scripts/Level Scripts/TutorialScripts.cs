@@ -69,7 +69,7 @@ public class TutorialScripts : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (PlayerPrefs.GetString("Cutscene") == "true" && scene.name == "NewTutorial")
         {
@@ -127,7 +127,7 @@ public class TutorialScripts : MonoBehaviour
                     {
                         playerTextAlpha = 0f;
                         playerText.alpha = playerTextAlpha;
-                        playerWords.text = "Seems like these untouched checkpoint zones are gonna be my ticket out of here...";
+                        playerWords.text = "Seems like these emergency supply zones are gonna be my ticket out of here...";
                     }
                     else if (playerTextAlpha <= 1f)
                     {
@@ -233,7 +233,7 @@ public class TutorialScripts : MonoBehaviour
                 }
                 else if (cutsceneTimer >= 0f)
                 {
-                    playerWords.text = "I might be able to lure these guys away with a whistle by pressing Q...";
+                    playerWords.text = "I might be able to lure this thing away with a whistle by pressing Q...";
 
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", true);
@@ -316,7 +316,7 @@ public class TutorialScripts : MonoBehaviour
                 }
                 else if (cutsceneTimer >= .6f)
                 {
-                    playerWords.text = "I hear a creature up ahead, I don't think I can run past him...";
+                    playerWords.text = "I hear a creature up ahead, I don't think I can run past it...";
 
                     if (playerTextAlpha < 1f)
                     {
@@ -418,11 +418,11 @@ public class TutorialScripts : MonoBehaviour
             {
                 if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
                 {
-                    cutsceneText.text = "Press Q to call over enemies towards you.";
+                    cutsceneText.text = "Press Q to distract enemies and call them over towards you by whistling.";
                 }
                 else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
                 {
-                    cutsceneText.text = "Press R to lay down an electric trap to stun enemies.";
+                    cutsceneText.text = "Press R to lay down an electric trap that damages and stuns enemies.";
                 }
 
                 if (Input.GetKeyDown(KeyCode.Q))
