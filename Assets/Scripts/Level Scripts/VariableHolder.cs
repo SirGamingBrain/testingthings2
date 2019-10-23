@@ -96,7 +96,7 @@ public class VariableHolder : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (tutorial == true && cutscene == true)
         {
@@ -399,11 +399,13 @@ public class VariableHolder : MonoBehaviour
             {
                 if (cutsceneTimer >= 4f)
                 {
+                    Debug.Log("Option A");
                     cutsceneTimer = 0f;
                     cutscene = false;
                 }
                 else if (cutsceneTimer >= 0f)
                 {
+                    Debug.Log("Option B");
                     levelEnd = true;
                     playerAnimations.SetBool("running", true);
 
@@ -418,5 +420,20 @@ public class VariableHolder : MonoBehaviour
                 cutscene = false;
             }
         }
+        //Testing Things
+        if (tutorial == false && (PlayerPrefs.GetString("Last Checkpoint") == "End" || PlayerPrefs.GetString("Last Checkpoint") == "new"))
+        {
+            cutscene = true;
+            barsAlpha = 1f;
+            cutsceneBars.alpha = 1f;
+
+            if (PlayerPrefs.GetString("Last Checkpoint") == "End")
+            {
+                PlayerPrefs.SetString("Last Checkpoint", "new");
+                PlayerPrefs.Save();
+            }
+        }
+        //End of Testing Things
+
     }
 }

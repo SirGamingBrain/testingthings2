@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
 
         sceneName = scene.name;
         checkpointName = PlayerPrefs.GetString("Last Checkpoint");
-        Debug.Log(PlayerPrefs.GetString("Last Section"));
+        Debug.Log(PlayerPrefs.GetString("Last Checkpoint"));
         //End of Fix
 
         playerAudio.volume = PlayerPrefs.GetFloat("Master Volume") * .5f;
