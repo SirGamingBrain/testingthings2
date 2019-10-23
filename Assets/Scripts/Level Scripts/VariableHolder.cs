@@ -81,6 +81,7 @@ public class VariableHolder : MonoBehaviour
             if (PlayerPrefs.GetString("Last Checkpoint") == "End")
             {
                 PlayerPrefs.SetString("Last Checkpoint", "new");
+                PlayerPrefs.Save();
             }
         }
         else

@@ -513,6 +513,7 @@ public class LevelUI : MonoBehaviour
 
         resolutionText.text = (width + " x " + height);
         PlayerPrefs.SetInt("Resolution", height);
+        PlayerPrefs.Save();
     }
 
     //Button the change the in game quality of the scene.
@@ -529,6 +530,7 @@ public class LevelUI : MonoBehaviour
 
         QualitySettings.SetQualityLevel(qualityNum, true);
         PlayerPrefs.SetInt("Quality", qualityNum);
+        PlayerPrefs.Save();
         qualityB.GetComponentInChildren<Text>().text = ("Level " + (qualityNum + 1));
     }
 

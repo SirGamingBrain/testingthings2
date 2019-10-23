@@ -53,17 +53,20 @@ public class TutorialScripts : MonoBehaviour
 
         if (PlayerPrefs.GetString("Last Checkpoint") == "new") {
             PlayerPrefs.SetString("Cutscene", "true");
+            PlayerPrefs.Save();
             cutsceneBars.alpha = 1f;
         }
         else if (PlayerPrefs.GetString("Last Checkpoint") == "End")
         {
             PlayerPrefs.SetString("Last Checkpoint", "new");
             PlayerPrefs.SetString("Cutscene", "true");
+            PlayerPrefs.Save();
             cutsceneBars.alpha = 1f;
         }
         else
         {
             PlayerPrefs.SetString("Cutscene", "false");
+            PlayerPrefs.Save();
             cutsceneBars.alpha = 0f;
         }
     }
@@ -92,6 +95,7 @@ public class TutorialScripts : MonoBehaviour
 
                     PlayerPrefs.SetString("Cutscene", "false");
                     PlayerPrefs.SetString("Paused", "false");
+                    PlayerPrefs.Save();
                 }
                 else if (cutsceneTimer >= 4.6f)
                 {
@@ -174,11 +178,13 @@ public class TutorialScripts : MonoBehaviour
                     newRotation = Quaternion.Euler(0f, 180f, 0f);
                     playerModel.transform.rotation = Quaternion.RotateTowards(playerModel.transform.rotation, newRotation, 5f);
                     PlayerPrefs.SetString("Paused", "true");
+                    PlayerPrefs.Save();
                     moveTime = 0f;
                 }
                 else if (cutsceneTimer >= 0f)
                 {
                     PlayerPrefs.SetString("Section Display", "true");
+                    PlayerPrefs.Save();
                     playerAnimations.SetBool("walking", true);
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
@@ -196,6 +202,7 @@ public class TutorialScripts : MonoBehaviour
                     cutsceneTimer = 0f;
                     PlayerPrefs.SetString("Cutscene", "false");
                     PlayerPrefs.SetString("Paused", "false");
+                    PlayerPrefs.Save();
                     showText = true;
                 }
                 else if (cutsceneTimer >= 1f)
@@ -243,6 +250,7 @@ public class TutorialScripts : MonoBehaviour
                     Vector3 newPosition = player.transform.position + (transform.right * .008f * 10f);
                     playerbody.MovePosition(newPosition);
                     PlayerPrefs.SetString("Paused", "true");
+                    PlayerPrefs.Save();
                 }
 
                 cutsceneTimer += Time.deltaTime;
@@ -254,6 +262,7 @@ public class TutorialScripts : MonoBehaviour
                     cutsceneTimer = 0f;
                     PlayerPrefs.SetString("Cutscene", "false");
                     PlayerPrefs.SetString("Paused", "false");
+                    PlayerPrefs.Save();
                     showText = true;
                 }
                 else if (cutsceneTimer >= 1f)
@@ -331,11 +340,13 @@ public class TutorialScripts : MonoBehaviour
 
                     playerAnimations.SetBool("running", false);
                     PlayerPrefs.SetString("Paused", "true");
+                    PlayerPrefs.Save();
                     moveTime = 0f;
                 }
                 else if (cutsceneTimer >= 0f)
                 {
                     PlayerPrefs.SetString("Section Display", "true");
+                    PlayerPrefs.Save();
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", true);
 
@@ -353,6 +364,7 @@ public class TutorialScripts : MonoBehaviour
                 if (cutsceneTimer >= 0f)
                 {
                     PlayerPrefs.SetString("Section Display", "false");
+                    PlayerPrefs.Save();
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", true);
 
@@ -385,10 +397,12 @@ public class TutorialScripts : MonoBehaviour
                     cutsceneTimer = 0f;
                     PlayerPrefs.SetString("Cutscene", "false");
                     PlayerPrefs.SetString("Paused", "false");
+                    PlayerPrefs.Save();
                 }
                 else if (cutsceneTimer >= 0f)
                 {
                     PlayerPrefs.SetString("Section Display", "true");
+                    PlayerPrefs.Save();
                     playerAnimations.SetBool("running", true);
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
@@ -412,6 +426,7 @@ public class TutorialScripts : MonoBehaviour
                 cutsceneBars.alpha = barsAlpha;
                 playerText.alpha = barsAlpha;
                 PlayerPrefs.SetString("Section Display", "false");
+                PlayerPrefs.Save();
             }
 
             if (showText == true)

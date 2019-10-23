@@ -36,12 +36,14 @@ public class EntranceExit : MonoBehaviour
         if (PlayerPrefs.GetString("Last Checkpoint") == "End")
         {
             PlayerPrefs.SetString("Last Checkpoint", "new");
+            PlayerPrefs.Save();
         }
 
         if (PlayerPrefs.GetString("Last Checkpoint") == "new" && (scene.name == "1st Level" || scene.name == "2nd Level" || scene.name == "3rd Level"))
         {
             PlayerPrefs.SetString("Cutscene", "true");
             PlayerPrefs.SetString("Section Display", "true");
+            PlayerPrefs.Save();
             cutsceneBars.alpha = 1f;
         }
         else
@@ -50,6 +52,7 @@ public class EntranceExit : MonoBehaviour
             PlayerPrefs.SetString("Cutscene", "true");
             PlayerPrefs.SetString("Paused", "false");
             PlayerPrefs.SetString("Section Display", "true");
+            PlayerPrefs.Save();
         }
 
         
@@ -85,6 +88,7 @@ public class EntranceExit : MonoBehaviour
                 else if (cutsceneTimer >= 0f)
                 {
                     PlayerPrefs.SetString("Section Display", "true");
+                    PlayerPrefs.Save();
                     playerAnimations.SetBool("running", true);
 
                     newRotation = Quaternion.Euler(0f, 90f, 0f);
@@ -114,10 +118,12 @@ public class EntranceExit : MonoBehaviour
                 cutsceneTimer = 0f;
                 PlayerPrefs.SetString("Cutscene", "false");
                 PlayerPrefs.SetString("Paused", "false");
+                PlayerPrefs.Save();
             }
             else if (cutsceneTimer >= 0f)
             {
                 PlayerPrefs.SetString("Section Display", "true");
+                PlayerPrefs.Save();
                 playerAnimations.SetBool("running", true);
 
                 newRotation = Quaternion.Euler(0f, 90f, 0f);
@@ -138,6 +144,7 @@ public class EntranceExit : MonoBehaviour
                 barsAlpha = 0f;
                 cutsceneBars.alpha = barsAlpha;
                 PlayerPrefs.SetString("Section Display", "true");
+                PlayerPrefs.Save();
             }
 
             cutsceneTimer += Time.deltaTime;
@@ -147,6 +154,7 @@ public class EntranceExit : MonoBehaviour
                 cutsceneTimer = 0f;
                 PlayerPrefs.SetString("Cutscene", "false");
                 PlayerPrefs.SetString("Paused", "false");
+                PlayerPrefs.Save();
             }
         }
         else
@@ -161,6 +169,7 @@ public class EntranceExit : MonoBehaviour
                 barsAlpha = 0f;
                 cutsceneBars.alpha = barsAlpha;
                 PlayerPrefs.SetString("Section Display", "false");
+                PlayerPrefs.Save();
             }
         }
     }

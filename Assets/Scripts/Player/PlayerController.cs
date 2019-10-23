@@ -94,10 +94,11 @@ public class PlayerController : MonoBehaviour
 
         sceneName = scene.name;
 
-        sectionName = PlayerPrefs.GetString("Last Section");
+        sectionName = sceneName;
         PlayerPrefs.SetString("Last Section", sectionName);
-        
+
         checkpointName = PlayerPrefs.GetString("Last Checkpoint");
+        PlayerPrefs.Save();
 
         //Here we tell the player that if the previous checkpoint was at the end of a level or the beginning of one we ensure that they are dropped at the beginning of the level. Otherwise we just need to spawn them at the previos checkpoint.
         //Also the taser is unlocked for the player at the third checkpoint.
@@ -145,6 +146,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Stuff I'm Fixing
+        scene = SceneManager.GetActiveScene();
+
+        sceneName = scene.name;
+        checkpointName = PlayerPrefs.GetString("Last Checkpoint");
+        Debug.Log(PlayerPrefs.GetString("Last Section"));
+        //End of Fix
+
         playerAudio.volume = PlayerPrefs.GetFloat("Master Volume") * .5f;
         footAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .25f);
 
@@ -496,6 +505,7 @@ public class PlayerController : MonoBehaviour
             }
 
             PlayerPrefs.SetString("Last Checkpoint", other.gameObject.name);
+            PlayerPrefs.Save();
             variableScript.displaySection = true;
         }
         else if (other.gameObject.tag == "lock")
