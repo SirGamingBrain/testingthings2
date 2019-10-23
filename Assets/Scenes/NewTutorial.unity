@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 15302, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -4615,16 +4615,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
     - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e6b5a700c3e96448ef3bbbb5d74065, type: 3}
 --- !u!4 &354470195 stripped
@@ -6994,16 +6994,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
     - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e6b5a700c3e96448ef3bbbb5d74065, type: 3}
 --- !u!4 &521161027 stripped
@@ -22364,16 +22364,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
     - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e6b5a700c3e96448ef3bbbb5d74065, type: 3}
 --- !u!4 &1705037769 stripped
@@ -23685,10 +23685,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 726461995}
     m_Modifications:
-    - target: {fileID: 1398537943, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
-      propertyPath: m_Name
-      value: Grunt 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1398537945, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -23732,6 +23728,10 @@ PrefabInstance:
     - target: {fileID: 1398537945, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398537943, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
+      propertyPath: m_Name
+      value: Grunt 2
       objectReference: {fileID: 0}
     - target: {fileID: 1398537949, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -23829,10 +23829,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1433076116}
     m_Modifications:
-    - target: {fileID: 1398537943, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
-      propertyPath: m_Name
-      value: Grunt
-      objectReference: {fileID: 0}
     - target: {fileID: 1398537945, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: m_LocalPosition.x
       value: 56.42
@@ -23884,6 +23880,10 @@ PrefabInstance:
     - target: {fileID: 1398537945, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398537943, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
+      propertyPath: m_Name
+      value: Grunt
       objectReference: {fileID: 0}
     - target: {fileID: 1398537949, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -28002,16 +28002,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.99999976
       objectReference: {fileID: 0}
-    - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
     - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e6b5a700c3e96448ef3bbbb5d74065, type: 3}
 --- !u!4 &2066560680 stripped
