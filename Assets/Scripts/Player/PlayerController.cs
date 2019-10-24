@@ -146,13 +146,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Stuff I'm Fixing
+        //Ensures that the current scene is always stored and that the last checkpoint is read as it updates
         scene = SceneManager.GetActiveScene();
-
         sceneName = scene.name;
         checkpointName = PlayerPrefs.GetString("Last Checkpoint");
-        Debug.Log(PlayerPrefs.GetString("Last Checkpoint"));
-        //End of Fix
 
         playerAudio.volume = PlayerPrefs.GetFloat("Master Volume") * .5f;
         footAudio.volume = (PlayerPrefs.GetFloat("Master Volume") * .25f);

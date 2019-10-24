@@ -189,21 +189,6 @@ public class BruteController : EnemyBase
         //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = chargePoint;
     }
 
-    //Sets the Brute to respawn in case of a level reset
-    public void Respawn()
-    {
-        //Sends the Brute back to their starting position
-        //Sets their patrol to their first patrol point
-        //Resest their health, speed, and alert status
-        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPosition);
-        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
-        currentHealth = maxHealth;
-        currentSpeed = patrolSpeed;
-        alertStatus = false;
-        freeze = false;
-        chargeCooldown = false;
-    }
-
     //Default stats for a Brute when created
     public BruteController()
     {
@@ -218,5 +203,8 @@ public class BruteController : EnemyBase
         waiting = false;
         freeze = false;
         chargeCooldown = false;
+        chargeSpeed = 40.0f;
+        chargeRange = 25.0f;
+        lastCharge = 0.0f;
     }
 }

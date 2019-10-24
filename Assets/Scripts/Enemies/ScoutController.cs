@@ -58,15 +58,16 @@ public class ScoutController : EnemyBase
                 if (g == this.gameObject)
                 {
                     return;
+                    ////If the enemy is another scout
+                    if (g.gameObject.name.Contains("Scout"))
+                    {
+                        return;
+                    }
                 }
-                //If the enemy is not this scout
-                else
-                {
-                    //The enemy becomes the new closest friend
-                    //This enemy sets the new closest friend distance
-                    closestFriend = g;
-                    friendDistance = Vector3.Distance(this.transform.position, g.transform.position);
-                }
+                //The enemy becomes the new closest friend
+                //This enemy sets the new closest friend distance
+                closestFriend = g;
+                friendDistance = Vector3.Distance(this.transform.position, g.transform.position);
             }
             //If the scout is screaming
             //and the enemy is close enough to the scout to hear the scream
@@ -75,7 +76,7 @@ public class ScoutController : EnemyBase
                 //The enemy becomes alert
                 //The enemy targets the player
                 g.GetComponent<EnemyBase>().alertStatus = true;
-                g.GetComponent<EnemyBase>().targetPosition = player.transform.position;
+                g.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = player.transform.position;
             }
         }
 
@@ -89,8 +90,10 @@ public class ScoutController : EnemyBase
             if (alertStatus)
             {
                 //Set speed to alert
+                //Run to the closest friend
                 currentSpeed = alertSpeed;
                 GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
+                GetComponent<UnityEngine.AI.NavMeshAgent>().destination = closestFriend.transform.position;
 
                 //If the scream is not on cooldown
                 if (!screamCooldown)
@@ -112,11 +115,15 @@ public class ScoutController : EnemyBase
                 //When distracted
                 if (distracted)
                 {
-                    //Run to the next hiding spot
+                    //Sets the enemy to run
                     currentSpeed = alertSpeed;
+
+                    //If there are no hiding spots, run to the closest friend
+                    //If there are hiding spots, run to the next hiding spot
                     if(hidingSpots.Length < 1)
                     {
-                        distracted = false;
+                        targetPosition = closestFriend.transform.position;
+                        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                     }
                     else
                     {
@@ -228,23 +235,6 @@ public class ScoutController : EnemyBase
         hidePosition = (hidePosition + 1) % hidingSpots.Length;
     }
 
-    //Respawn method for the scout to prevent reloading the scene
-    public void Respawn()
-    {
-        //Send the scout back to its starting position
-        //Set the scout to go to its first waypoint
-        //Set the scout's health to max
-        //Sets the speed to the patrol speed
-        //Resets alert status
-        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPosition);
-        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
-        currentHealth = maxHealth;
-        currentSpeed = patrolSpeed;
-        alertStatus = false;
-        freeze = false;
-        screamCooldown = false;
-    }
-
     public void Die()
     {
         if (currentHealth <= 0)
@@ -266,5 +256,10 @@ public class ScoutController : EnemyBase
         fieldOfView = 100.0f;
         alertStatus = false;
         waiting = false;
+        distracted = false;
+        freeze = false;
+        screamCooldown = false;
+        lastScream = 0.0f;
+        screamRange = 10.0f;
     }
 }
