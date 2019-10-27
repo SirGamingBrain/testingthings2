@@ -34,6 +34,8 @@ public class EnemyBase : MonoBehaviour
     public float fieldOfView = 120.0f;
     public GameObject detectionSphere;
 
+    public Light followLight;
+
     //Wait function for pausing between waypoints
     public IEnumerator Wait()
     {
@@ -70,12 +72,16 @@ public class EnemyBase : MonoBehaviour
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
+        followLight = this.GetComponentInChildren<Light>();
+       
     }
     
     void FixedUpdate()
     {
         //Reduces the frozen state of the enemy over time
 		//Once the frozen state is 0 or below, the enemy returns to being active
+        if(Input.GetKeyDown(KeyCode.Alpha7))
+            Debug.Log(Vector3.Distance(this.gameObject.transform.position, playerPosition));
         lastFreeze -= 0.1f;
         if (lastFreeze <= 0)
         {
@@ -168,6 +174,7 @@ public class EnemyBase : MonoBehaviour
             {
 				//Pursue the player
                 ChasePlayer();
+                
             }
         }
     }
@@ -240,11 +247,13 @@ public class EnemyBase : MonoBehaviour
         
 		//Set the agent to the faster, alert speed
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = alertSpeed;
+        followLight.color = (Color.red);
 
         //If the player is still in the detection sphere, chase after the player
         if (detectionSphere.GetComponent<DetectionColliderController>().playerNear)
         {
             GetComponent<UnityEngine.AI.NavMeshAgent>().destination = playerPosition;
+            
         }
         //GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
         //If the enemy makes it to the targeted position but the player is no longer within the detection sphere
@@ -252,6 +261,7 @@ public class EnemyBase : MonoBehaviour
         {
 			//Enemy is no longer alert
             alertStatus = false;
+            followLight.color = (Color.white);
         }
         //If the enemy makes it to the targeted position and the player is within the detection sphere
         if (alertStatus && GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 0.1f && detectionSphere.GetComponent<DetectionColliderController>().playerNear)
@@ -317,5 +327,6 @@ public class EnemyBase : MonoBehaviour
         currentSpeed = patrolSpeed;
         alertStatus = false;
         freeze = false;
+        followLight.color = (Color.white);
     }
 }

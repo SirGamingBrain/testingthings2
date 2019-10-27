@@ -391,7 +391,7 @@ public class PlayerController : MonoBehaviour
             {
                 lastWhistle -= Time.deltaTime;
             }
-
+           
             //The player presses space to use their taser, assuming they haven't already fired it once and they actually have the taser.
             if (Input.GetKeyDown(KeyCode.Space) && hasTaser == true && hasFired == false && health > 0)
             {
