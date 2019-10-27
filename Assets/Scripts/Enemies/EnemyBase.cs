@@ -9,7 +9,7 @@ public class EnemyBase : MonoBehaviour
     public Animator animationController;
 
     public int currentHealth;
-    public int maxHealth = 1;
+    public int maxHealth = 2;
     public float currentSpeed;
     public float patrolSpeed = 3.0f;
     public float alertSpeed = 7.0f;
@@ -120,7 +120,8 @@ public class EnemyBase : MonoBehaviour
                     GetComponent<UnityEngine.AI.NavMeshAgent>().destination = player.GetComponent<PlayerController>().whistlePosition;
                     if (GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance < 2.5f)
                     {
-                        //Wait Coroutine, possibly
+                        //Waits and looks around once they've made it to the distraction
+                        StartCoroutine(Wait());
                         if (patrolPoints.Length <= 1)
                         {
                             targetPosition = startingPosition;
@@ -313,19 +314,15 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    //Allows the enemies to reset without resetting the level entirely
-    public void Respawn()
+    public EnemyBase()
     {
-		//Resets the enemy to be in their starting position so that the experience is consistent
-		//The starting position is wherever they are placed, so it can change dynamically
-		//The enemy begins navigating to their first patrol point
-		//Reenables the NavMeshAgent
-        GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(startingPosition);
-        GetComponent<UnityEngine.AI.NavMeshAgent>().destination = patrolPoints[0].position;
-		GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-        currentHealth = maxHealth;
-        currentSpeed = patrolSpeed;
+        maxHealth = 2;
+        patrolSpeed = 3.0f;
+        alertSpeed = 7.0f;
+        patrolWait = 2.0f;
+        viewDistance = 10.0f;
         alertStatus = false;
+        distracted = false;
         freeze = false;
         followLight.color = (Color.white);
     }
