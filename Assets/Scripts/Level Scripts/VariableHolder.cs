@@ -309,7 +309,7 @@ public class VariableHolder : MonoBehaviour
                 }
                 else if (cutsceneTimer >= 0f)
                 {
-                    playerWords.text = "I hear a creature up ahead, but I don't think I can run past him...";
+                    playerWords.text = "I hear a creature up ahead, but I don't think I can just run past him...";
 
                     playerAnimations.SetBool("walking", false);
                     playerAnimations.SetBool("running", true);
@@ -352,11 +352,11 @@ public class VariableHolder : MonoBehaviour
             {
                 if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 1")
                 {
-                    cutsceneText.text = "Press Q to distract enemies and call them over towards you by whistling.";
+                    cutsceneText.text = "Press Q to distract enemies and call them over towards you by whistling.\n Run with shift or sneak with control";
                 }
                 else if (PlayerPrefs.GetString("Last Checkpoint") == "Checkpoint 2")
                 {
-                    cutsceneText.text = "Press R to lay down an electric trap that damages and stuns enemies.";
+                    cutsceneText.text = "Press R to place a debilitating trap or Space to shoot your taser.";
                 }
 
                 if (Input.GetKeyDown(KeyCode.Q))
@@ -364,12 +364,14 @@ public class VariableHolder : MonoBehaviour
                     cutsceneText.text = "";
                     showText = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.R))
+
+                else if (Input.GetKeyDown(KeyCode.R) || (Input.GetKeyDown(KeyCode.Space)))
                 {
                     cutsceneText.text = "";
                     showText = false;
                     tutorial = false;
                 }
+                
             }
         }
         else if (taserCutscene == true && cutscene == true)

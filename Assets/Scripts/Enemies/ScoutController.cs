@@ -145,7 +145,7 @@ public class ScoutController : EnemyBase
                     animationController.Play("Idle");
 
                     //If the player whistles and is within 2.5 * the view distance of the scout
-                    if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2.5))
+                    if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < player.GetComponent<PlayerController>().whistleRange)
                     {
                         //Becomes distracted
                         distracted = true;
@@ -205,7 +205,7 @@ public class ScoutController : EnemyBase
         }
 
         //If the player whistles and the player is 2.5 * the view distance from the scout
-        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2.5))
+        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < player.GetComponent<PlayerController>().whistleRange)
         {
             //Become distracted
             distracted = true;
@@ -261,5 +261,6 @@ public class ScoutController : EnemyBase
         screamCooldown = false;
         lastScream = 0.0f;
         screamRange = 10.0f;
+        followLight.color = (Color.white);
     }
 }

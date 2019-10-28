@@ -14,7 +14,7 @@ public class EnemyBase : MonoBehaviour
     public float patrolSpeed = 3.0f;
     public float alertSpeed = 7.0f;
     public float patrolWait = 2.0f;
-    public float viewDistance = 10.0f;
+    public float viewDistance = 12.0f;
     public bool alertStatus;
     public bool distracted;
 
@@ -154,8 +154,8 @@ public class EnemyBase : MonoBehaviour
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                     }
 
-                    //If the player whistles and they are less than Twice the Sight distance of the agent away
-                    if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2))
+                    //If the player whistles and the enemy is within range to hear the whistle
+                    if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < player.GetComponent<PlayerController>().whistleRange)
                     {
                         //The enemy becomes distracted
                         targetPosition = player.GetComponent<PlayerController>().whistlePosition;
@@ -284,7 +284,7 @@ public class EnemyBase : MonoBehaviour
         GetComponent<UnityEngine.AI.NavMeshAgent>().speed = currentSpeed;
 
         //If the player whistles and they are less than Twice the Sight distance of the agent away
-        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < (viewDistance * 2))
+        if (player.GetComponent<PlayerController>().whistleCooldown && Vector3.Distance(this.gameObject.transform.position, playerPosition) < player.GetComponent<PlayerController>().whistleRange)
         {
             //The enemy becomes distracted
             targetPosition = player.GetComponent<PlayerController>().whistlePosition;
@@ -320,7 +320,7 @@ public class EnemyBase : MonoBehaviour
         patrolSpeed = 3.0f;
         alertSpeed = 7.0f;
         patrolWait = 2.0f;
-        viewDistance = 10.0f;
+        viewDistance = 12.0f;
         alertStatus = false;
         distracted = false;
         freeze = false;

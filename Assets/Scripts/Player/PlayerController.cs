@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public Animator footSteps;
 
     public bool whistleCooldown = false;
+    public float whistleRange = 18.0f;
     float lastWhistle = 0.0f;
     public Vector3 whistlePosition;
 
@@ -77,7 +78,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //Gets the player model reference
-        playerModel = GameObject.FindGameObjectWithTag("Player Model");
+        playerModel = GameObject.FindGameObjectWithTag("Player");
 
         //Grabbing footstep source.
         footAudio = this.GetComponent<AudioSource>();
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //If they've made it to the third level then they have the taser.
-        if (scene.name == "3rd Level" || scene.name == "Test Scene")
+        if (scene.name == "3rd Level" || scene.name == "NewTutorial")
         {
             hasTaser = true;
         }
