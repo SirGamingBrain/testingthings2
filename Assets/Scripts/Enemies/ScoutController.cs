@@ -261,6 +261,5 @@ public class ScoutController : EnemyBase
         screamCooldown = false;
         lastScream = 0.0f;
         screamRange = 10.0f;
-        followLight.color = (Color.white);
     }
 }

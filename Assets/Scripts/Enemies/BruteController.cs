@@ -206,6 +206,5 @@ public class BruteController : EnemyBase
         chargeSpeed = 40.0f;
         chargeRange = 25.0f;
         lastCharge = 0.0f;
-        followLight.color = (Color.white);
     }
 }
