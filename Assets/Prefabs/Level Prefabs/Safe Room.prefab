@@ -335,6 +335,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: e8a11f0f70698e449b1f5b09b6ef2cb2, type: 3}
+--- !u!208 &6282274367066385385
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782910461770724111}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.1850002, y: 1.478, z: 1.9120001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.478, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!208 &1197872879115281793
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782910462517711640}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.1850002, y: 1.478, z: 1.9120001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.478, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &2781613853925521020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1556,6 +1588,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2781613855319634456}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2782910462517711640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1307604617240832, guid: 8c8e5e325dcadb744bfaeb0accba46da,
+    type: 3}
+  m_PrefabInstance: {fileID: 2781613855319634456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2781613855457482998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1813,6 +1851,12 @@ PrefabInstance:
 --- !u!4 &2777371818709334441 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4912499042413478, guid: 8c8e5e325dcadb744bfaeb0accba46da,
+    type: 3}
+  m_PrefabInstance: {fileID: 2781613855631495695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2782910461770724111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1307604617240832, guid: 8c8e5e325dcadb744bfaeb0accba46da,
     type: 3}
   m_PrefabInstance: {fileID: 2781613855631495695}
   m_PrefabAsset: {fileID: 0}
