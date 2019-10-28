@@ -1042,6 +1042,7 @@ GameObject:
   - component: {fileID: 1615632983}
   - component: {fileID: 1615632984}
   - component: {fileID: 1615632988}
+  - component: {fileID: 5769654591566274343}
   m_Layer: 0
   m_Name: Scout
   m_TagString: Enemy
@@ -1182,6 +1183,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5769654591566274343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615632982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47414b5332d4e3a4287f933c38bba872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  spores: {fileID: 8390006754686980866}
 --- !u!1 &1734834838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1431,6 @@ GameObject:
   - component: {fileID: 6704776227509530026}
   - component: {fileID: 8390006754686980866}
   - component: {fileID: 5241473597137493495}
-  - component: {fileID: 76995286136183493}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -6104,20 +6118,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &76995286136183493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6167474049143443065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47414b5332d4e3a4287f933c38bba872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  spores: {fileID: 8390006754686980866}
 --- !u!1 &8455951127659467475
 GameObject:
   m_ObjectHideFlags: 0
