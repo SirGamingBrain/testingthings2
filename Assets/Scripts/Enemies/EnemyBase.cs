@@ -324,6 +324,5 @@ public class EnemyBase : MonoBehaviour
         alertStatus = false;
         distracted = false;
         freeze = false;
-        followLight.color = (Color.white);
     }
 }
