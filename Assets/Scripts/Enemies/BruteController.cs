@@ -57,7 +57,7 @@ public class BruteController : EnemyBase
                 //Increase the amount that the Brute can see
                 //Set the Brute to Alert and Chase the player
                 targetPosition = player.transform.position;
-                viewDistance = 40;
+                viewDistance = 35;
                 ChasePlayer();
             }
             //If not alert and not waiting
@@ -65,7 +65,7 @@ public class BruteController : EnemyBase
             {
                 //Reduce amount that Brute can see
                 //Set the Brute to not alert
-                viewDistance = 25;
+                viewDistance = 15;
 
                 //If there is 1 or less patrol points
                 if (patrolPoints.Length <= 1)
@@ -196,7 +196,7 @@ public class BruteController : EnemyBase
         patrolSpeed = 2.0f;
         patrolWait = 4.0f;
         alertSpeed = 4.0f;
-        viewDistance = 25.0f;
+        viewDistance = 15.0f;
         freezeTimer = 10.0f;
         fieldOfView = 90.0f;
         alertStatus = false;
@@ -206,5 +206,6 @@ public class BruteController : EnemyBase
         chargeSpeed = 40.0f;
         chargeRange = 25.0f;
         lastCharge = 0.0f;
+        followLight.color = (Color.white);
     }
 }

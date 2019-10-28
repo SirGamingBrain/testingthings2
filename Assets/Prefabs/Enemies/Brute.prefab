@@ -131,7 +131,7 @@ MonoBehaviour:
   patrolSpeed: 2
   alertSpeed: 4
   patrolWait: 4
-  viewDistance: 25
+  viewDistance: 15
   alertStatus: 0
   distracted: 0
   patrolPosition: 0

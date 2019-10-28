@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public Animator footSteps;
 
     public bool whistleCooldown = false;
+    public float whistleRange = 18.0f;
     float lastWhistle = 0.0f;
     public Vector3 whistlePosition;
 
