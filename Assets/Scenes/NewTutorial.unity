@@ -4615,16 +4615,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e6b5a700c3e96448ef3bbbb5d74065, type: 3}
 --- !u!4 &354470195 stripped
@@ -6994,16 +6994,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e6b5a700c3e96448ef3bbbb5d74065, type: 3}
 --- !u!4 &521161027 stripped
@@ -11262,16 +11262,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23577336453697022, guid: e692d1b4df4a4f84a9d814672ab2c05c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e692d1b4df4a4f84a9d814672ab2c05c, type: 3}
 --- !u!4 &878002043 stripped
@@ -11362,30 +11362,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Area Title
       objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_Text
-      value: Medical Ward - Checkpoint 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11469,6 +11445,30 @@ PrefabInstance:
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_Text
+      value: Medical Ward - Checkpoint 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13127,7 +13127,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1573273979}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -13892,30 +13892,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_Text
-      value: I need to find the access panel to open the next checkpoint...
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13999,6 +13975,30 @@ PrefabInstance:
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_Text
+      value: I need to find the access panel to open the next checkpoint...
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -17524,7 +17524,7 @@ MonoBehaviour:
   mainWindow: {fileID: 614678486}
   settingsWindow: {fileID: 1383128384}
   whistleFill: {fileID: 1874331558}
-  taserFill: {fileID: 1193347293}
+  taserFill: {fileID: 7386268687842681275}
   trapsFill: {fileID: 1193347293}
   coolDownTime: 0
   player: {fileID: 0}
@@ -20584,8 +20584,8 @@ RectTransform:
   - {fileID: 1383128385}
   - {fileID: 1201812512}
   - {fileID: 1972256226}
-  - {fileID: 1019145305}
   - {fileID: 1608578617}
+  - {fileID: 1019145305}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20853,30 +20853,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_Text
-      value: I can Shift to run or Control to sneak
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20972,6 +20948,30 @@ PrefabInstance:
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.99999803
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_Text
+      value: I can Shift to run or Control to sneak
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -22614,16 +22614,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e6b5a700c3e96448ef3bbbb5d74065, type: 3}
 --- !u!4 &1705037769 stripped
@@ -22705,16 +22705,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23577336453697022, guid: e692d1b4df4a4f84a9d814672ab2c05c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e692d1b4df4a4f84a9d814672ab2c05c, type: 3}
 --- !u!4 &1709440926 stripped
@@ -23935,10 +23935,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 726461995}
     m_Modifications:
-    - target: {fileID: 1398537943, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
-      propertyPath: m_Name
-      value: Grunt 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1398537945, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -23982,6 +23978,10 @@ PrefabInstance:
     - target: {fileID: 1398537945, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398537943, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
+      propertyPath: m_Name
+      value: Grunt 2
       objectReference: {fileID: 0}
     - target: {fileID: 1398537949, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -24089,10 +24089,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1433076116}
     m_Modifications:
-    - target: {fileID: 1398537943, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
-      propertyPath: m_Name
-      value: Grunt
-      objectReference: {fileID: 0}
     - target: {fileID: 1398537945, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: m_LocalPosition.x
       value: 56.42
@@ -24144,6 +24140,10 @@ PrefabInstance:
     - target: {fileID: 1398537945, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398537943, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
+      propertyPath: m_Name
+      value: Grunt
       objectReference: {fileID: 0}
     - target: {fileID: 1398537949, guid: 15b203c6ad9759a43b2f3ba58595d824, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -25783,16 +25783,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 64381238421903200, guid: 174300fa0f75e8e429f323ab654c2a4f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23468284973558510, guid: 174300fa0f75e8e429f323ab654c2a4f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64381238421903200, guid: 174300fa0f75e8e429f323ab654c2a4f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 174300fa0f75e8e429f323ab654c2a4f, type: 3}
 --- !u!4 &1901945273 stripped
@@ -26801,16 +26801,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23577336453697022, guid: e692d1b4df4a4f84a9d814672ab2c05c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e692d1b4df4a4f84a9d814672ab2c05c, type: 3}
 --- !u!4 &1967101239 stripped
@@ -28274,16 +28274,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.99999976
       objectReference: {fileID: 0}
-    - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23558275817800752, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64473021744601330, guid: b9e6b5a700c3e96448ef3bbbb5d74065,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e6b5a700c3e96448ef3bbbb5d74065, type: 3}
 --- !u!4 &2066560680 stripped
@@ -28685,16 +28685,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 64381238421903200, guid: 174300fa0f75e8e429f323ab654c2a4f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23468284973558510, guid: 174300fa0f75e8e429f323ab654c2a4f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64381238421903200, guid: 174300fa0f75e8e429f323ab654c2a4f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 174300fa0f75e8e429f323ab654c2a4f, type: 3}
 --- !u!1001 &2085849529
@@ -29202,16 +29202,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23577336453697022, guid: e692d1b4df4a4f84a9d814672ab2c05c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e692d1b4df4a4f84a9d814672ab2c05c, type: 3}
 --- !u!1001 &2115453450
@@ -29487,16 +29487,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5000008
       objectReference: {fileID: 0}
-    - target: {fileID: 64381238421903200, guid: 174300fa0f75e8e429f323ab654c2a4f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23468284973558510, guid: 174300fa0f75e8e429f323ab654c2a4f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64381238421903200, guid: 174300fa0f75e8e429f323ab654c2a4f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 174300fa0f75e8e429f323ab654c2a4f, type: 3}
 --- !u!1001 &2123864216
@@ -29566,16 +29566,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 23577336453697022, guid: e692d1b4df4a4f84a9d814672ab2c05c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7895a7886f81b314aa669d55d727a78c, type: 2}
+    - target: {fileID: 64959536095937568, guid: e692d1b4df4a4f84a9d814672ab2c05c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e692d1b4df4a4f84a9d814672ab2c05c, type: 3}
 --- !u!4 &2123864217 stripped
@@ -32449,8 +32449,24 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1193347292, guid: 533e528c7ee8842cba70a700f16b3acc, type: 3}
+      propertyPath: m_Name
+      value: TrapsFill
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 533e528c7ee8842cba70a700f16b3acc, type: 3}
+--- !u!114 &7386268687842681275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 994954229, guid: 533e528c7ee8842cba70a700f16b3acc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7386268687842681274}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8330502892775695142
 PrefabInstance:
   m_ObjectHideFlags: 0

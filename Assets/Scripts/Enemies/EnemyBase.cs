@@ -161,6 +161,7 @@ public class EnemyBase : MonoBehaviour
                         targetPosition = player.GetComponent<PlayerController>().whistlePosition;
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                         distracted = true;
+                        followLight.color = (Color.yellow);
                     }
                 }
 				//If the enemy has at least 2 locations to patrol between
@@ -290,6 +291,7 @@ public class EnemyBase : MonoBehaviour
             targetPosition = player.GetComponent<PlayerController>().whistlePosition;
             GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
             distracted = true;
+            followLight.color = (Color.yellow);
         }
 
         //If not alert and almost at the destination

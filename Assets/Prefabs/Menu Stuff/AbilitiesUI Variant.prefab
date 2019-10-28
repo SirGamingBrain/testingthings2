@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 1193347294}
   - component: {fileID: 1193347293}
   m_Layer: 5
-  m_Name: TaserFill
+  m_Name: TrapsFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,11 +468,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_Name
-      value: AbilitiesUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_Text
-      value: 
+      value: AbilitiesUI Variant
       objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,6 +553,10 @@ PrefabInstance:
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_LocalRotation.w
