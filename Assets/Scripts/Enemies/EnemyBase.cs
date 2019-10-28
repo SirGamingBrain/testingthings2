@@ -132,6 +132,7 @@ public class EnemyBase : MonoBehaviour
                         }
                         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = targetPosition;
                         distracted = false;
+                        followLight.color = (Color.white);
                     }
                 }
 				//If the enemy has only 1 or less spaces to patrol
@@ -238,6 +239,7 @@ public class EnemyBase : MonoBehaviour
         distracted = false;
         GetComponent<UnityEngine.AI.NavMeshAgent>().destination = this.transform.position;
         freeze = true;
+        followLight.color = (Color.white);
     }
 
     //Chase down the plauyer
