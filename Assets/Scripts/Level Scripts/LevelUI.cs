@@ -53,10 +53,16 @@ public class LevelUI : MonoBehaviour
     public CanvasGroup textGroup;
     public CanvasGroup barsGroup;
     public CanvasGroup sectionTitle;
+    public CanvasGroup abilitiesUI;
 
     public GameObject fadeObject;
     public GameObject mainWindow;
     public GameObject settingsWindow;
+
+    public Image whistleFill;
+    public Image taserFill;
+    public Image trapsFill;
+    public float coolDownTime;
 
     public GameObject player;
 
@@ -81,6 +87,7 @@ public class LevelUI : MonoBehaviour
     {
         scriptHolder = GameObject.Find("Level Scripts");
         variableScript = scriptHolder.GetComponent<VariableHolder>();
+     
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -176,6 +183,8 @@ public class LevelUI : MonoBehaviour
         sectionTitle.alpha = 0f;
 
         fadeGroup.alpha = 1;
+
+        coolDownTime = 2f;
     }
 
     // Update is called once per frame
@@ -455,8 +464,27 @@ public class LevelUI : MonoBehaviour
                 sectionTitle.alpha = titleAlpha;
             }
         }
-    }
+        // Abilities UI
+        //dims image when player has 0 taser shots
+        if (player.GetComponent<PlayerController>().hasTaser == false)
+            taserFill.fillAmount = 0f;
+        else
+            taserFill.fillAmount = 1f;
 
+        //dims image when player has 0 traps
+        if (player.GetComponent<PlayerController>().hasTraps == false)
+            trapsFill.fillAmount = 0f;
+        else
+                trapsFill.fillAmount = 1f;
+
+        //dims image when whistle is cooling down
+        if (player.GetComponent<PlayerController>().whistleCooldown == true)
+                whistleFill.fillAmount = 0f;
+            else
+                whistleFill.fillAmount = 1f;
+        }
+
+     
     //Button that handles returning the player back into the game from the menu.
     public void Back()
     {
@@ -584,6 +612,8 @@ public class LevelUI : MonoBehaviour
         hover.volume = masterLevel * UIAlpha * .7f;
         select.volume = masterLevel * UIAlpha * .7f;
     }
+
+
 
     //This function handles loading the scene in or out.
     IEnumerator LoadScene(string scene)

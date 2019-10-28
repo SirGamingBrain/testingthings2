@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     private float maxSpeed = 10f;
     readonly private float bulletSpeed = 0.1f;
 
-    private bool hasTaser = false;
-    private bool hasTraps = false;
+    public bool hasTaser = false;
+    public bool hasTraps = false;
     public bool sneaking = false;
     private bool hasFired = false;
     private bool drawGun = false;

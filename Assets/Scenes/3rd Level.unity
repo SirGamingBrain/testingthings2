@@ -4146,6 +4146,173 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 524440132}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &553772797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1661284560}
+    m_Modifications:
+    - target: {fileID: 7386268686784056031, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_Name
+      value: AbilitiesUI Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.557255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 14.539551
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.723
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 533e528c7ee8842cba70a700f16b3acc, type: 3}
+--- !u!224 &553772798 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7386268686762279039, guid: 533e528c7ee8842cba70a700f16b3acc,
+    type: 3}
+  m_PrefabInstance: {fileID: 553772797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &553772799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1193347293, guid: 533e528c7ee8842cba70a700f16b3acc,
+    type: 3}
+  m_PrefabInstance: {fileID: 553772797}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &553772800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 994954229, guid: 533e528c7ee8842cba70a700f16b3acc,
+    type: 3}
+  m_PrefabInstance: {fileID: 553772797}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &553772801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1874331558, guid: 533e528c7ee8842cba70a700f16b3acc,
+    type: 3}
+  m_PrefabInstance: {fileID: 553772797}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &553772802 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 2096681551, guid: 533e528c7ee8842cba70a700f16b3acc,
+    type: 3}
+  m_PrefabInstance: {fileID: 553772797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &586200766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4156,6 +4323,30 @@ PrefabInstance:
     - target: {fileID: 100002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_Name
       value: Area Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_Text
+      value: Medical Ward - Checkpoint 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4240,30 +4431,6 @@ PrefabInstance:
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_Text
-      value: Medical Ward - Checkpoint 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9491,6 +9658,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Text
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_Text
+      value: I need to find a way to open the exit...
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9574,30 +9765,6 @@ PrefabInstance:
     - target: {fileID: 22400002, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_Text
-      value: I need to find a way to open the exit...
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: a93c012dd9ef6454fa7d140e976926f7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9765,9 +9932,14 @@ MonoBehaviour:
   textGroup: {fileID: 1310345488}
   barsGroup: {fileID: 782765140}
   sectionTitle: {fileID: 586200770}
+  abilitiesUI: {fileID: 553772802}
   fadeObject: {fileID: 2004074188}
   mainWindow: {fileID: 1878929160}
   settingsWindow: {fileID: 1962459474}
+  whistleFill: {fileID: 553772801}
+  taserFill: {fileID: 553772800}
+  trapsFill: {fileID: 553772799}
+  coolDownTime: 0
   player: {fileID: 1049511604}
   hover: {fileID: 1371489640}
   select: {fileID: 1916756041}
@@ -12333,6 +12505,7 @@ RectTransform:
   - {fileID: 797761569}
   - {fileID: 1384228287}
   - {fileID: 2004074189}
+  - {fileID: 553772798}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
