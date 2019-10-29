@@ -73,10 +73,14 @@ public class ScoutController : EnemyBase
             //and the enemy is close enough to the scout to hear the scream
             if (screamCooldown && Vector3.Distance(this.transform.position, g.transform.position) <= screamRange)
             {
-                //The enemy becomes alert
-                //The enemy targets the player
-                g.GetComponent<EnemyBase>().alertStatus = true;
-                g.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = player.transform.position;
+                //If the enemy is not currently alert
+                if (g.GetComponent<EnemyBase>().alertStatus == false)
+                {
+                    //The enemy becomes alert
+                    //The enemy targets the player
+                    g.GetComponent<EnemyBase>().alertStatus = true;
+                    g.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = player.transform.position;
+                }
             }
         }
 
