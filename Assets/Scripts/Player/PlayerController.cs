@@ -132,8 +132,11 @@ public class PlayerController : MonoBehaviour
             hasTaser = true;
         }
 
-        //We set the spawn point of the player.
-        this.transform.position = spawnPoint.transform.position;
+        //We set the spawn point of the player
+        if (spawnPoint.transform.position != null)
+        {
+            this.transform.position = spawnPoint.transform.position;
+        }
 
         //We set the rotation of the player to be facing towards the camera at spawn for ease of access.
         player.transform.rotation = Quaternion.Euler(0f,90f,0f);
