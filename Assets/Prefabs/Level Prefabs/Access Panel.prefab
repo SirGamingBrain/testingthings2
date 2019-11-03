@@ -150,7 +150,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0, g: 1, b: 0.01133275, a: 1}
   m_Intensity: 1
-  m_Range: 5
+  m_Range: 7
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 8353078621419767543}
   - component: {fileID: 8343296676597642159}
   - component: {fileID: 8318982375464836425}
+  - component: {fileID: 4570078984022990025}
   m_Layer: 0
   m_Name: Access Panel
   m_TagString: Untagged
@@ -269,3 +270,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2694279, y: 1.2126743, z: 0.30138212}
   m_Center: {x: 0, y: 0.60633713, z: 0.023634814}
+--- !u!114 &4570078984022990025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331478142714932551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5f98c451404ef40b8c5dd8d82f36b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consoleLight: {fileID: 5407117814274677396}
+  bounceTime: 3
