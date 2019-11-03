@@ -11404,12 +11404,12 @@ PrefabInstance:
         type: 3}
       propertyPath: checkpointDoor
       value: 
-      objectReference: {fileID: 2781613854440071993}
+      objectReference: {fileID: 1961017929}
     - target: {fileID: 963628735603852050, guid: 63cd349349d2d184c8d5cd37ae4f38e6,
         type: 3}
       propertyPath: checkpointDoor2
       value: 
-      objectReference: {fileID: 2781613854229873444}
+      objectReference: {fileID: 52947406}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63cd349349d2d184c8d5cd37ae4f38e6, type: 3}
 --- !u!4 &1495624877 stripped
@@ -15350,12 +15350,12 @@ PrefabInstance:
         type: 3}
       propertyPath: checkpointDoor
       value: 
-      objectReference: {fileID: 2781613854440071993}
+      objectReference: {fileID: 2037905322}
     - target: {fileID: 963628735603852050, guid: 63cd349349d2d184c8d5cd37ae4f38e6,
         type: 3}
       propertyPath: checkpointDoor2
       value: 
-      objectReference: {fileID: 2781613854229873444}
+      objectReference: {fileID: 907912669}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63cd349349d2d184c8d5cd37ae4f38e6, type: 3}
 --- !u!4 &1956071792 stripped
